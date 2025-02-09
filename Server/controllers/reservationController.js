@@ -9,9 +9,9 @@ class ReservationController {
 
     async addition(req, res, next){
         try{
-            const {id_reservation, fio, email, phone, quantity} = req.body
+            const {id_reservation, fio, email, phone, quantity, id_shift} = req.body
  
-            const reservation = await Reservation.create({id_reservation, fio, email, phone, quantity})
+            const reservation = await Reservation.create({id_reservation, fio, email, phone, quantity, id_shift})
             return res.json(reservation)
         } catch (e){
             next(ApiError.badRequest(e.message))

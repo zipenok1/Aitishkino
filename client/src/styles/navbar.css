@@ -1,0 +1,26 @@
+.navbar_box-admin{
+    padding: 20px 10px;
+    background-color: rgba(230, 230, 230, 1);
+    width: 100%; 
+}
+.navbar_box-admin button{
+    padding: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+}
+.navbar-flex{
+    display: flex;
+    gap: 20px;
+}
+.navbar_box-user{
+    padding: 20px 10px;
+    background-color: rgb(236, 236, 236);
+    width: 100%;  
+}
+.navbar_box-user button{
+    font-size: 18px;
+    padding: 10px;
+    background: none;
+    border: none;
+}

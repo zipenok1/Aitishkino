@@ -30,7 +30,7 @@ class ReviewsController {
             const {link_img} = req.files
                 let fileName = uuid.v4() + ".jpg"
                 link_img.mv(path.resolve(__dirname, '..', 'static', fileName))
-            if(!id_reservation){
+            if(!id_reviewes){
                 return next(ApiError.badRequest('такого элемента не существует'))
             }
             const event = await Reviews.findOne({ where: { id_reviewes: id_reviewes } });
