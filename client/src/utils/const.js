@@ -1,17 +1,22 @@
+//страницы
 export const PUBLIC_ROUTE = '/'
+export const SHIFTSPAGE_ROUTE = '/shiftspage'
+export const NEWSPAGE_ROUTE = '/newspage'
 export const LOGIN_ROUTE = '/join'
 export const ADMIN_ROUTE = '/admin'
-export const EVENT_ROUTE = '/event'
-export const NEWSLETTER_ROUTE = '/newsletter'
-export const PARTNERS_ROUTE = '/partners'
+//главная
 export const PHOTO_ROUTE = '/photo'
-export const RESERVATION_ROUTE = '/reservation'
-export const REVIEWS_ROUTE = '/reviews'
-
-export const SHIFT_ROUTE = '/shift'
-export const SHIFTS_ROUTE = '/shifts'
-export const SOCIAL_ROUTE = '/social'
-export const STATISTICS_ROUTE = '/statistics'
-export const TEACHERS_ROUTE = '/teachers'
 export const TYPE_ROUTE = '/type'
+export const PARTNERS_ROUTE = '/partners'
+export const TEACHERS_ROUTE = '/teachers'
+//смена
+export const SHIFTS_ROUTE = '/shifts'
+export const PROGRAM_ROUTE = '/program'
+export const REVIEWS_ROUTE = '/reviews'
+//бронирование
+export const RESERVATION_ROUTE = '/reservation'
+export const NEWSLETTER_ROUTE = '/newsletter'
+//новости
+export const EVENT_ROUTE = '/event'
+export const NEWS_ROUTE = '/news'
 

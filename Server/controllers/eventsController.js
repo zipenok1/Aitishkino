@@ -1,6 +1,4 @@
 const {Events} = require('../models/models')
-const uuid = require("uuid")
-const path = require('path')
 const ApiError = require('../error/ApiError')
 
 class EventsController {
@@ -12,11 +10,8 @@ class EventsController {
 
     async addition(req, res, next){
         try{
-            const {title, description} = req.body
-            const {link_img} = req.files
-                let fileName = uuid.v4() + ".jpg"
-                link_img.mv(path.resolve(__dirname, '..', 'static', fileName))
-            const events = await Events.create({title, description, link_img: fileName})
+            const {title, description, date} = req.body
+            const events = await Events.create({title, description, date})
             return res.json(events)
         } catch (e){
             next(ApiError.badRequest(e.message))
@@ -25,23 +20,20 @@ class EventsController {
 
     async editing(req, res, next){
         try{
-            const {id_events} = req.params
-            const {title, description}= req.body
-            const {link_img} = req.files
-                let fileName = uuid.v4() + ".jpg"
-                    link_img.mv(path.resolve(__dirname, '..', 'static', fileName))
-            if(!id_events){
+            const {id} = req.params
+            const {title, description, date}= req.body
+            if(!id){
                 return next(ApiError.badRequest('такого элемента не существует'))
             }
-            const event = await Events.findOne({ where: { id_events: id_events } });
+            const event = await Events.findOne({ where: { id_events: id } });
             if (!event) {
                 return next(ApiError.badRequest('такого элемента не существует'));
             }
             await Events.update(
-                {title: title, description: description, link_img: fileName},
-                {where:{id_events:id_events}}
+                {title: title, description: description, date: date},
+                {where:{id_events:id}}
             )
-            return res.json({ message: 'записть ' + id_events + ' обновлена'})
+            return res.json({ message: 'записть ' + id + ' обновлена'})
         } catch (e){
             next(ApiError.badRequest(e.message))
         }
@@ -49,20 +41,19 @@ class EventsController {
 
     async delete(req, res, next){
         try{
-            const {id_events} = req.params
-            if(!id_events){
+            const {id} = req.params
+            if(!id){
                return next(ApiError.badRequest('такого элемента не существует'))
             }
-            const event = await Events.findOne({ where: { id_events: id_events } });
+            const event = await Events.findOne({ where: { id_events: id } });
             if (!event) {
                 return next(ApiError.badRequest('такого элемента не существует'));
             }
-            await Events.destroy({where:{id_events:id_events}})
-            return res.json({ message: 'записть ' + id_events + ' удалена'})
+            await Events.destroy({where:{id_events:id}})
+            return res.json({ message: 'записть ' + id + ' удалена'})
         } catch (e) {
             next(ApiError.internal(e.message))
         }
-       
     }
 }
 

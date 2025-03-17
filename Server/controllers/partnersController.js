@@ -5,35 +5,35 @@ const ApiError = require('../error/ApiError')
 
 class PartnersController {
 
-    async obtain(req, res){
+    async receiving(req, res){
         const partners = await Partners.findAll()
         return res.json(partners) 
     }
 
     async editing(req, res, next){
         try{
-            const {id_partners} = req.params
+            const {id} = req.params
             const {link_img} = req.files
                 let fileName = uuid.v4() + ".jpg"
                     link_img.mv(path.resolve(__dirname, '..', 'static', fileName))
-            if(!id_partners){
+            if(!id){
                 return next(ApiError.badRequest('такого элемента не существует'))
             }
-            const event = await Partners.findOne({ where: { id_partners: id_partners } });
+            const event = await Partners.findOne({ where: { id_partners: id } });
             if (!event) {
                 return next(ApiError.badRequest('такого элемента не существует'));
             }
             await Partners.update(
                 {link_img: fileName},
-                {where:{id_partners:id_partners}}
+                {where:{id_partners:id}}
             )
-            return res.json({ message: 'записть ' + id_partners + ' обновлена'})
+            return res.json({ message: 'записть ' + id + ' обновлена'})
         } catch (e){
             next(ApiError.badRequest(e.message))
         }
     }
 
-    async adder(req,res){
+    async addition(req,res){
         try{
             const {link_img} = req.files
                 let fileName = uuid.v4() + ".jpg"
@@ -46,16 +46,16 @@ class PartnersController {
     }
     async delete(req, res, next){
         try{
-            const {id_partners} = req.params
-            if(!id_partners){
+            const {id} = req.params
+            if(!id){
                return next(ApiError.badRequest('такого элемента не существует'))
             }
-            const event = await Partners.findOne({ where: { id_partners: id_partners } });
+            const event = await Partners.findOne({ where: { id_partners: id } });
             if (!event) {
                 return next(ApiError.badRequest('такого элемента не существует'));
             }
-            await Partners.destroy({where:{id_partners:id_partners}})
-            return res.json({ message: 'записть ' + id_partners + ' удалена'})
+            await Partners.destroy({where:{id_partners:id}})
+            return res.json({ message: 'записть ' + id + ' удалена'})
         } catch (e) {
             next(ApiError.internal(e.message))
         }

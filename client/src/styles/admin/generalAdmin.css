@@ -1,0 +1,35 @@
+.genericAdmin{
+    width: 100%;
+}
+.genericAdmin__butt button{
+    margin-right: 20px;
+    padding: 15px;
+    border: none;
+    background-color: #Fff;
+    font-size: 18px;
+    border-radius: 10px;
+}
+.genericAdmin-flex{
+    margin-top: 20px;
+    flex-wrap: wrap;
+    display: flex;
+    gap: 10px;
+}
+.genericAdminPanel__box{
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    width: 420px;
+}
+.genericAdminPanel__box-butt{
+    display: flex;
+    gap: 10px;
+}
+.genericAdminPanel__box-butt button{
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+}

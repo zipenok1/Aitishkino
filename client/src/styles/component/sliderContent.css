@@ -1,0 +1,42 @@
+h3{
+    font-size: 24px;
+    font-weight: 600;
+}
+.sliderContent__content-navbar{
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+.sliderContent__content-navbar button{
+    font-size: 18px;
+    color: #fff;
+    padding: 20px 10px;
+    background: none;
+    border: 2px solid #fff;
+    border-radius: 10px;
+}
+.sliderContent__card{
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+}
+.sliderContent-text{
+    margin-top: 40px;
+}
+.sliderContent-text p{
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+.sliderContent__gallery{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+.sliderContent__gallery img{
+    height: 375px;
+    width: 625px;
+}

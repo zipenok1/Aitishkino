@@ -1,0 +1,43 @@
+.newsletter{
+    margin-top: 11%;
+}
+.newsletter__content-title p{
+    margin-top: 10px;
+    font-size: 18px;
+}
+.newsletter__content{
+    background: url('../../../public/imges/fonNewsl.jpg');
+    border-radius: 10px;
+    padding: 50px 110px;
+}
+.newsletter__content-box{
+    margin-top: 30px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+.newsletter__box-from{
+    display: flex;
+    position: relative;
+}
+.newsletter__box-from input[type = "text"]{
+    padding: 24px 20px;
+    width: 501px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(242, 242, 242, 1);
+    font-size: 18px;
+    color: rgba(105, 105, 105, 1);
+}
+.newsletter__box-from input[type = "sumbit"]{
+    padding: 24px 33px;
+    width: 190px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(130, 203, 172, 1);
+    color: #fff;
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}

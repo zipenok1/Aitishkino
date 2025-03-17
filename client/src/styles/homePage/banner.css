@@ -1,0 +1,33 @@
+.banner{
+    height: 1000px;
+    background-image: url('../../../public/imges/fon1.jpg');
+}
+h1{
+    font-size: 52px;
+    color: #fff;
+    width: 70%;
+}
+span{
+    color: rgba(255, 208, 95, 1);
+}
+.banner__content{
+    padding-top: 310px;
+}
+.banner__content p {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #fff;
+    width: 46%;
+}
+.generalBtm{
+    color: #fff;
+    margin-top: 28px;
+    font-size: 18px;
+    padding: 20px 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(130, 203, 172, 1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}

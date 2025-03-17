@@ -4,20 +4,20 @@ const path = require('path')
 const ApiError = require('../error/ApiError')
 
 class TeachersController {
-    async receiv(req, res){
+    async receiving(req, res){
         const teachers = await Teachers.findAll()
         return res.json(teachers) 
     }
 
     async addition(req, res, next){
         try{
-            const {id_teachers, fio, description} = req.body
+            const {fio, description} = req.body
 
             const {link_img} = req.files
                 let fileName = uuid.v4() + ".jpg"
                 link_img.mv(path.resolve(__dirname, '..', 'static', fileName))
 
-            const teachers = await Teachers.create({id_teachers, fio, description, link_img: fileName})
+            const teachers = await Teachers.create({fio, description, link_img: fileName})
             return res.json(teachers)
         } catch (e){
             next(ApiError.badRequest(e.message))
@@ -25,39 +25,39 @@ class TeachersController {
     }
     async editing(req, res, next){
         try{
-            const {id_teachers} = req.params
+            const {id} = req.params
             const {fio, description}= req.body
             const {link_img} = req.files
                 let fileName = uuid.v4() + ".jpg"
                 link_img.mv(path.resolve(__dirname, '..', 'static', fileName))
-            if(!id_teachers){
+            if(!id){
                 return next(ApiError.badRequest('такого элемента не существует'))
             }
-            const event = await Teachers.findOne({ where: { id_teachers: id_teachers } });
+            const event = await Teachers.findOne({ where: { id_teachers: id } });
             if (!event) {
                 return next(ApiError.badRequest('такого элемента не существует'));
             }
             await Teachers.update(
-                {fio:fio, description:description, link_img:fileName},
-                {where:{id_teachers:id_teachers}}
+                {fio: fio, description: description, link_img: fileName},
+                {where:{id_teachers:id}}
             )
-            return res.json({ message: 'записть ' + id_teachers + ' обновлена'})
+            return res.json({ message: 'записть ' + id + ' обновлена'})
         } catch (e){
             next(ApiError.badRequest(e.message))
         }
     }
-    async del(req, res, next){
+    async delete(req, res, next){
         try{
-            const {id_teachers} = req.params
-            if(!id_teachers){
+            const {id} = req.params
+            if(!id){
                return next(ApiError.badRequest('такого элемента не существует'))
             }
-            const event = await Teachers.findOne({ where: { id_teachers: id_teachers } });
+            const event = await Teachers.findOne({ where: { id_teachers: id } });
             if (!event) {
                 return next(ApiError.badRequest('такого элемента не существует'));
             }
-            await Teachers.destroy({where:{id_teachers: id_teachers}})
-            return res.json({ message: 'записть ' + id_teachers + ' удалена'})
+            await Teachers.destroy({where:{id_teachers: id}})
+            return res.json({ message: 'записть ' + id + ' удалена'})
         } catch (e) {
             next(ApiError.internal(e.message))
         }

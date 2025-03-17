@@ -1,20 +1,13 @@
-import React, { useContext } from "react";
-import AppRoutes from "./component/AppRouter";
-import './styles/app.css'
+import React from "react";
+import AppRouter from "./component/AppRouter";
 import NavBar from "./component/NavBar";
-import { Context } from ".";
+import './styles/app.css'
 
-
-function App () {
- 
-  const {user} = useContext(Context)
-
+function App() {
   return (
     <div className="App">
-        <NavBar/>
-        <div className="wrap">
-          <AppRoutes/>
-        </div>   
+      <NavBar/>
+      <AppRouter/>
     </div>
   );
 }

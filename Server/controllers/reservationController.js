@@ -2,16 +2,15 @@ const {Reservation} = require('../models/models')
 const ApiError = require('../error/ApiError')
 
 class ReservationController {
-    async receiv(req, res){
+    async receiving(req, res){
         const reservation = await Reservation.findAll()
         return res.json(reservation) 
     }
 
     async addition(req, res, next){
         try{
-            const {id_reservation, fio, email, phone, quantity, id_shift} = req.body
- 
-            const reservation = await Reservation.create({id_reservation, fio, email, phone, quantity, id_shift})
+            const {fio, email, phone, quantity, id_shifts} = req.body
+            const reservation = await Reservation.create({fio, email, phone, quantity, id_shifts})
             return res.json(reservation)
         } catch (e){
             next(ApiError.badRequest(e.message))
@@ -20,37 +19,37 @@ class ReservationController {
 
     async editing(req, res, next){
         try{
-            const {id_reservation} = req.params
-            const {fio, email, phone, quantity}= req.body
-            if(!id_reservation){
+            const {id} = req.params
+            const {fio, email, phone, quantity, id_shifts}= req.body
+            if(!id){
                 return next(ApiError.badRequest('такого элемента не существует'))
             }
-            const event = await Reservation.findOne({ where: { id_reservation: id_reservation } });
+            const event = await Reservation.findOne({ where: { id_reservation: id } });
             if (!event) {
                 return next(ApiError.badRequest('такого элемента не существует'));
             }
             await Reservation.update(
-                {fio:fio, email:email, phone:phone, quantity:quantity},
-                {where:{id_reservation:id_reservation}}
+                {fio:fio, email:email, phone:phone, quantity:quantity, id_shifts: id_shifts},
+                {where:{id_reservation:id}}
             )
-            return res.json({ message: 'записть ' + id_reservation + ' обновлена'})
+            return res.json({ message: 'записть ' + id + ' обновлена'})
         } catch (e){
             next(ApiError.badRequest(e.message))
         }
     }
 
-    async del(req, res, next){
+    async delete(req, res, next){
         try{
-            const {id_reservation} = req.params
-            if(!id_reservation){
+            const {id} = req.params
+            if(!id){
                return next(ApiError.badRequest('такого элемента не существует'))
             }
-            const event = await Reservation.findOne({ where: { id_reservation: id_reservation } });
+            const event = await Reservation.findOne({ where: { id_reservation: id } });
             if (!event) {
                 return next(ApiError.badRequest('такого элемента не существует'));
             }
-            await Reservation.destroy({where:{id_reservation:id_reservation}})
-            return res.json({ message: 'записть ' + id_reservation + ' удалена'})
+            await Reservation.destroy({where:{id_reservation:id}})
+            return res.json({ message: 'записть ' + id + ' удалена'})
         } catch (e) {
             next(ApiError.internal(e.message))
         }
