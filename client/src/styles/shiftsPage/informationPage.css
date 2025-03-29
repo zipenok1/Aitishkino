@@ -1,0 +1,147 @@
+.cover{
+   height: 962px;
+   background-repeat: no-repeat;
+   background-position: center;
+}
+.cover__content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: inherit;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+}
+.cover__content h2{
+    font-size: 52px;
+    color: #fff;
+}
+.cover__content-appointment{
+    font-size: 36px;
+    color: #fff;
+    padding-bottom: 40px;
+}
+hr{
+    height: 2px;
+    background-color: #fff;
+    width: 300px;
+    margin-bottom: 20px;
+}
+.cover__content-location{
+    font-size: 36px;
+    color: #fff;
+    font-weight: 600;
+}
+.schedule{
+    background-image: url('../../../public/imges/shiftsbackg.jpg');
+}
+.schedule__content{
+    padding: 80px 0;
+}
+.schedule__content h2{
+    color: #fff;
+}
+.schedule__content-container{
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+}
+.schedule__container-left{
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+}
+.schedule__container-left p{
+    padding-top: 18px;
+}
+.scheduleCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+.scheduleCards div{
+    background-color: #fff;
+    padding: 30px 34px;
+    border-radius: 10px;
+    max-height: 140px;
+    width: 24%;
+    text-align: center;
+    transition: 0.5s;
+}
+.scheduleCards div:hover{
+    box-shadow: inset 0  200px 0 0 rgba(130, 203, 172, 1);
+    color: #fff;
+}
+.scheduleCards-title{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.scheduleCards-desc{
+    font-size: 18px;
+}
+.questionsCards div{
+    position: relative;
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.questionsCards div img{
+    position: absolute;
+    right: 28px;
+    top: 30px;
+}
+.questionsCards div p{
+    font-size: 18px;
+}
+.questionsCards-title{
+    font-weight: 600;
+}
+.questionsCards-top{
+    margin-top: 30px;
+}
+.supervisor__content{
+    padding: 80px 0;
+}
+.supervisor__content-box{
+    display: flex;
+}
+.supervisor__content-box img{
+    border-radius: 10px;
+}
+.supervisor__content-box p{
+    font-size: 18px;
+}
+.whereAre__content{
+    padding: 80px 0;
+}
+.whereAre-map iframe{
+    border: none;
+    border-radius: 10px;
+}
+@media (max-width:1676px){
+    .scheduleCards div{
+        width: 269px;
+    }
+}
+@media (max-width:620px) {
+    .cover__content h2{
+        font-size: 34px;
+    }
+    .cover__content-appointment{
+        font-size: 28px;
+    }
+    .cover__content-location{
+        font-size: 28px;
+    }
+    hr {
+        width: 200px;
+    }
+}
+@media (max-width:1030px){
+    .whereAre-map iframe{
+        height: 360px;
+    }
+}
