@@ -1,0 +1,110 @@
+.newsletter{
+    top: -130px;
+    position: absolute;
+    width: 100%;
+}
+.newsletter__content-title p{
+    margin-top: 10px;
+    font-size: 18px;
+}
+.newsletter__content{
+    background: url('../../../public/imges/fonNewsl.jpg');
+    border-radius: 10px;
+    padding: 40px 80px;
+}
+.newsletter__content-box{
+    margin-top: 30px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+.newsletter__box-from{
+    display: flex;
+    position: relative;
+}
+.newsletter__box-from input[type = "email"]{
+    padding: 24px 20px;
+    width: 501px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(242, 242, 242, 1);
+    font-size: 18px;
+    color: rgba(105, 105, 105, 1);
+}
+.newsletter__box-from input[type = "submit"]{
+    padding: 24px 33px;
+    width: 190px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(130, 203, 172, 1);
+    color: #fff;
+    font-size: 18px;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+}
+.newsletter__box-text{
+    width: 100%;
+}
+@media(max-width:1482px) {
+    .newsletter__box-text p{
+        font-size: 14px;
+    }
+    .newsletter__content-box{
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+    }
+    .newsletter__content {
+        padding: 30px 40px;
+        background: none;
+        background-color: #fff;
+    }
+}
+@media(max-width:1030px) {
+    .newsletter__box-from{
+        width: 100%;
+    }
+    .newsletter__box-from input[type = "email"] {
+        width: 100%;
+        padding: 18px 15px;
+    }
+    .newsletter__box-from input[type = "submit"] {
+        padding: 18px 15px;
+        text-align: center;
+    }
+    .newsletter__content{
+        padding: 20px
+    }
+}
+@media(max-width:662px) {
+    .newsletter__content-title{
+        display: none;
+    }
+    .newsletter__box-text p{
+        text-align: center;
+    }
+    .newsletter__content-box {
+        margin-top: 0;
+    }
+    .newsletter {
+        top: -75px;
+    }    
+}
+@media(max-width:490px) {
+    .newsletter__box-from input[type = "submit"] {
+        position:static;
+    }
+    .newsletter__box-from input[type = "submit"]{
+        width: 100%;
+    }
+    .newsletter__box-from{
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    .newsletter {
+        top: -110px;
+    }
+}

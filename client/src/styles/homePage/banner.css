@@ -1,0 +1,65 @@
+.banner{
+    height: 1000px;
+    background: url('../../../public/imges/fon1.jpg')  center no-repeat;
+}
+h1{
+    font-size: 52px;
+    color: #fff;
+    width: 70%;
+}
+span{
+    color: rgba(255, 208, 95, 1);
+}
+.banner__content{
+    display: flex;
+    justify-content: center;
+    height: inherit;
+    flex-direction: column;
+}
+.banner__content p {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #fff;
+    width: 46%;
+}
+.generalBtm{
+    color: #fff;
+    margin-top: 28px;
+    font-size: 18px;
+    padding: 20px 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(130, 203, 172, 1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: 0.4s;
+}
+.generalBtm:hover{
+    transform: scale(1.1);
+}
+.generalBtm a{
+    color: #fff;
+}
+@media (max-width:1131px) {
+    .banner__content{
+        padding-top: 120px;
+    }   
+}
+@media (max-width:1030px) {
+    .banner__content p{
+        width: 100%;
+    }   
+}
+@media (max-width:620px) {
+    h1{
+        width: 100%;
+        font-size: 38px;
+    } 
+}
+@media (max-width:360px) {
+    h1{
+        width: 100%;
+        font-size: 32px;
+    } 
+}

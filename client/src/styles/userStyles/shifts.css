@@ -1,0 +1,208 @@
+.menuSlider{
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+.menuSlider button{
+    font-size: 18px;
+    color: #fff;
+    padding: 20px 10px;
+    background: none;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+.menuSlider button:hover{
+    box-shadow: inset 300px 0 0 0 rgb(255, 255, 255);
+    color: black;
+}
+.ourShifts__content h2{
+    color: #fff;
+}
+.ourShifts__content-desc {
+    color: #fff;
+}
+.ourShifts{
+    background-image: url('../../../public/imges/oregeng.jpg');
+    max-height: 959px;
+}
+.ourShifts__content{
+    padding: 80px 0 180px;
+}
+.ourShiftsCards{
+    padding: 30px 0;
+}
+.ourShiftsCards__content{
+    border-radius: 10px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    width: 100%; 
+    padding: 30px;
+    gap: 30px;
+}
+.ourShiftsCards__content-img{
+    border-radius: 10px;
+    max-width: 380px;
+    max-height: 372px;
+}
+.ourShiftsCards__contener-bott{
+    display: flex;
+}
+.ourShiftsCards-desc{
+    font-size: 18px;
+}
+.ourShiftsCards-date{
+    font-size: 18px;
+    font-weight: 600;
+    padding: 60px 0 30px;
+}
+.ourShiftsCards__contener-bott{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+.ourShiftsCards__contener-bott p{
+    font-size: 18px;
+    color: rgba(186, 186, 186, 1);
+}
+.ourShiftsCards__contener-bott p span{
+    font-size: 36px;
+    font-weight: 800;
+}
+.program__content{
+    position: relative;
+    padding: 190px 0 80px;
+}
+.review__content{
+    padding-bottom: 80px;
+}
+.review__content h2{
+    padding-bottom: 60px;
+}
+.reviewCards{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.reviewCards__content{
+    border-radius: 10px;
+    background-color: #fff;
+    min-height: 200px;
+    padding: 30px;
+}
+.reviewCards__content p{
+    font-size: 18px;
+}
+.reviewCards h3{
+    margin-bottom: 20px;
+}
+.splide__arrow{
+    background-color: rgba(255, 208, 95, 1);
+    width: 40px;
+    height: 40px;
+    top: -45px;
+    position: absolute;
+}
+.splide__pagination {
+    bottom: -2em;
+    left: 0;
+    padding: 0 1em;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}
+  
+@media(max-width:1576px){
+    .ourShiftsCards-date {
+        padding: 5% 0;
+    }
+    .ourShiftsCards__content-img{
+        width: 37%;
+    }
+    .ourShiftsCards__content-contener{
+        width: 70%;
+    }
+    .ourShiftsCards__contener-bott{
+        margin-top: 5%;
+    }
+}
+@media(max-width:1496px){
+    .ourShiftsCards-date{
+        padding: 2% 0;
+    }
+    .ourShiftsCards__contener-bott{
+        margin-top: 4%;
+    }
+    .ourShiftsCards-desc {
+        font-size: 16px;
+        width: 100%;
+    }
+}
+@media(max-width:1058px){
+    .ourShiftsCards__contener-top h3{
+        font-size: 18px;
+    }
+    .ourShiftsCards-date{
+        font-size: 16px;
+    }
+    .ourShiftsCards__contener-bott p span{
+        font-size: 28px;
+    }
+    .ourShiftsCards__contener-bott .generalBtm{
+        padding: 15px 15px;
+    }
+    .review__content h2 {
+        padding-bottom: 10px;
+    }
+    .reviewCards div{
+        padding: 10px;
+    }
+    .reviewCards {
+        gap: 15px;
+    }
+    .splide__arrow{
+        top: 5px;
+    }
+}
+@media(max-width:906px){
+    .ourShiftsCards__content {
+        padding: 15px;
+    }
+    .ourShiftsCards__content-img{
+        display: none;
+    }
+    .ourShiftsCards__content-contener{
+        width: 100%;
+    }
+}
+@media(max-width:780px){
+    .reviewCards div {
+        width: 100%;
+    }
+    .menuSlider{
+        gap: 20px;
+    }
+    .menuSlider button{
+        font-size: 16px;
+        padding: 10px ;
+    }
+}
+@media(max-width:600px){
+    .ourShiftsCards__contener-bott{
+        flex-wrap: wrap;
+    }
+}
+@media(max-width:400px){
+    .review__content {
+        padding-bottom: 0px;
+    }
+    .menuSlider{
+        gap: 10px;
+    }
+    .menuSlider button{
+        font-size: 16px;
+        padding: 4px ;
+    }
+}
