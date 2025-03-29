@@ -24,7 +24,6 @@ function QuestionsCards({content, apiPoints}) {
             <div key={el.id_program}>
                 <p className='questionsCards-title'>{el.title}</p>
                 <p className='questionsCards-top'>{el.description}</p>
-                {/* <img src="imges/icon/arrow.svg" alt="arrow" /> */}
             </div> 
         ))}
         
