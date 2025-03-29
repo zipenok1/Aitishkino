@@ -12,6 +12,11 @@ const type = require('./typeRouter')
 const program = require('./programRouter')
 const shifts = require('./shiftsRouter')
 const news = require('./newsRouter')
+const offers = require('./offersRouter')
+const daySchedule = require('./dayScheduleRouter')
+const questions = require('./questionsRouter')
+const schedule = require('./scheduleRouter')
+const sections = require('./sectionsRouter')
 
 router.use('/user', user)
 router.use('/newsletter', newsletter)
@@ -25,7 +30,10 @@ router.use('/reviews', reviews)
 router.use('/type', type)
 router.use('/shifts', shifts)
 router.use('/program', program)
-
-
+router.use('/offers', offers)
+router.use('/daySchedule', daySchedule)
+router.use('/questions', questions)
+router.use('/schedule', schedule)
+router.use('/sections', sections)
 
 module.exports = router
