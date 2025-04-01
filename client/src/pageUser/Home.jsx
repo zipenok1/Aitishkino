@@ -11,6 +11,7 @@ import '../styles/homePage/partners.css'
 import '../styles/homePage/direction.css'
 import '../styles/homePage/gallery.css'
 import '../styles/homePage/teachers.css'
+import '../styles/homePage/question.css'
 
 function Home() {
 
@@ -110,9 +111,36 @@ function Home() {
         </div>
       </div>
       <div className='video'>
-        <video autoPlay muted loop>
+        {/* <video autoPlay muted loop>
           <source src="video/aitishka.mp4" type='video/mp4' />
-        </video>
+        </video> */}
+      </div>
+      <div className="question">
+        <div className="question__content wrap">
+          <div className="question__content-title">
+            <h3>Хотите задать вопрос организатору ?</h3>
+            <p>Мы рассмотрим ваше предложение!</p>
+          </div>
+          <div className='question__content-box'>
+          <form className='question__content-from'>
+            <input
+              type="text"
+              placeholder='Ваше имя'
+              required
+            />
+            <input
+            className='input-height'
+              type="text"
+              placeholder='Ваш вопрос'
+              required
+            />
+            <input
+            className='question-form-button'
+              type="submit"
+              value='Отправить'/>
+          </form>
+        </div>
+        </div>
       </div>
     </div>
   )

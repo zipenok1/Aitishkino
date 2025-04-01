@@ -5,12 +5,12 @@
 h1{
     font-size: 52px;
     color: #fff;
-    width: 70%;
 }
 span{
     color: rgba(255, 208, 95, 1);
 }
 .banner__content{
+    width: 100%;
     display: flex;
     justify-content: center;
     height: inherit;
@@ -20,7 +20,7 @@ span{
     margin-top: 20px;
     font-size: 18px;
     color: #fff;
-    width: 46%;
+    width: 50%;
 }
 .generalBtm{
     color: #fff;

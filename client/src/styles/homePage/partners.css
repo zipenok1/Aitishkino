@@ -23,12 +23,12 @@
 }
 @media(max-width:1625px){
     .partners__content-card img{
-        padding: 60px 75.8px;
-    }
+        padding: 53px 65px;
+    }   
     .partners__content-card div{
         flex-wrap: wrap;
+        justify-content: center;
         gap: 15px;
-        justify-content: left;
     }
 }
 @media(max-width:1262px) {
