@@ -19,7 +19,7 @@ import NewsPage from "./pageUser/NewsPage"
 import SampleNews from "./pageUser/SampleNews"
 import Offers from "./pageAdmin/Offers"
 import Schedule from "./pageAdmin/Schedule"
-import Questions from "./pageAdmin/questions"
+import Questions from "./pageAdmin/Questions"
 import DaySchedule from "./pageAdmin/DaySchedule"
 import Sections from "./pageAdmin/Sections"
  

@@ -17,8 +17,15 @@ function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey}) {
   };
   
   const getApp = async () => {
-    const res = await $host.get(apiPoints.get);
-    setData(res.data);
+    try {
+      const res = await $host.get(apiPoints.get);
+      setData(res.data);
+    } catch (error) {
+      if (error.response?.status === 401) {
+        const publicRes = await $authHost.get(apiPoints.get); 
+        setData(publicRes.data);
+      }
+    }
   };
 
   const deleteApp = async (id) => {

@@ -5,6 +5,7 @@ import SliderContent from '../component/SliderContent'
 import Newsletter from '../component/Newsletter'
 import PhotoType from '../component/PhotoType'
 import TeachersCards from '../component/TeachersCards'
+import Offers from '../component/Offers'
 import '../styles/homePage/banner.css'
 import '../styles/homePage/mainCamp.css'
 import '../styles/homePage/partners.css'
@@ -116,31 +117,7 @@ function Home() {
         </video> */}
       </div>
       <div className="question">
-        <div className="question__content wrap">
-          <div className="question__content-title">
-            <h3>Хотите задать вопрос организатору ?</h3>
-            <p>Мы рассмотрим ваше предложение!</p>
-          </div>
-          <div className='question__content-box'>
-          <form className='question__content-from'>
-            <input
-              type="text"
-              placeholder='Ваше имя'
-              required
-            />
-            <input
-            className='input-height'
-              type="text"
-              placeholder='Ваш вопрос'
-              required
-            />
-            <input
-            className='question-form-button'
-              type="submit"
-              value='Отправить'/>
-          </form>
-        </div>
-        </div>
+        <Offers/>
       </div>
     </div>
   )

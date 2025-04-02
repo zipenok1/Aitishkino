@@ -58,7 +58,7 @@ function MenuAdmin() {
                 </Link>
 
                 <Link to={QUESTIONSE_ROUTE}>
-                    <button>Часто задаваемые вопросы</button>
+                    <button>Задаваемые вопросы</button>
                 </Link>
 
                 <Link to={DAYSCHEDULE_ROUTE}>
