@@ -22,14 +22,7 @@ function InformationPage() {
     {name: 'Огонек дружбы', time: '17:15 - 18:00'},
     {name: 'До завтра!', time: '18:00 - 19:00'},
   ]
-  const contentQuestions = [
-    {title: 'Сколько детей в смене?', description: 'Мини-формат: 15 человек в группе. Групповая динамика и индивидуальный подход (каждый ребенок вовлекается в образовательный процесс на 100%)'},
-    {title: 'Что входит в стоимоть?', description: 'Обучение, питание, развлечения'},
-    {title: 'Как происходит обучение?', description: 'Участники при чутком руководстве профессионалов будут изучать популярные языки программирования.'},
-    {title: 'Какой досуг предоставляет лагерь?', description: 'Квесты, спортивные и развивающие игры, в том числе с применением виртуальной и дополненной реальности, упражнения веревочного курса.'},
-    {title: 'Какое питание?', description: 'Дети питаются каждый день в лагере: предусмотрены завтрак, горячий обед, полдник.'},
-    {title: 'Как родители могут следить за тем, как их дети проводят время в лагере?', description: 'Родители смогут видеть как проводят день в уникальном проекте дети в закрытой группе.'},
-  ]
+  
   return (
     <div className='informationPage'>
         <Cover
@@ -61,7 +54,7 @@ function InformationPage() {
               <div className='direction__card-soft'>
                 <PhotoType
                   apiPoints={{
-                    get: "/api/photo/oline/16",
+                    get: "/api/photo/oline/17",
                   }}
                 />
                 <div className="card__soft-text back_down-right">
@@ -76,7 +69,7 @@ function InformationPage() {
                   </div>
                   <PhotoType
                     apiPoints={{
-                      get: "/api/photo/oline/15",
+                      get: "/api/photo/oline/16",
                     }}
                   />
               </div>
@@ -88,7 +81,9 @@ function InformationPage() {
             <h2>Часто задаваемые<br />вопросы</h2>
             <div className='questions__content-cards'>
                 <QuestionsCards
-                  content = {contentQuestions}
+                  apiPoints={{
+                    get: "/api/questions/",
+                  }}
                 />
             </div>
           </div>

@@ -3,9 +3,10 @@ import GeneralAdmin from "../component/GeneralAdmin";
 import MenuAdmin from '../component/menuAdmin';
 import '../styles/admin/home.css'
 
-function Event() {
+function Questions() {
     const inputs = [
-        { name: "icon", type: "file", required: true },
+        { name: "title", type: "text", placeholder: "Вопрос", required: true },
+        { name: "description", type: "textarea", placeholder: "Ответ", required: true }
     ];
   return (
     <div className="asdasd">
@@ -13,18 +14,19 @@ function Event() {
             <div className="admin__contnet">
                 <MenuAdmin/>
                 <GeneralAdmin
-                    idKey='id_events'
+                    idKey='id_questions'
                     inputs = {inputs}
-                    title='Мероприятия'
+                    title='Часто задаваемые вопросы'
                     apiPoints={{
-                    get: "/api/events/",
-                    add: "/api/events/",
-                    edit: "/api/events",
-                    delete: "/api/events",
+                    get: "/api/questions/",
+                    add: "/api/questions/",
+                    edit: "/api/questions",
+                    delete: "/api/questions",
                     }}
                     renderItem={(el) => (
                     <div className='generalAdmin'>
-                        <div className='generalAdmin__imges' style={{backgroundImage:`url(${process.env.REACT_APP_API_URL}/${el.icon})`}}></div>
+                        <p>Название: {el.title}</p>
+                        <p>Название: {el.description}</p>
                     </div>
                     )}
                 />  
@@ -34,4 +36,4 @@ function Event() {
   )
 }
 
-export default Event
+export default Questions

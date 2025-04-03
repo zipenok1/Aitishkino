@@ -1,4 +1,6 @@
 const {Events} = require('../models/models')
+const uuid = require("uuid")
+const path = require('path')
 const ApiError = require('../error/ApiError')
 
 class EventsController {
@@ -10,8 +12,10 @@ class EventsController {
 
     async addition(req, res, next){
         try{
-            const {title, description, date} = req.body
-            const events = await Events.create({title, description, date})
+            const {icon} = req.files
+            let fileName = uuid.v4() + ".jpg"
+            icon.mv(path.resolve(__dirname, '..', 'static', fileName))
+            const events = await Events.create({icon: fileName})
             return res.json(events)
         } catch (e){
             next(ApiError.badRequest(e.message))
@@ -21,7 +25,9 @@ class EventsController {
     async editing(req, res, next){
         try{
             const {id} = req.params
-            const {title, description, date}= req.body
+            const {icon} = req.files
+            let fileName = uuid.v4() + ".jpg"
+            icon.mv(path.resolve(__dirname, '..', 'static', fileName))
             if(!id){
                 return next(ApiError.badRequest('такого элемента не существует'))
             }
@@ -30,7 +36,7 @@ class EventsController {
                 return next(ApiError.badRequest('такого элемента не существует'));
             }
             await Events.update(
-                {title: title, description: description, date: date},
+                {icon: fileName},
                 {where:{id_events:id}}
             )
             return res.json({ message: 'записть ' + id + ' обновлена'})

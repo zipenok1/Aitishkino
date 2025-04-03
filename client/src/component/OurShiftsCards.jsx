@@ -49,10 +49,15 @@ function OurShiftsCards({apiPoints}) {
 
    const shiftsContent = [
         { name: "fio", type: "text", placeholder: "Ф.И.О", required: true },
+        { name: "fioChild", type: "text", placeholder: "Ф.И.О ребенка", required: true },
+        { name: "age", type: "text", placeholder: "Возраст ребенка", required: true },
+        { name: "education", type: "text", placeholder: "Наименование образовательной организации", required: true },
         { name: "email", type: "email", placeholder: "Почта", required: true },
         { name: "phone", type: "tel", placeholder: "Номер телнфона", required: true },
-        { name: "quantity", type: "text", placeholder: "Количество мест", required: true },
-        { name: "id_shifts", type: "text",placeholder: "Номер смены", required: true },
+        { name: "quantity", type: "text", placeholder: "Количество", required: true },
+        { name: "id_shifts", type: "text", placeholder: "Связь", required: true },
+        { name: "call", type: "text", placeholder: "Время, удобное для нашего звонка", required: true },
+        { name: "found", type: "text", placeholder: "Откуда Вы узнали об лагере", required: true },
         { name: "checkbox", type: "checkbox", required: true},
    ]
 

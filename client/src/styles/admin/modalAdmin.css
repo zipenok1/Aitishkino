@@ -18,6 +18,14 @@
     padding: 30px;
     border-radius: 10px;
     position: relative;
+    max-height: 700px;
+    overflow: auto;
+}
+.modalAdmin__form::-webkit-scrollbar {
+    width: 5px;
+}
+.modalAdmin__form::-webkit-scrollbar-thumb {
+    background: #888; 
 }
 .modalAdmin__form-over{
     position: absolute;

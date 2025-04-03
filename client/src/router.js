@@ -1,4 +1,4 @@
-import { LOGIN_ROUTE, ADMIN_ROUTE, PUBLIC_ROUTE, EVENT_ROUTE, PROGRAM_ROUTE, NEWS_ROUTE, PARTNERS_ROUTE, PHOTO_ROUTE, RESERVATION_ROUTE, REVIEWS_ROUTE, SHIFTS_ROUTE, TEACHERS_ROUTE, TYPE_ROUTE, NEWSLETTER_ROUTE,INFORMATION_ROUTE, SHIFTSPAGE_ROUTE, NEWSPAGE_ROUTE, SAMPLE_ROUTE } from "./utils/const"
+import { SCHEDULE_ROUTE, QUESTIONSE_ROUTE, DAYSCHEDULE_ROUTE, SECTIONS_ROUTE, LOGIN_ROUTE, ADMIN_ROUTE, PUBLIC_ROUTE, EVENT_ROUTE, PROGRAM_ROUTE, NEWS_ROUTE, PARTNERS_ROUTE, PHOTO_ROUTE, RESERVATION_ROUTE, REVIEWS_ROUTE, SHIFTS_ROUTE, TEACHERS_ROUTE, TYPE_ROUTE, NEWSLETTER_ROUTE,INFORMATION_ROUTE, SHIFTSPAGE_ROUTE, NEWSPAGE_ROUTE, SAMPLE_ROUTE, OFFERS_ROUTE } from "./utils/const"
 import Admin from "./pageAdmin/Home"
 import Authorization from "./pageAdmin/Authorization"
 import Home from './pageUser/Home'
@@ -17,6 +17,11 @@ import InformationPage from "./pageUser/InformationPage"
 import ShiftsPage from "./pageUser/ShiftsPage"
 import NewsPage from "./pageUser/NewsPage"
 import SampleNews from "./pageUser/SampleNews"
+import Offers from "./pageAdmin/Offers"
+import Schedule from "./pageAdmin/Schedule"
+import Questions from "./pageAdmin/Questions"
+import DaySchedule from "./pageAdmin/DaySchedule"
+import Sections from "./pageAdmin/Sections"
  
 
 export const authRoutes = [
@@ -67,6 +72,27 @@ export const authRoutes = [
     {
         path: NEWSLETTER_ROUTE,
         Component: Newsletter
+    },
+    {
+        path: OFFERS_ROUTE,
+        Component: Offers
+    },
+
+    {
+        path: SCHEDULE_ROUTE,
+        Component: Schedule
+    },
+    {
+        path: QUESTIONSE_ROUTE,
+        Component: Questions
+    },
+    {
+        path: DAYSCHEDULE_ROUTE,
+        Component: DaySchedule
+    },
+    {
+        path: SECTIONS_ROUTE,
+        Component: Sections
     },
 ]
 export const publicRoutes = [

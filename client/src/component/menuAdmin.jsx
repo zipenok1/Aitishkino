@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import {EVENT_ROUTE, PROGRAM_ROUTE, NEWS_ROUTE, PARTNERS_ROUTE, PHOTO_ROUTE, RESERVATION_ROUTE, REVIEWS_ROUTE, SHIFTS_ROUTE, TEACHERS_ROUTE, TYPE_ROUTE, NEWSLETTER_ROUTE} from "../utils/const"
+import {SCHEDULE_ROUTE, QUESTIONSE_ROUTE, DAYSCHEDULE_ROUTE, SECTIONS_ROUTE, OFFERS_ROUTE, EVENT_ROUTE, PROGRAM_ROUTE, NEWS_ROUTE, PARTNERS_ROUTE, PHOTO_ROUTE, RESERVATION_ROUTE, REVIEWS_ROUTE, SHIFTS_ROUTE, TEACHERS_ROUTE, TYPE_ROUTE, NEWSLETTER_ROUTE} from "../utils/const"
 
 import '../styles/admin/menuAdmin.css'
 
@@ -22,7 +22,7 @@ function MenuAdmin() {
                 </Link>
 
                 <Link to={TEACHERS_ROUTE}>
-                    <button>Учителя</button>
+                    <button>Команда</button>
                 </Link>
 
                 <Link to={SHIFTS_ROUTE}>
@@ -47,6 +47,26 @@ function MenuAdmin() {
 
                 <Link to={RESERVATION_ROUTE}>
                     <button>Бронь</button>
+                </Link>
+
+                <Link to={OFFERS_ROUTE}>
+                    <button>Вопросы</button>
+                </Link>
+
+                <Link to={SCHEDULE_ROUTE}>
+                    <button>Расписание</button>
+                </Link>
+
+                <Link to={QUESTIONSE_ROUTE}>
+                    <button>Задаваемые вопросы</button>
+                </Link>
+
+                <Link to={DAYSCHEDULE_ROUTE}>
+                    <button>Дни недель</button>
+                </Link>
+
+                <Link to={SECTIONS_ROUTE}>
+                    <button>Секции</button>
                 </Link>
 
                 <Link to={NEWSLETTER_ROUTE}>

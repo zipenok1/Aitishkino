@@ -17,7 +17,7 @@ function Teachers() {
                 <GeneralAdmin
                     idKey='id_teachers'
                     inputs = {inputs}
-                    title='Учителя'
+                    title='Команда'
                     apiPoints={{
                     get: "/api/teachers/",
                     add: "/api/teachers/",

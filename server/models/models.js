@@ -63,6 +63,22 @@ const Reservation = sequelize.define('reservation', {
       type: DataTypes.STRING(150),
       allowNull: false,
     },
+    fioChild: {
+      type: DataTypes.STRING(150),
+      allowNull: false,
+    },
+    age: {
+      type: DataTypes.STRING(25),
+      allowNull: false,
+    },
+    education: {
+      type: DataTypes.STRING(500),
+      allowNull: false,
+    },
+    call: {
+      type: DataTypes.STRING(150),
+      allowNull: false,
+    },
     email: {
       type: DataTypes.STRING(50),
       allowNull: false,
@@ -73,6 +89,10 @@ const Reservation = sequelize.define('reservation', {
     },
     quantity: {
       type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    found: {
+      type: DataTypes.STRING(500),
       allowNull: false,
     },
     id_shifts: {
@@ -278,7 +298,7 @@ const Partners = sequelize.define('partners', {
       autoIncrement: true,
     },
     title: {
-      type: DataTypes.STRING(50),
+      type: DataTypes.STRING(100),
       allowNull: false,
     },
     description: {
@@ -372,10 +392,6 @@ const Partners = sequelize.define('partners', {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
-    },
-    name: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
     },
     schedule: {
       type: DataTypes.STRING(200),

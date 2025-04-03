@@ -9,8 +9,8 @@ class ReservationController {
 
     async addition(req, res, next){
         try{
-            const {fio, email, phone, quantity, id_shifts} = req.body
-            const reservation = await Reservation.create({fio, email, phone, quantity, id_shifts})
+            const {fio, email, phone, quantity, id_shifts, fioChild, age, education, call, found} = req.body
+            const reservation = await Reservation.create({fio, email, phone, quantity, id_shifts, fioChild, age, education, call, found})
             return res.json(reservation)
         } catch (e){
             next(ApiError.badRequest(e.message))
@@ -20,7 +20,7 @@ class ReservationController {
     async editing(req, res, next){
         try{
             const {id} = req.params
-            const {fio, email, phone, quantity, id_shifts}= req.body
+            const {fio, email, phone, quantity, id_shifts, fioChild, age, education, call, found}= req.body
             if(!id){
                 return next(ApiError.badRequest('такого элемента не существует'))
             }
@@ -29,7 +29,7 @@ class ReservationController {
                 return next(ApiError.badRequest('такого элемента не существует'));
             }
             await Reservation.update(
-                {fio:fio, email:email, phone:phone, quantity:quantity, id_shifts: id_shifts},
+                {fio:fio, email:email, phone:phone, quantity:quantity, id_shifts:id_shifts, fioChild:fioChild, age:age, education:education, call:call, found:found},
                 {where:{id_reservation:id}}
             )
             return res.json({ message: 'записть ' + id + ' обновлена'})
@@ -48,7 +48,7 @@ class ReservationController {
             if (!event) {
                 return next(ApiError.badRequest('такого элемента не существует'));
             }
-            await Reservation.destroy({where:{id_reservation:id}})
+            await Reservation.destroy({ where:{ id_reservation: id } })
             return res.json({ message: 'записть ' + id + ' удалена'})
         } catch (e) {
             next(ApiError.internal(e.message))

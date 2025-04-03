@@ -17,13 +17,13 @@ function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey}) {
   };
   
   const getApp = async () => {
-    const res = await $host.get(apiPoints.get);
-    setData(res.data);
+      const res = await $authHost.get(apiPoints.get);
+      setData(res.data);
   };
 
   const deleteApp = async (id) => {
-    await $authHost.delete(`${apiPoints.delete}/${id}`);
-    getApp();
+      await $authHost.delete(`${apiPoints.delete}/${id}`);
+      getApp();
   };
 
   const handleSubmit = async (formData) => {
