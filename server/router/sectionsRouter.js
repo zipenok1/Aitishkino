@@ -3,6 +3,7 @@ const router = new Router()
 const authMiddleware = require('../middleware/authMiddleware')
 const sectionsController = require('../controllers/sectionsController')
 
+router.get('/:id', sectionsController.adderoline)
 router.get('/', sectionsController.receiving)
 router.post('/', authMiddleware(1), sectionsController.addition)
 router.put('/:id', authMiddleware(1), sectionsController.editing)

@@ -9,6 +9,11 @@
     font-size: 18px;
     border-radius: 10px;
 }
+.genericAdminTable-flex{
+    margin-top: 20px;
+    flex-wrap: wrap;
+    display: flex;
+}
 .genericAdmin-flex{
     margin-top: 20px;
     flex-wrap: wrap;
@@ -21,9 +26,26 @@
     padding: 10px 20px;
     width: 420px;
 }
+.genericAdminPanelTable__box{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.genericAdminPanelTable__box-butt{
+    display: flex;
+    flex-direction: column;
+}
 .genericAdminPanel__box-butt{
     display: flex;
     gap: 10px;
+}
+.genericAdminPanelTable__box-butt button{
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    background-color: #Fff;
 }
 .genericAdminPanel__box-butt button{
     margin-top: 10px;

@@ -6,8 +6,14 @@ import Cover from '../component/Cover';
 import '../styles/userStyles/newsPage.css';
 
 function NewsPage() {
+  const [event, setEvent] = useState([]);
   const [data, setData] = useState([]);
   const [visibleCards, setVisibleCards] = useState(3); 
+
+  const getEvent = async () => {
+    const res = await $host.get('/api/sections/8');
+    setEvent(res.data);
+  };
 
   const getApp = async () => {
     const res = await $host.get(`/api/news/`);
@@ -15,7 +21,8 @@ function NewsPage() {
   };
 
   useEffect(() => {
-    getApp();
+    getApp()
+    getEvent()
   }, []);
 
   const truncateText = (text, limit = 186) => {
@@ -38,9 +45,8 @@ function NewsPage() {
       <div className="newsEvents">
         <div className="newsEvents__content wrap">
           <h2>Каникулы с пользой</h2>
-          <p className='newsEvents__content-title'>День открытых дверей </p>
-          <p className='newsEvents__content-desc'>Приглашаем всех желающих на бесплатную экскурсию <br />
-            в мир востребованных профессий и полезных навыков</p>
+          <p className='newsEvents__content-title'>{event[0]?.title1}</p>
+          <p className='newsEvents__content-desc'>{event[0]?.description1}</p>
           <div className='newsEvents__content-cards'>
             <NewsPageCards
               apiPoints={{

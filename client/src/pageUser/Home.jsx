@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import {$host} from '../http/index'
 import { Link } from "react-router-dom";
 import { SHIFTSPAGE_ROUTE } from "../utils/const";
 import SliderContent from '../component/SliderContent'
@@ -16,6 +17,20 @@ import '../styles/homePage/question.css'
 
 function Home() {
 
+  const [date, setDate] = useState([])
+  const [foto, setFoto] = useState([])
+ 
+  const getApp = async () => {
+    const res = await $host.get('/api/sections/4');
+    const fot = await $host.get('/api/sections/5');
+    setDate(res.data);
+    setFoto(fot.data);
+  };
+
+  useEffect(() => {
+    getApp()
+  }, []);
+
   return (
     <div className='home'>
       <div className='banner'>
@@ -30,7 +45,13 @@ function Home() {
       <div className='mainCamp'>
         <div className="mainCamp__content wrap">
             <h2>О лагере</h2>
-              <SliderContent/>
+              <SliderContent
+                apiPoints={{
+                  get1: "/api/sections/1",
+                  get2: "/api/sections/2",
+                  get3: "/api/sections/3",
+                  }}
+              />
                 <div className='sliderContent__gallery'>
                   <PhotoType
                     apiPoints={{
@@ -58,10 +79,12 @@ function Home() {
         <h2>Направления</h2>
         <div className='direction__content-card'>
           <div className='direction__card-hard'>
+            {date.map((el)=>(
               <div className="card__hard-text back_down-left">
-                <h3>Развитие hard skills</h3>
-                <p>программированию обучают преподаватели кафедры программирования. Участники при чутком руководстве профессионалов будут делать свой сайт, изучать популярные языки программирования</p>
+                <h3>{el.title1}</h3>
+                <p>{el.description1}</p>
               </div>
+            ))}
               <PhotoType
                 apiPoints={{
                   get: "/api/photo/oline/3",
@@ -74,10 +97,12 @@ function Home() {
                 get: "/api/photo/oline/4",
               }}
             />
-            <div className="card__soft-text back_down-right">
-                <h3>Развитие soft skills</h3>
-                <p>уникальная программа психологов - дети разовьют навыки коммуникации, целеполагания, тайм-менеджмента. Командообразование: участники развивают навыки сотрудничества и умения работать в команде, опираясь на свои сильные стороны</p>
+            {date.map((el)=>(
+              <div className="card__soft-text back_down-right">
+                <h3>{el.title2}</h3>
+                <p>{el.description2}</p>
               </div>
+            ))} 
           </div>
         </div>       
       </div>
@@ -85,7 +110,7 @@ function Home() {
      <div className="gallery">
         <div className="gallery__content wrap">
             <h2>Фотогалерея</h2>
-            <p>Здесь вы сможете погрузиться в яркую атмосферу нашего лагеря, где каждый день наполнен открыиями и весельем. Наши маленькие гении учатся программировать, создавая свои первые проекты, участвуют в увлекательных конкурсах и исследуют мир технологий вместе с новыми друзьями!</p>
+            <p>{foto[0]?.description1}</p>
             <div className='gallery__content-grid'>
               <PhotoType
                 apiPoints={{

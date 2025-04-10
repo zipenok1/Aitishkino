@@ -3,7 +3,9 @@ import { $authHost, $host } from '../http/index';
 import '../styles/admin/generalAdmin.css'
 import ModalAdmin from "./ModalAdmin";
 
-function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey}) {
+
+
+function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey, type}) {
   const [data, setData] = useState([]);
   const [open, setOpen] = useState({ isModal: false });
   const [editing, setEditing] = useState({ id: '', isModal: false, initialData: null });
@@ -43,7 +45,7 @@ function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey}) {
       console.error('Ошибка:', error);
     }
   };
-
+  
   const editingSubmit = async (editingData, id) => {
     try {
       const data = new FormData();
@@ -63,9 +65,9 @@ function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey}) {
   };
   
   useEffect(() => {
-    getApp();
-  }, []);
-
+    getApp()
+  }, [])
+  
   return (
     <div className='genericAdmin'>
       <h2>{title}</h2>
@@ -81,11 +83,11 @@ function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey}) {
               submitButtonText="Добавить"
             />
           )}
-      <div className="genericAdmin-flex">
-        {data.map((el) => (
-          <div className="genericAdminPanel__box" key={el[idKey]}>
+        <div className={ type === 'table' ? "genericAdminTable-flex" : "genericAdmin-flex"}>
+          {data.map((el) => (
+            <div className={ type === 'table' ? 'genericAdminPanelTable__box' : 'genericAdminPanel__box' } key={el[idKey]}>
             {renderItem(el)}
-            <div className="genericAdminPanel__box-butt">
+            <div className={type === 'table' ? 'genericAdminPanelTable__box-butt' : 'genericAdminPanel__box-butt'}>
               <button onClick={() => editingModal(el[idKey], editing.isModal, el)}>обновить</button>
               <button onClick={() => deleteApp(el[idKey])}>удалить</button>
             </div>
@@ -100,7 +102,7 @@ function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey}) {
                 />
               )}
           </div>
-        ))}
+          ))}
       </div>
     </div>
   );

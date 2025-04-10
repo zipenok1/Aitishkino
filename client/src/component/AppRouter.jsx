@@ -9,7 +9,7 @@ const AppRouter = observer(() => {
 
     const {user} = useContext(Context)
     
-    console.log(user._isAuth);
+    console.log(user);
   
     return (
       <Routes>

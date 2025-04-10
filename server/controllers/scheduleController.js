@@ -6,6 +6,14 @@ class ProgramController {
         const event = await Schedule.findAll()
         return res.json(event) 
     }
+    async receivingDay(req, res){
+        const {id} = req.params
+        if (!id) {
+            return next(ApiError.badRequest('такого элемента не существует'))
+          }    
+          const photo = await Schedule.findAll({ where: {id_daySchedule: id}})
+          return res.json(photo)
+    }
     async addition(req, res, next){
         try{
             const { schedule, time, id_daySchedule} = req.body

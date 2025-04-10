@@ -10,8 +10,8 @@ function Reservation() {
         { name: "age", type: "text", placeholder: "Возраст ребенка", required: true },
         { name: "education", type: "text", placeholder: "Наименование образовательной организации", required: true },
         { name: "email", type: "email", placeholder: "Почта", required: true },
-        { name: "phone", type: "tel", placeholder: "Номер телнфона", required: true },
-        { name: "quantity", type: "text", placeholder: "Количество", required: true },
+        { name: "phone", type: "tel", placeholder: "Номер телефона", required: true },
+        { name: "quantity", type: "text", placeholder: "Количество мест", required: true },
         { name: "id_shifts", type: "text", placeholder: "Связь", required: true },
         { name: "call", type: "text", placeholder: "Время, удобное для нашего звонка", required: true },
         { name: "found", type: "text", placeholder: "Откуда Вы узнали об лагере", required: true },
@@ -22,6 +22,7 @@ function Reservation() {
             <div className="admin__contnet">
                 <MenuAdmin/>
                 <GeneralAdmin
+                    type = 'table'
                     idKey='id_reservation'
                     inputs = {inputs}
                     title='Бронь'
@@ -32,18 +33,36 @@ function Reservation() {
                     delete: "/api/reservation",
                     }}
                     renderItem={(el) => (
-                    <div className='generalAdmin'>
-                        <p>Ф.И.О: {el.fio}</p>
-                        <p>Ф.И.О ребенка: {el.fioChild}</p>
-                        <p>Возраст ребенка: {el.age}</p>
-                        <p>Наименование образовательной организации: {el.education}</p>
-                        <p>Время, удобное для нашего звонка: {el.call}</p>
-                        <p>Почта: {el.email}</p>
-                        <p>Телефон: {el.phone}</p>
-                        <p>Количество мест: {el.quantity}</p>
-                        <p>Номер смены: {el.id_shifts}</p>
-                        <p>Откуда Вы узнали об лагере: {el.found}</p>
-                    </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ФИО</th>
+                                    <th>ФИО Ребенка</th>
+                                    <th>Возраст</th>
+                                    <th>Образование</th>
+                                    <th>Email</th>
+                                    <th>Телефон</th>
+                                    <th>Количество мест</th>
+                                    <th>Какая смена</th>
+                                    <th>Время для звонка</th>
+                                    <th>Откуда узнали</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{el.fio}</td>
+                                    <td>{el.fioChild}</td>
+                                    <td>{el.age}</td>
+                                    <td>{el.education}</td>
+                                    <td>{el.email}</td>
+                                    <td>{el.phone}</td>
+                                    <td>{el.quantity}</td>
+                                    <td>{el.id_shifts}</td>
+                                    <td>{el.call}</td>
+                                    <td>{el.found}</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     )}
                 />  
             </div>

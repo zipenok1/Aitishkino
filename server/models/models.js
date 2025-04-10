@@ -351,36 +351,40 @@ const Partners = sequelize.define('partners', {
       autoIncrement: true,
     },
     name: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
+      type: DataTypes.STRING(200),
+      allowNull: true,
     },
     icon: {
       type: DataTypes.STRING(500),
-      allowNull: false,
+      allowNull: true,
     },
     title1: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
+      type: DataTypes.STRING(200),
+      allowNull: true,
     },
     title2: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
+      type: DataTypes.STRING(200),
+      allowNull: true,
     },
     description1: {
-      type: DataTypes.STRING(200),
-      allowNull: false,
+      type: DataTypes.STRING(1200),
+      allowNull: true,
     },
     description2: {
-      type: DataTypes.STRING(200),
-      allowNull: false,
+      type: DataTypes.STRING(1200),
+      allowNull: true,
     },
     description3: {
-      type: DataTypes.STRING(200),
-      allowNull: false,
+      type: DataTypes.STRING(1200),
+      allowNull: true,
     },
     description4: {
-      type: DataTypes.STRING(200),
-      allowNull: false,
+      type: DataTypes.STRING(1200),
+      allowNull: true,
+    },
+    description5: {
+      type: DataTypes.STRING(1200),
+      allowNull: true,
     },
   },{
     tableName: 'sections',

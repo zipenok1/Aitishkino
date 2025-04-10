@@ -17,7 +17,7 @@ const Authorization = observer(() => {
         try{
             let data = await login(email, password)
             console.log(data);
-            user.setUser(user)
+            // user.setUser(user)
             user.setIsAuth(true)
             history(ADMIN_ROUTE)
         } catch(e){

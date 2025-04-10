@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import {$host} from '../http/index'
 import Cover from '../component/Cover'
 import ScheduleCards from '../component/ScheduleCards'
 import QuestionsCards from '../component/QuestionsCards'
@@ -6,22 +7,23 @@ import '../styles/shiftsPage/informationPage.css'
 import PhotoType from '../component/PhotoType'
 
 function InformationPage() {
+  
+  const [date, setDate] = useState([])
+  const [supervisor, setSupervisor] = useState([])
 
-  const contentSchedule = [
-    {name: 'Регистрация', time: '8:30 - 9:00'},
-    {name: 'Заряд бодрости', time: '9:10 - 9:25'},
-    {name: 'Открытие смены', time: '9:30 - 10:00'},
-    {name: 'Занятие', time: '10:00 - 11:30'},
-    {name: 'Завтрак', time: '11:30 - 11:45'},
-    {name: 'Занятие', time: '12:00 - 13:30'},
-    {name: 'Обед', time: '13:30 - 14:00'},
-    {name: 'Занятие', time: '14:00 - 14:30'},
-    {name: 'Спорт', time: '15:30 - 16:00'},
-    {name: 'Полдник', time: '16:00 - 16:15'},
-    {name: 'Кинолекторий', time: '16:15 - 17:15'},
-    {name: 'Огонек дружбы', time: '17:15 - 18:00'},
-    {name: 'До завтра!', time: '18:00 - 19:00'},
-  ]
+  const getApp = async () => {
+    const res = await $host.get('/api/sections/6');
+    setDate(res.data);
+  };
+  const getSupervisor = async () => {
+    const res = await $host.get('/api/sections/7');
+    setSupervisor(res.data);
+  };
+
+  useEffect(() => {
+      getApp()
+      getSupervisor()
+  }, []);
   
   return (
     <div className='informationPage'>
@@ -36,12 +38,16 @@ function InformationPage() {
               <h2>Расписание</h2>
               <div className='schedule__content-container'>
                 <div className='schedule__container-left'>
-                  <h3>Айтишкино</h3>
-                  <p>Каждый день в нашем лагере — это новые знания, увлекательные проекты и яркие впечатления! Вы можете посмотреть как примерно выглядит день в нашем лагере.</p>
+                  <h3>{date[0]?.title1}</h3>
+                  <p>{date[0]?.description1}</p>
                 </div>
                 <div className="schedule__container-right">
                   <ScheduleCards
-                      content={contentSchedule}
+                      idKey = 'id_daySchedule'
+                      apiPoints={{
+                      get: "/api/daySchedule/",
+                      getOne: "/api/schedule/",
+                      }}
                   />
                 </div>
               </div>
@@ -58,14 +64,14 @@ function InformationPage() {
                   }}
                 />
                 <div className="card__soft-text back_down-right">
-                    <h3>Программа Айтишкино</h3>
-                    <p>Поможет развить у участников проекта уверенность в себе, повысить знании в области информационных технологий, приобрести новых друзей и сделать первый шаг к осознанному выбору профессии.</p>
+                    <h3>{supervisor[0]?.title2}</h3>
+                    <p>{supervisor[0]?.description2}</p>
                   </div>
               </div>
               <div className='direction__card-hard'>
                   <div className="card__hard-text back_down-left">
-                    <h3>Золотовская Маргарита</h3>
-                    <p>Начальник отдела маркетинга и социального партнерства колледжа РКСИ, магистр психологии, опыт активной работы с подростками 8 лет</p>
+                    <h3>{supervisor[0]?.title1}</h3>
+                    <p>{supervisor[0]?.description1}</p>
                   </div>
                   <PhotoType
                     apiPoints={{
