@@ -33,11 +33,11 @@ span{
     display: flex;
     align-items: center;
     gap: 20px;
-    transition: 0.4s;
+    transition: all 0.3s;
 }
-.generalBtm:hover{
-    transform: scale(1.1);
-}
+.generalBtm:hover {
+    background-color: #45a37f;
+  }
 .generalBtm a{
     color: #fff;
 }

@@ -24,7 +24,7 @@ function Newsletter() {
                     }}
                     renderItem={(el) => (
                     <div className='generalAdmin'>
-                        <p>Название: {el.email}</p>
+                        <p>Почта: {el.email}</p>
                     </div>
                     )}
                 />  

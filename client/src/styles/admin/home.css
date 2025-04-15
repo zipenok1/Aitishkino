@@ -27,3 +27,13 @@
 .table th {
     background-color: #d6d6d6;
 }
+
+.genericAdminPanelTable__box-butt {
+    display: flex;
+    gap: 5px;
+}
+
+.genericAdminPanelTable__box-butt button {
+    padding: 5px 10px;
+    font-size: 14px;
+}

@@ -1,18 +1,28 @@
 .genericAdmin{
     width: 100%;
+    max-width: 1300px;
 }
+
+.genericAdmin h2 {
+    font-size: 28px;
+}
+
 .genericAdmin__butt button{
-    margin-right: 20px;
-    padding: 15px;
+    margin-right: 15px;
+    padding: 12px 24px;
     border: none;
-    background-color: #Fff;
-    font-size: 18px;
-    border-radius: 10px;
+    background-color: rgba(130, 203, 172, 1);
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-.genericAdminTable-flex{
+
+.genericAdmin-table {
     margin-top: 20px;
-    flex-wrap: wrap;
-    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 .genericAdmin-flex{
     margin-top: 20px;
@@ -20,12 +30,16 @@
     display: flex;
     gap: 10px;
 }
+
 .genericAdminPanel__box{
     background-color: #fff;
     border-radius: 10px;
     padding: 10px 20px;
     width: 420px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    border-top: 4px solid rgba(130, 203, 172, 1);
 }
+
 .genericAdminPanelTable__box{
     display: flex;
     align-items: center;
@@ -39,18 +53,40 @@
     display: flex;
     gap: 10px;
 }
-.genericAdminPanelTable__box-butt button{
-    margin-top: 10px;
-    border-radius: 10px;
-    padding: 10px 15px;
-    font-size: 16px;
-    border: none;
-    background-color: #Fff;
-}
-.genericAdminPanel__box-butt button{
+.genericAdminPanel__box-butt button, .genericAdminPanelTable__box-butt button{
     margin-top: 10px;
     border-radius: 10px;
     padding: 10px 15px;
     font-size: 16px;
     border: none;
 }
+.genericAdminPanel__box-butt button:first-child, .genericAdminPanelTable__box-butt button:first-child {
+  background-color: rgba(130, 203, 172, 1);
+  color: #fff;
+}
+.genericAdminPanel__box-butt button:last-child, .genericAdminPanelTable__box-butt button:last-child {
+    background-color: #d3837a;
+    color: white;
+}
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+.table th {
+    background-color: rgba(130, 203, 172, 1);
+    color: #fff;
+    padding: 12px 15px;
+    text-align: left;
+} 
+.table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ecf0f1;
+    background-color: #ffffff;
+}
+.table tr:last-child td {
+    border-bottom: none;
+}
+
+
+

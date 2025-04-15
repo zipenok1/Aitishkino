@@ -29,7 +29,7 @@ const NavBar = observer(()=> {
         <div className="navbar_box-admin">
             <div className="wraper">
                 <div className="navbar-flex">
-                        <button>Панель администратора</button>
+                        <img src="/imges/logo.svg" alt="logo" />
                     <div>
                         <button onClick={test}>Выйти</button> 
                     </div>
@@ -41,7 +41,7 @@ const NavBar = observer(()=> {
             <div className="wrap">
                 <div className="navbar-flex">
                     <Link to={PUBLIC_ROUTE}>
-                        <img src="/imges/logo.svg" alt="1" />
+                        <img src="/imges/logo.svg" alt="logo" />
                     </Link>
 
                     <div class="header__burger" >

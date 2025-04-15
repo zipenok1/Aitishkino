@@ -43,6 +43,10 @@
     cursor: pointer;
     top: 0;
     right: 0;
+    transition: all 0.3s;
+}
+.newsletter__box-from input[type = "submit"]:hover {
+    background-color: #45a37f;
 }
 .newsletter__box-text{
     width: 100%;

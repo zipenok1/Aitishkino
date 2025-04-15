@@ -74,24 +74,29 @@ function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey, type}) {
       <div className="genericAdmin__butt">
         <button onClick={() => openModal(open.isModal)}>Добавить</button>
       </div>
-        {open.isModal && (
-            <ModalAdmin
-              onClose={() => setOpen({ isModal: false })}
-              onSubmit={handleSubmit}
-              inputs={inputs}
-              title="Добавить контент"
-              submitButtonText="Добавить"
-            />
-          )}
-        <div className={ type === 'table' ? "genericAdminTable-flex" : "genericAdmin-flex"}>
+      {open.isModal && (
+        <ModalAdmin
+          onClose={() => setOpen({ isModal: false })}
+          onSubmit={handleSubmit}
+          inputs={inputs}
+          title="Добавить контент"
+          submitButtonText="Добавить"
+        />
+      )}
+      {type === 'table' ? (
+        <div className="genericAdmin-table">
+          {renderItem(data, { deleteApp })}
+        </div>
+      ) : (
+        <div className="genericAdmin-flex">
           {data.map((el) => (
-            <div className={ type === 'table' ? 'genericAdminPanelTable__box' : 'genericAdminPanel__box' } key={el[idKey]}>
-            {renderItem(el)}
-            <div className={type === 'table' ? 'genericAdminPanelTable__box-butt' : 'genericAdminPanel__box-butt'}>
-              <button onClick={() => editingModal(el[idKey], editing.isModal, el)}>обновить</button>
-              <button onClick={() => deleteApp(el[idKey])}>удалить</button>
-            </div>
-            {editing.isModal && el[idKey] === editing.id && (
+            <div className='genericAdminPanel__box' key={el[idKey]}>
+              {renderItem(el)}
+              <div className='genericAdminPanel__box-butt'>
+                <button onClick={() => editingModal(el[idKey], editing.isModal, el)}>обновить</button>
+                <button onClick={() => deleteApp(el[idKey])}>удалить</button>
+              </div>
+              {editing.isModal && el[idKey] === editing.id && (
                 <ModalAdmin
                   onClose={() => setEditing({ isModal: false, id: '', initialData: null })}
                   onEdit={(data) => editingSubmit(data, el[idKey])}
@@ -101,9 +106,10 @@ function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey, type}) {
                   initialData={editing.initialData}
                 />
               )}
-          </div>
+            </div>
           ))}
-      </div>
+        </div>
+      )}
     </div>
   );
 }

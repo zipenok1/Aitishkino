@@ -42,7 +42,13 @@
     background-color: rgba(130, 203, 172, 1);
     color: #fff;
     font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s;
 }
+.question-form-button:hover {
+    background-color: #45a37f;
+}
+
 .input-height{
     height: 120px;
 }

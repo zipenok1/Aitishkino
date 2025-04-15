@@ -54,8 +54,17 @@ function OurShiftsCards({apiPoints}) {
         { name: "education", type: "text", placeholder: "Наименование образовательной организации", required: true },
         { name: "email", type: "email", placeholder: "Почта", required: true },
         { name: "phone", type: "tel", placeholder: "Номер телнфона", required: true },
-        { name: "quantity", type: "text", placeholder: "Количество", required: true },
-        { name: "id_shifts", type: "text", placeholder: "Номер смены", required: true },
+        { name: "quantity", type: "text", placeholder: "Количество мест", required: true },
+        { 
+            name: "id_shifts", 
+            type: "select", 
+            placeholder: "Выберите смену", 
+            required: true,
+            options: [
+                { value: "1", label: "Первая смена: 14 - 18 июля" },
+                { value: "2", label: "Вторая смена: 21 - 25 июля" },
+            ]
+        },
         { name: "call", type: "text", placeholder: "Время, удобное для нашего звонка", required: true },
         { name: "found", type: "text", placeholder: "Откуда Вы узнали об лагере", required: true },
         { name: "checkbox", type: "checkbox", required: true},

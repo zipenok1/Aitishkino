@@ -26,7 +26,7 @@ function Questions() {
                     renderItem={(el) => (
                     <div className='generalAdmin'>
                         <p>Название: {el.title}</p>
-                        <p>Название: {el.description}</p>
+                        <p>Описание: {el.description}</p>
                     </div>
                     )}
                 />  

@@ -82,6 +82,21 @@ function ModalAdmin({ onClose, onSubmit, onEdit, inputs, title, submitButtonText
                   />
                   <p className="checkbox__box-text">вы принимаете условия обработки персональных данных</p>
                 </div>
+              ) : field.type === "select" ? (
+                <select
+                  className="input"
+                  name={field.name}
+                  onChange={handleChange}
+                  required={field.required}
+                  value={formData[field.name] || ""}
+                >
+                  <option value="">{field.placeholder}</option>
+                  {field.options.map(option => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
               ) : (
                 <input
                   type={field.type || "text"}
