@@ -5,7 +5,7 @@ import '../styles/admin/home.css'
 
 function News() {
     const inputs = [
-        { name: "link_img", type: "file", required: true },
+        { name: "link_img", type: "file" },
         { name: "title", type: "text", placeholder: "Название", required: true },
         { name: "description", type: "textarea", placeholder: "Описнаие", maxLength: 1200, required: true },
         { name: "date", type: "date", placeholder: "Дата", required: true },

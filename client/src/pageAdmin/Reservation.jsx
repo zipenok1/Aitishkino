@@ -23,6 +23,7 @@ function Reservation() {
                 <div className="admin__contnet">
                     <MenuAdmin/>
                     <GeneralAdmin
+                        exists = 'no'
                         type='table'
                         idKey='id_reservation'
                         inputs={inputs}

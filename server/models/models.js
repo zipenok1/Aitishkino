@@ -131,7 +131,7 @@ const Events = sequelize.define('events', {
     },
     icon: {
       type: DataTypes.STRING(500),
-      allowNull: false,
+      allowNull: true,
     },
   },{
     tableName: 'events',
@@ -154,7 +154,7 @@ const Teachers = sequelize.define('teachers', {
     },
     link_img: {
       type: DataTypes.STRING(500),
-      allowNull: false,
+      allowNull: true,
     },
   },{
     tableName: 'teachers',
@@ -189,7 +189,7 @@ const Shifts = sequelize.define('shifts', {
     },
     link_img: {
       type: DataTypes.STRING(500),
-      allowNull: false,
+      allowNull: true,
     },
   },{
     tableName: 'shifts',
@@ -204,7 +204,7 @@ const Photo = sequelize.define('photo', {
     },
     link_img: {
       type: DataTypes.STRING(500),
-      allowNull: false,
+      allowNull: true,
     },
     id_type: {
       type: DataTypes.INTEGER,
@@ -257,7 +257,7 @@ const News = sequelize.define('news', {
     },
     link_img: {
       type: DataTypes.STRING(500),
-      allowNull: false,
+      allowNull: true,
     },
     date: {
       type: DataTypes.STRING(20),
@@ -284,7 +284,7 @@ const Partners = sequelize.define('partners', {
     },
     link_img: {
       type: DataTypes.STRING(500),
-      allowNull: false,
+      allowNull: true,
     },
   },{
     tableName: 'partners',

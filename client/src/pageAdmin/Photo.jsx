@@ -5,7 +5,7 @@ import '../styles/admin/home.css'
 
 function Photo() {
     const inputs = [
-        { name: "link_img", type: "file", required: true },
+        { name: "link_img", type: "file"},
         { name: "id_type", type: "text", required: true },
     ];
   return (
@@ -26,7 +26,7 @@ function Photo() {
                     renderItem={(el) => (
                     <div className='generalAdmin'>
                         <div className='generalAdmin__imges' style={{backgroundImage: `url(${process.env.REACT_APP_API_URL}/${el.link_img})`}}></div>
-                        <p>Связь: {el.id_type}</p>
+                        <p>Секция фотографии: {el.id_type}</p>
                     </div>
                     )}
                 />  

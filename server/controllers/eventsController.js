@@ -25,9 +25,12 @@ class EventsController {
     async editing(req, res, next){
         try{
             const {id} = req.params
-            const {icon} = req.files
-            let fileName = uuid.v4() + ".jpg"
-            icon.mv(path.resolve(__dirname, '..', 'static', fileName))
+            let fileName
+            if(req.files !== null){
+                const {icon} = req.files
+                fileName = uuid.v4() + ".jpg"
+                icon.mv(path.resolve(__dirname, '..', 'static', fileName))
+            }
             if(!id){
                 return next(ApiError.badRequest('такого элемента не существует'))
             }
@@ -35,10 +38,12 @@ class EventsController {
             if (!event) {
                 return next(ApiError.badRequest('такого элемента не существует'));
             }
-            await Events.update(
-                {icon: fileName},
-                {where:{id_events:id}}
-            )
+            if(req.files !== null && req.files.icon) {
+                await Events.update(
+                    {icon: fileName},
+                    {where: {id_events: id}}
+                )
+            }
             return res.json({ message: 'записть ' + id + ' обновлена'})
         } catch (e){
             next(ApiError.badRequest(e.message))

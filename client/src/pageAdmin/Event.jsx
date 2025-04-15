@@ -5,7 +5,7 @@ import '../styles/admin/home.css'
 
 function Event() {
     const inputs = [
-        { name: "icon", type: "file", required: true },
+        { name: "icon", type: "file" },
     ];
   return (
     <div className="asdasd">

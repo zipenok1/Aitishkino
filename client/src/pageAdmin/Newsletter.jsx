@@ -13,6 +13,7 @@ function Newsletter() {
             <div className="admin__contnet">
                 <MenuAdmin/>
                 <GeneralAdmin
+                    exists = 'no'
                     idKey='id_newsletter'
                     inputs = {inputs}
                     title='Рассылка'

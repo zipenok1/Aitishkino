@@ -6,7 +6,7 @@
     left: 0;
     top: 0;
 }
-.navbar-flex{
+.navbar-flex, .navbar__admin-flex{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,11 +32,13 @@
     display: flex;
     gap: 40px;
 }
-.navbar_box-admin .navbar-flex button{
-    color: black;
+.navbar_box-admin .navbar__admin-flex button{
+    background-color: #d3837a;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
     font-size: 24px;
-    font-weight: 600;
-    background: none;
+    font-weight: 500;
     border: none;
 }
 .header__burger{

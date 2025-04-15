@@ -5,7 +5,7 @@ import ModalAdmin from "./ModalAdmin";
 
 
 
-function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey, type}) {
+function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey, type, exists}) {
   const [data, setData] = useState([]);
   const [open, setOpen] = useState({ isModal: false });
   const [editing, setEditing] = useState({ id: '', isModal: false, initialData: null });
@@ -72,7 +72,7 @@ function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey, type}) {
     <div className='genericAdmin'>
       <h2>{title}</h2>
       <div className="genericAdmin__butt">
-        <button onClick={() => openModal(open.isModal)}>Добавить</button>
+        {exists === 'no' ? null : <button onClick={() => openModal(open.isModal)}>Добавить</button>}
       </div>
       {open.isModal && (
         <ModalAdmin

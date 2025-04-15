@@ -21,6 +21,7 @@ function Sections() {
             <div className="admin__contnet">
                 <MenuAdmin/>
                 <GeneralAdmin
+                    exists = 'no'
                     idKey='id_sections'
                     inputs = {inputs}
                     title='Секции'

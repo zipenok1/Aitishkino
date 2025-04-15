@@ -5,7 +5,7 @@ import '../styles/admin/home.css'
 
 function Teachers() {
     const inputs = [
-        { name: "link_img", type: "file", required: true },
+        { name: "link_img", type: "file" },
         { name: "fio", type: "text", placeholder: "Ф.И.О", required: true },
         { name: "description", type: "textarea", placeholder: "Описнаие", maxLength: 200, required: true },
     ];

@@ -14,6 +14,7 @@ function Offers() {
             <div className="admin__contnet">
                 <MenuAdmin/>
                 <GeneralAdmin
+                    exists = 'no'
                     idKey='id_offers'
                     inputs = {inputs}
                     title='Вопросы'

@@ -16,7 +16,7 @@ const NavBar = observer(()=> {
         setOpen(!open)
     }
 
-    const test = () =>{
+    const exit = () =>{
         user.setIsAuth(false)
         localStorage.removeItem('token')
         history(PUBLIC_ROUTE)
@@ -28,10 +28,10 @@ const NavBar = observer(()=> {
     { user.isAuth ?
         <div className="navbar_box-admin">
             <div className="wraper">
-                <div className="navbar-flex">
+                <div className="navbar__admin-flex">
                         <img src="/imges/logo.svg" alt="logo" />
                     <div>
-                        <button onClick={test}>Выйти</button> 
+                        <button onClick={exit}>Выйти</button> 
                     </div>
                 </div>   
             </div>          

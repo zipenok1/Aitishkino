@@ -43,7 +43,7 @@ function ModalAdmin({ onClose, onSubmit, onEdit, inputs, title, submitButtonText
             <div key={field.name} className="modalAdmin__form-box">
               {field.type === "textarea" ? (
                 <textarea
-                  className={field.className || "descript"}
+                  className="descript"
                   name={field.name}
                   placeholder={field.placeholder}
                   required={field.required}
@@ -84,7 +84,7 @@ function ModalAdmin({ onClose, onSubmit, onEdit, inputs, title, submitButtonText
                 </div>
               ) : field.type === "select" ? (
                 <select
-                  className="input"
+                  className="select"
                   name={field.name}
                   onChange={handleChange}
                   required={field.required}

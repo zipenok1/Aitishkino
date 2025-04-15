@@ -22,7 +22,7 @@ function MenuAdmin() {
           <p className="section-title">Коммуникация</p>
           <div className="menu-items">
             <Link to={RESERVATION_ROUTE} className="menu-link">
-             Бронирования
+              Бронирование
             </Link>
 
             <Link to={OFFERS_ROUTE} className="menu-link">
@@ -47,7 +47,7 @@ function MenuAdmin() {
             </Link>
 
             <Link to={SECTIONS_ROUTE} className="menu-link">
-                Общие секции
+              Общие секции
             </Link>
 
             <Link to={PARTNERS_ROUTE} className="menu-link">
@@ -61,7 +61,7 @@ function MenuAdmin() {
             <Link to={REVIEWS_ROUTE} className="menu-link">
               Отзывы
             </Link>
-
+            
             <Link to={NEWS_ROUTE} className="menu-link">
               Новости
             </Link>
@@ -76,15 +76,15 @@ function MenuAdmin() {
             </Link>
 
             <Link to={PROGRAM_ROUTE} className="menu-link">
-             Программы
+              Программы
             </Link>
 
             <Link to={QUESTIONSE_ROUTE} className="menu-link">
-             Частые вопросы
+              Частые вопросы
             </Link>
 
             <Link to={EVENT_ROUTE} className="menu-link">
-             Секция карточек
+              Секция карточек
             </Link>
           </div>
         </div>
@@ -92,12 +92,12 @@ function MenuAdmin() {
         <div className="menu-section">
           <p className="section-title">Расписание</p>
           <div className="menu-items">
-            <Link to={SCHEDULE_ROUTE} className="menu-link">
-             Расписание
+            <Link to={DAYSCHEDULE_ROUTE} className="menu-link">
+              Дни недели
             </Link>
 
-            <Link to={DAYSCHEDULE_ROUTE} className="menu-link">
-             Дни недели
+            <Link to={SCHEDULE_ROUTE} className="menu-link">
+              Расписание
             </Link>
           </div>
         </div>
