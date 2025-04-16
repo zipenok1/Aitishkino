@@ -13,9 +13,12 @@ class PartnersController {
     async editing(req, res, next){
         try{
             const {id} = req.params
-            const {link_img} = req.files
-                let fileName = uuid.v4() + ".jpg"
-                    link_img.mv(path.resolve(__dirname, '..', 'static', fileName))
+            let fileName
+            if(req.files !== null){
+                const {link_img} = req.files
+                fileName = uuid.v4() + ".jpg"
+                link_img.mv(path.resolve(__dirname, '..', 'static', fileName))
+            }
             if(!id){
                 return next(ApiError.badRequest('такого элемента не существует'))
             }
@@ -23,10 +26,12 @@ class PartnersController {
             if (!event) {
                 return next(ApiError.badRequest('такого элемента не существует'));
             }
-            await Partners.update(
-                {link_img: fileName},
-                {where:{id_partners:id}}
-            )
+            if(req.files !== null && req.files.icon) {
+                await Partners.update(
+                    {link_img: fileName},
+                    {where:{id_partners:id}}
+                )
+            }
             return res.json({ message: 'записть ' + id + ' обновлена'})
         } catch (e){
             next(ApiError.badRequest(e.message))

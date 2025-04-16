@@ -5,7 +5,7 @@ import '../styles/admin/home.css'
 
 function Partners() {
     const inputs = [
-        { name: "link_img", type: "file", required: true },
+        { name: "link_img", type: "file" },
     ];
   return (
     <div className="asdasd">

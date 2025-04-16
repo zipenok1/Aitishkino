@@ -63,6 +63,7 @@ function OurShiftsCards({apiPoints}) {
             options: [
                 { value: "1", label: "Первая смена: 14 - 18 июля" },
                 { value: "2", label: "Вторая смена: 21 - 25 июля" },
+                { value: "3", label: "Третья смена: 28 июля - 1 августа" },
             ]
         },
         { name: "call", type: "text", placeholder: "Время, удобное для нашего звонка", required: true },
