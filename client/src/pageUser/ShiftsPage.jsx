@@ -23,6 +23,7 @@ function ShiftsPage() {
           <div className='ourShifts__cards'>
               <OurShiftsCards
                 apiPoints={{
+                  getAll:'/api/shifts/',
                   getOne: "/api/shifts/1",
                   getTwo: "/api/shifts/2",
                   getThree: "/api/shifts/3",
@@ -47,7 +48,7 @@ function ShiftsPage() {
       </div>
       <div className="review">
         <div className="review__content wrap">
-              <h2>Что говорять клиенты</h2>
+              <h2>Отзывы</h2>
               <div className='review__content-cards'>
               <ReviewCards
                   apiPoints={{
