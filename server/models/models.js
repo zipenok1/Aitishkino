@@ -133,6 +133,10 @@ const Events = sequelize.define('events', {
       type: DataTypes.STRING(500),
       allowNull: true,
     },
+    name: {
+      type: DataTypes.STRING(150),
+      allowNull: false,
+    },
   },{
     tableName: 'events',
     timestamps: false,
@@ -172,7 +176,7 @@ const Shifts = sequelize.define('shifts', {
       allowNull: false,
     },
     date: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.STRING(50),
       allowNull: false,
     },
     description: {
@@ -258,10 +262,6 @@ const News = sequelize.define('news', {
     link_img: {
       type: DataTypes.STRING(500),
       allowNull: true,
-    },
-    date: {
-      type: DataTypes.STRING(20),
-      allowNull: false,
     },
     title: {
       type: DataTypes.STRING(50),

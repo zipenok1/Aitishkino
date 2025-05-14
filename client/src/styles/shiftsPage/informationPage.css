@@ -54,7 +54,13 @@ hr{
 .schedule__container-left p{
     padding-top: 18px;
 }
-.scheduleCards {
+.scheduleCards__navigation{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.scheduleCards__content{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -136,8 +142,20 @@ hr{
     border-radius: 10px;
 }
 @media (max-width:1676px){
-    .scheduleCards div{
+    .scheduleCards__content div{
         width: 269px;
+    }
+}
+@media (max-width:1605px){
+    .scheduleCards-title{
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .scheduleCards__navigation{
+        flex-wrap: wrap;
+    }
+    .scheduleCards__navigation div{
+        min-width: 193px;
     }
 }
 @media (max-width:620px) {

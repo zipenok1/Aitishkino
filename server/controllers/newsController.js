@@ -23,13 +23,13 @@ class NewsController {
     }
     async addition(req, res, next){
         try{
-            const { title, date, description} = req.body
+            const {title, description} = req.body
 
             const {link_img} = req.files
                 let fileName = uuid.v4() + ".jpg"
                 link_img.mv(path.resolve(__dirname, '..', 'static', fileName))
 
-            const event = await News.create({title, date, description, link_img:fileName})
+            const event = await News.create({title, description, link_img:fileName})
             return res.json(event)
         } catch (e){
             next(ApiError.badRequest(e.message))
@@ -38,7 +38,7 @@ class NewsController {
     async editing(req, res, next){
         try{
             const {id} = req.params
-            const {title, date, description}= req.body
+            const {title, description}= req.body
             let fileName
             if(req.files !== null){
                 const {link_img} = req.files
@@ -54,12 +54,12 @@ class NewsController {
             }
             if(req.files === null){
                 await News.update(
-                    {title:title, date:date, description:description},
+                    {title:title, description:description},
                     {where:{id_news: id}}
                 )
             }else{
                 await News.update(
-                    {title:title, date:date, description:description, link_img:fileName},
+                    {title:title, description:description, link_img:fileName},
                     {where:{id_news: id}}
                 )
             }

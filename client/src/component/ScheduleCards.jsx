@@ -23,17 +23,22 @@ function ScheduleCards({apiPoints, idKey}) {
 
   return (
     <div className='scheduleCards'>
-      {date.map((el)=>(
-          <div className='scheduleDay__box' onClick={() => getSchedule(el.id_daySchedule)}>
-            <p className='scheduleCards-title'>{el.name}</p>
+      <div className='scheduleCards__navigation'>
+        {date.map((el)=>(
+            <div className='scheduleDay__box' onClick={() => getSchedule(el.id_daySchedule)}>
+              <p className='scheduleCards-title'>{el.name}</p>
+            </div>
+        ))}
+      </div>
+      <div className='scheduleCards__content'>
+        {schedule.map((el)=>(
+          <div className='schedule__box'>
+            <p className='scheduleCards-title'>{el.schedule}</p>
+            <p className='scheduleCards-desc'>{el.time}</p>
           </div>
-      ))}
-      {schedule.map((el)=>(
-        <div className='schedule__box'>
-          <p className='scheduleCards-title'>{el.schedule}</p>
-          <p className='scheduleCards-desc'>{el.time}</p>
-        </div>
-      ))}
+        ))}
+      </div>
+      
     </div>
   )
 }

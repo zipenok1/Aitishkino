@@ -17,8 +17,9 @@ function NewsPageCards({apiPoints}) {
   return (
     <div className='newsPageCards'>
         {date.map((el)=>(
-            <div key={el.id_events}>
+            <div className='newsPageCards__content' key={el.id_events}>
                 <div className='newsPageCards__icon' style={{ backgroundImage: `url(${process.env.REACT_APP_API_URL}/${el.icon})` }}></div>
+                <p>{el.name}</p>
             </div>
         ))}
     </div>

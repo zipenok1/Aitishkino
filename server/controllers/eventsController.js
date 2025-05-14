@@ -12,10 +12,10 @@ class EventsController {
 
     async addition(req, res, next){
         try{
-            const {icon} = req.files
+            const {icon, name} = req.files
             let fileName = uuid.v4() + ".jpg"
             icon.mv(path.resolve(__dirname, '..', 'static', fileName))
-            const events = await Events.create({icon: fileName})
+            const events = await Events.create({icon: fileName, name})
             return res.json(events)
         } catch (e){
             next(ApiError.badRequest(e.message))
@@ -25,6 +25,7 @@ class EventsController {
     async editing(req, res, next){
         try{
             const {id} = req.params
+            const {name} = req.body
             let fileName
             if(req.files !== null){
                 const {icon} = req.files
@@ -38,10 +39,15 @@ class EventsController {
             if (!event) {
                 return next(ApiError.badRequest('такого элемента не существует'));
             }
-            if(req.files !== null && req.files.icon) {
+            if(req.files === null) {
                 await Events.update(
-                    {icon: fileName},
+                    {name: name},
                     {where: {id_events: id}}
+                )
+            }else{
+                await Events.update(
+                    {icon: fileName, name: name},
+                    {where:{id_events: id}}
                 )
             }
             return res.json({ message: 'записть ' + id + ' обновлена'})

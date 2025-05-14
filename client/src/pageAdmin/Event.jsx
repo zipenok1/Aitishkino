@@ -6,6 +6,7 @@ import '../styles/admin/home.css'
 function Event() {
     const inputs = [
         { name: "icon", type: "file" },
+        { name: "name", type: "text", placeholder: "Название", required: true },
     ];
   return (
     <div className="asdasd">

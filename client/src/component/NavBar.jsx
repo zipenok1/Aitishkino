@@ -61,7 +61,7 @@ const NavBar = observer(()=> {
                                 <button>Информация</button>
                             </Link>
                             <Link to={NEWSPAGE_ROUTE}>
-                                <button>Новости</button>
+                                <button>Мероприятия</button>
                             </Link>
                         </div> 
                         : 
@@ -78,7 +78,7 @@ const NavBar = observer(()=> {
                             <button>Информация</button>
                         </Link>
                         <Link to={NEWSPAGE_ROUTE}>
-                            <button>Новости</button>
+                            <button>Мероприятия</button>
                         </Link>
                     </div>                    
                 </div>  
