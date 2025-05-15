@@ -25,7 +25,8 @@ function Event() {
                     }}
                     renderItem={(el) => (
                     <div className='generalAdmin'>
-                        <div className='generalAdmin__imges' style={{backgroundImage:`url(${process.env.REACT_APP_API_URL}/${el.icon})`}}></div>
+                        <div className='generalAdmin__imges-event' style={{backgroundImage:`url(${process.env.REACT_APP_API_URL}/${el.icon})`}}></div>
+                        <p>{el.name}</p>
                     </div>
                     )}
                 />  

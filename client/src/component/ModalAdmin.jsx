@@ -11,8 +11,26 @@ function ModalAdmin({ onClose, onSubmit, onEdit, inputs, title, submitButtonText
     }
   }, [initialData])
 
+  const handlePhoneChange = (e) => {
+    const { name, value } = e.target;
+    let cleanedValue = value.replace(/\D/g, '');
+    
+    let formattedValue = '';
+    if (cleanedValue.length > 0) {
+      formattedValue = `+7 (${cleanedValue.substring(1, 4)}) ${cleanedValue.substring(4, 7)}-${cleanedValue.substring(7, 9)}-${cleanedValue.substring(9, 11)}`;
+    }
+    setFormData(prev => ({
+      ...prev,
+      [name]: formattedValue
+    }));
+  };
+
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
+    const { name, value, files, type } = e.target;
+    if (type === 'tel'){
+      handlePhoneChange(e);
+      return;
+    }
     if (files) {
       setFormData({ ...formData, [name]: files[0] })
     } else {

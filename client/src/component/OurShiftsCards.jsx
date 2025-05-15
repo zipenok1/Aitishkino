@@ -68,7 +68,7 @@ function OurShiftsCards({apiPoints}) {
         { name: "age", type: "text", placeholder: "Возраст ребенка", required: true },
         { name: "education", type: "text", placeholder: "Место учёбы ребёнка", required: true },
         { name: "email", type: "email", placeholder: "Почта", required: true },
-        { name: "phone", type: "tel", placeholder: "Номер телнфона", required: true },
+        { name: "phone", type: "tel", placeholder: "Номер телефона", required: true },
         { name: "quantity", type: "text", placeholder: "Количество мест", required: true },
         { 
             name: "id_shifts", 

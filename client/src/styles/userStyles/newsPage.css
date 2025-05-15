@@ -34,9 +34,6 @@
 .newsPageCards__content{
     text-align: center;
 }
-.newsPageCards__content p{
-    padding-top: 5px;
-}
 .newsPageCards__icon{
     width: 195px;
     height: 160px;
@@ -50,8 +47,8 @@
     margin-bottom: 27px;
 }
 .newsPageCards div p:nth-child(2){
-    font-size: 14px;
     color: rgb(61, 61, 61);
+    padding-top: 5px;
 }
 .newsPageCards div p:nth-child(3){
     font-size: 14px;
