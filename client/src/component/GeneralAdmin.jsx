@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { $authHost, $host } from '../http/index';
+import { $authHost } from '../http/index';
 import '../styles/admin/generalAdmin.css'
 import ModalAdmin from "./ModalAdmin";
 
 
+function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey, division, type, exists}) {
 
-function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey, type, exists}) {
   const [data, setData] = useState([]);
   const [open, setOpen] = useState({ isModal: false });
   const [editing, setEditing] = useState({ id: '', isModal: false, initialData: null });
@@ -67,7 +67,7 @@ function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey, type, exists
   useEffect(() => {
     getApp()
   }, [])
-  
+
   return (
     <div className='genericAdmin'>
       <h2>{title}</h2>
@@ -88,6 +88,7 @@ function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey, type, exists
           {renderItem(data, { deleteApp })}
         </div>
       ) : (
+        <>
         <div className="genericAdmin-flex">
           {data.map((el) => (
             <div className='genericAdminPanel__box' key={el[idKey]}>
@@ -109,6 +110,7 @@ function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey, type, exists
             </div>
           ))}
         </div>
+        </>
       )}
     </div>
   );

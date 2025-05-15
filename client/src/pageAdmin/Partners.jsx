@@ -24,7 +24,7 @@ function Partners() {
                     }}
                     renderItem={(el) => (
                     <div className='generalAdmin'>
-                        <div className='generalAdmin__imges' style={{backgroundImage: `url(${process.env.REACT_APP_API_URL}/${el.link_img})`}}></div>
+                        <div className='generalAdmin__imges-part' style={{backgroundImage: `url(${process.env.REACT_APP_API_URL}/${el.link_img})`}}></div>
                     </div>
                     )}
                 />  
