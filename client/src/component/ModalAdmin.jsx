@@ -11,7 +11,7 @@ function ModalAdmin({ onClose, onSubmit, onEdit, inputs, title, submitButtonText
     }
   }, [initialData])
 
-  const handlePhoneChange = (e) => {
+  const PhoneMask = (e) => {
     const { name, value } = e.target;
     let cleanedValue = value.replace(/\D/g, '');
     
@@ -28,7 +28,7 @@ function ModalAdmin({ onClose, onSubmit, onEdit, inputs, title, submitButtonText
   const handleChange = (e) => {
     const { name, value, files, type } = e.target;
     if (type === 'tel'){
-      handlePhoneChange(e);
+      PhoneMask(e);
       return;
     }
     if (files) {

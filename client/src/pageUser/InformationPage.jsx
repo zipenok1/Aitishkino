@@ -25,6 +25,8 @@ function InformationPage() {
       getSupervisor()
   }, []);
   
+  
+
   return (
     <div className='informationPage'>
         <Cover
@@ -98,13 +100,14 @@ function InformationPage() {
           <div className="whereAre__content wrap">
             <h2>Где мы</h2>
               <div className='whereAre-map'>
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2710.4237396605135!2d39.64125097699666!3d47.208290571155985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40e3bf2c0fed8bb1%3A0x8d5963d5a3e82115!2z0L_RgC3Rgi4g0JrQvtC80LzRg9C90LjRgdGC0LjRh9C10YHQutC40LksIDExLCDQoNC-0YHRgtC-0LIt0L3QsC3QlNC-0L3Rgywg0KDQvtGB0YLQvtCy0YHQutCw0Y8g0L7QsdC7LiwgMzQ0MDU4!5e0!3m2!1sru!2sru!4v1742694287753!5m2!1sru!2sru" 
-                    width="100%" 
-                    height="700"
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade"
-                  />
+                <iframe 
+                  src="https://yandex.ru/map-widget/v1/org/tsentr_operezhayushchey_professionalnoy_podgotovki/244391124448/?ll=39.645733%2C47.207567&source=serp_navig&z=18" 
+                  width="100%" 
+                  height="700" 
+                  allowFullScreen="true" 
+                  title="Yandex Map of Kommunisticheskiy Prospekt 11/2"
+                />
+                <img src="imges/mapPreview.jpg" alt="mapPreview"/>
               </div>
           </div>
         </div>
@@ -113,3 +116,4 @@ function InformationPage() {
 }
 
 export default InformationPage
+

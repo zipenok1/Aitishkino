@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Context } from "..";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { PUBLIC_ROUTE, SHIFTSPAGE_ROUTE, INFORMATION_ROUTE, NEWSPAGE_ROUTE } from "../utils/const";
 import {observer} from 'mobx-react-lite'
@@ -22,6 +22,12 @@ const NavBar = observer(()=> {
         history(PUBLIC_ROUTE)
     }
     const history = useNavigate()
+
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
 
   return (
     <div className="NavBar">
