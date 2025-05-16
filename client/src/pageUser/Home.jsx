@@ -36,11 +36,13 @@ function Home() {
       <div className='banner'>
       <div className="banner__content wrap">
         <h1><span>Каникулы с пользой!</span><br/>Мини-лагерь юных программистов <span>8+</span></h1>
-        <p>Программа Айтишкино поможет развить у участников проекта уверенность в себе, повысить знании в области информационных технологий, приобрести новых друзей и сделать первый шаг к осознанному выбору профессии</p>
+        <p>Программа Айтишкино поможет развить у участников проекта уверенность в себе, повысить знания в области информационных технологий, приобрести новых друзей и сделать первый шаг к осознанному выбору профессии</p>
         <Link to={SHIFTSPAGE_ROUTE}>
-          <button className='generalBtm'>Оформить бронь <img src="imges/buttonBanner.svg" alt="buttonBanner"/></button>
+          <button className='generalBtm'>
+            Оформить бронь <img src="imges/buttonBanner.svg" alt="buttonBanner"/>
+          </button>
         </Link>
-        </div>
+      </div>
       </div>
       <div className='mainCamp'>
         <div className="mainCamp__content wrap">

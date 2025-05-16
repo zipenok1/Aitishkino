@@ -89,7 +89,7 @@
 .reviewCards__content{
     border-radius: 10px;
     background-color: #fff;
-    min-height: 200px;
+    min-height: 284px;
     padding: 30px;
 }
 .reviewCards__content p{
@@ -131,9 +131,6 @@
 @media(max-width:1496px){
     .ourShiftsCards-date{
         padding: 2% 0;
-    }
-    .ourShiftsCards__contener-bott{
-        margin-top: 4%;
     }
     .ourShiftsCards-desc {
         font-size: 16px;
@@ -204,5 +201,13 @@
     .menuSlider button{
         font-size: 16px;
         padding: 4px ;
+    }
+}
+@media(max-width:386px){
+    .ourShiftsCards__content{
+        text-align: center;
+    }
+    .ourShiftsCards__contener-bott{
+        justify-content: center;
     }
 }

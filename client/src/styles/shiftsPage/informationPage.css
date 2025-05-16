@@ -1,7 +1,7 @@
 .cover{
    height: 962px;
-   background-repeat: no-repeat;
    background-position: center;
+   background-repeat: no-repeat;
 }
 .cover__content{
     display: flex;

@@ -17,7 +17,7 @@ function News() {
                 <GeneralAdmin
                     idKey='id_news'
                     inputs = {inputs}
-                    title='Новости'
+                    title='Активность'
                     apiPoints={{
                     get: "/api/news/",
                     add: "/api/news/",

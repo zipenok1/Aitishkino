@@ -63,7 +63,7 @@ function MenuAdmin() {
             </Link>
             
             <Link to={NEWS_ROUTE} className="menu-link">
-              Новости
+              Активность
             </Link>
           </div>
         </div>
@@ -76,7 +76,7 @@ function MenuAdmin() {
             </Link>
 
             <Link to={PROGRAM_ROUTE} className="menu-link">
-              Программы
+              Программа
             </Link>
 
             <Link to={QUESTIONSE_ROUTE} className="menu-link">

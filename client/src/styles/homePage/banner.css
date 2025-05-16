@@ -22,6 +22,9 @@ span{
     color: #fff;
     width: 50%;
 }
+.banner__content a{
+    max-width: 305.16px;
+}
 .generalBtm{
     color: #fff;
     margin-top: 28px;
