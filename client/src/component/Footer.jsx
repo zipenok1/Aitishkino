@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { LOGIN_ROUTE, PUBLIC_ROUTE,SHIFTSPAGE_ROUTE, INFORMATION_ROUTE, NEWSPAGE_ROUTE } from "../utils/const";
+import { PUBLIC_ROUTE, SHIFTSPAGE_ROUTE, INFORMATION_ROUTE, NEWSPAGE_ROUTE } from "../utils/const";
 import {observer} from 'mobx-react-lite'
 import { Context } from "..";
 import '../styles/component/footer.css'
@@ -24,9 +24,6 @@ const Footer = observer(() => {
                         <h3>Страницы</h3>
                         <nav>
                             <ul>
-                                <Link to={LOGIN_ROUTE}>
-                                    Авторизация
-                                </Link>
                                 <Link to={PUBLIC_ROUTE}>
                                     Главная
                                 </Link> 

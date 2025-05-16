@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar/>
+      {pathname == LOGIN_ROUTE ? null : <NavBar/>}
       <AppRouter/>
       {pathname == LOGIN_ROUTE ? null : <Footer/>}
       

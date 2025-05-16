@@ -12,8 +12,7 @@ function NewsPageCards({apiPoints}) {
     useEffect(() => {
         getApp();
       }, []);
-      console.log(date);
-
+      
   return (
     <div className='newsPageCards'>
         {date.map((el)=>(

@@ -13,11 +13,8 @@ const Authorization = observer(() => {
     const history = useNavigate()
 
     const signIn = async () =>{
-        console.log(process.env.REACT_APP_API_URL);
         try{
             let data = await login(email, password)
-            console.log(data);
-            // user.setUser(user)
             user.setIsAuth(true)
             history(ADMIN_ROUTE)
         } catch(e){
@@ -28,6 +25,7 @@ const Authorization = observer(() => {
   return (
     <div className="Authorization wrap" >
         <div className="authorization__box">
+            <h3>Авторизация</h3>
             <input 
                     className="text"
                     type="text"
@@ -52,7 +50,7 @@ const Authorization = observer(() => {
                     className="btm"
                     onClick={signIn}
                 >
-                    Авторизоваться
+                    Войти
                 </button>  
         </div>         
     </div>

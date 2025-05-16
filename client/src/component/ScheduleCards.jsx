@@ -13,7 +13,6 @@ function ScheduleCards({apiPoints, idKey}) {
     const getSchedule = async (id) =>{
       const one = await $host.get(`${apiPoints.getOne}/${id}`);
       setSchedule(one.data)
-      console.log(id);
     }
     
     useEffect(() => {

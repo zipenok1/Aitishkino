@@ -46,7 +46,6 @@ function ModalAdmin({ onClose, onSubmit, onEdit, inputs, title, submitButtonText
       onSubmit(formData)
     }
   }
-  console.log(handleSubmit);
 
   return (
     <div className="modalAdmin">
