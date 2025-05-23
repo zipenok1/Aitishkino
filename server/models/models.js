@@ -286,6 +286,14 @@ const Partners = sequelize.define('partners', {
       type: DataTypes.STRING(500),
       allowNull: true,
     },
+    name: {
+      type: DataTypes.STRING(50),
+      allowNull: false,
+    },
+    link_partners: {
+      type: DataTypes.STRING(500),
+      allowNull: false,
+    },
   },{
     tableName: 'partners',
     timestamps: false,

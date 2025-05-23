@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import {$host} from '../http/index'
 import '../styles/homePage/teachers.css'
 
 function TeachersCards({apiPoints}) {
 
     const [date, setDate] = useState([])
+    
     const getApp = async () => {
         const res = await $host.get(apiPoints.get);
         setDate(res.data);

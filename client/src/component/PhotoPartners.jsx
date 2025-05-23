@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import {$host} from '../http/index'
 
-function PhotoType({apiPoints}) {
-    
+
+function PhotoPartners({apiPoints}) {
+
     const [date, setDate] = useState([])
     const getApp = async () => {
         const res = await $host.get(apiPoints.get);
@@ -14,12 +15,15 @@ function PhotoType({apiPoints}) {
       }, []);
  
   return (
-    <div>
+    <div className='partners__box'>
         {date.map((el)=>(
-             <img key={el.id_photo} src={process.env.REACT_APP_API_URL + `/` + el.link_img}/>     
+            <div className='partners__box-cards'>
+                <img key={el.id_photo} src={process.env.REACT_APP_API_URL + `/` + el.link_img}/>  
+                <p>{el.name}</p>
+            </div>
+                
         ))}
     </div>
   )
 }
-
-export default PhotoType
+export default PhotoPartners

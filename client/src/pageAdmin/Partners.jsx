@@ -6,6 +6,8 @@ import '../styles/admin/home.css'
 function Partners() {
     const inputs = [
         { name: "link_img", type: "file" },
+        { name: "name", type: "text", placeholder: "Название", required: true },
+        { name: "link_partners", type: "text", placeholder: "Ссылка", required: true },
     ];
   return (
     <div className="asdasd">
@@ -25,6 +27,8 @@ function Partners() {
                     renderItem={(el) => (
                     <div className='generalAdmin'>
                         <div className='generalAdmin__imges-part' style={{backgroundImage: `url(${process.env.REACT_APP_API_URL}/${el.link_img})`}}></div>
+                        <p>Название: {el.name}</p>
+                        <p>Ссылка: {el.link_partners}</p>
                     </div>
                     )}
                 />  

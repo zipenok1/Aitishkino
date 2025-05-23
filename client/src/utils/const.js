@@ -27,3 +27,4 @@ export const NEWSLETTER_ROUTE = '/newsletter'
 export const EVENT_ROUTE = '/event'
 export const NEWS_ROUTE = '/news'
 
+export const POLITICS_ROUTER = '/politics'

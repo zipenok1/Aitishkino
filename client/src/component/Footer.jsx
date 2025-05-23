@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { PUBLIC_ROUTE, SHIFTSPAGE_ROUTE, INFORMATION_ROUTE, NEWSPAGE_ROUTE } from "../utils/const";
+import { PUBLIC_ROUTE, SHIFTSPAGE_ROUTE, INFORMATION_ROUTE, NEWSPAGE_ROUTE, POLITICS_ROUTER } from "../utils/const";
 import {observer} from 'mobx-react-lite'
 import { Context } from "..";
 import '../styles/component/footer.css'
@@ -8,7 +8,7 @@ import '../styles/component/footer.css'
 
 const Footer = observer(() => {
 
-    const {user} = useContext(Context)
+const {user} = useContext(Context)
 
   return (
     <div className='footer'>
@@ -28,13 +28,13 @@ const Footer = observer(() => {
                                     Главная
                                 </Link> 
                                 <Link to={SHIFTSPAGE_ROUTE}>
-                                    программа смен
+                                    Программа смен
                                 </Link>
                                 <Link to={INFORMATION_ROUTE}>
-                                    информация
+                                    Информация
                                 </Link>
                                 <Link to={NEWSPAGE_ROUTE}>
-                                    Новости
+                                    Мероприятия
                                 </Link>
                             </ul>
                         </nav>
@@ -42,8 +42,7 @@ const Footer = observer(() => {
                     <div className="footer__content-documents">
                         <h3>Документы</h3>
                         <ul>
-                            <li>Политика конфиденциальности </li>
-                            <li>Согласие на обработку персональных данных</li>
+                            <li><Link to={POLITICS_ROUTER}>Политика обработки персональных данных</Link></li>
                         </ul>
                     </div>
                 </div>

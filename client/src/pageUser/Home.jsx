@@ -14,6 +14,7 @@ import '../styles/homePage/direction.css'
 import '../styles/homePage/gallery.css'
 import '../styles/homePage/teachers.css'
 import '../styles/homePage/question.css'
+import PhotoPartners from '../component/PhotoPartners';
 
 function Home() {
 
@@ -36,7 +37,7 @@ function Home() {
       <div className='banner'>
       <div className="banner__content wrap">
         <h1><span>Каникулы с пользой!</span><br/>Мини-лагерь юных программистов <span>8+</span></h1>
-        <p>Программа Айтишкино поможет развить у участников проекта уверенность в себе, повысить знания в области информационных технологий, приобрести новых друзей и сделать первый шаг к осознанному выбору профессии</p>
+        <p>Программа Айтишкино поможет <span>развить</span> у участников проекта <span>уверенность</span> в себе, повысить <span>знания</span> в области информационных технологий, приобрести новых друзей и сделать первый шаг к <span>осознанному</span> выбору профессии</p>
         <Link to={SHIFTSPAGE_ROUTE}>
           <button className='generalBtm'>
             Оформить бронь <img src="imges/buttonBanner.svg" alt="buttonBanner"/>
@@ -68,7 +69,7 @@ function Home() {
         <Newsletter/>   
             <h2>Наши партнеры</h2>
                 <div className='partners__content-card'>
-                <PhotoType
+                <PhotoPartners
                   apiPoints={{
                     get: "/api/partners",
                   }}
@@ -121,7 +122,7 @@ function Home() {
               />
               <button className='generalBtm'>
                 <a href="https://vk.com/albums-227013121">Больше фото на</a>
-                <img src="imges/icon/vk.png" alt="vk" />
+                <img src="imges/icon/vk.svg" alt="vk" />
               </button>
             </div>
         </div>

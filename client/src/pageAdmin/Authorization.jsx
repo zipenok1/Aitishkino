@@ -30,7 +30,7 @@ const Authorization = observer(() => {
                     className="text"
                     type="text"
                     name="email"
-                    placeholder="Введите почту"
+                    placeholder="Введите логин"
                     value={email}
                     autoComplete="off"
                     onChange={(e)=>setEmail(e.target.value)}

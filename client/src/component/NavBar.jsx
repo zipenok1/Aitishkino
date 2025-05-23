@@ -1,12 +1,12 @@
-import React, { useContext, useState, useEffect } from "react";
-import { Context } from "..";
-import { Link, useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { PUBLIC_ROUTE, SHIFTSPAGE_ROUTE, INFORMATION_ROUTE, NEWSPAGE_ROUTE } from "../utils/const";
+import React, {useContext, useState, useEffect} from "react";
+import {Context} from "..";
+import {Link, useLocation} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import {PUBLIC_ROUTE, SHIFTSPAGE_ROUTE, INFORMATION_ROUTE, NEWSPAGE_ROUTE} from "../utils/const";
 import {observer} from 'mobx-react-lite'
 import '../styles/navbar/navbar.css'
 
-const NavBar = observer(()=> {
+const NavBar = observer(()=> { 
 
     const {user} = useContext(Context)
 
@@ -43,7 +43,9 @@ const NavBar = observer(()=> {
             </div>          
         </div> 
         :
-        <div className="navbar_box-user">
+        <div className={pathname.includes("/politics")
+            ? "navbar_box-politics"
+            : "navbar_box-user"}>
             <div className="wrap">
                 <div className="navbar-flex">
                     <Link to={PUBLIC_ROUTE}>

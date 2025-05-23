@@ -52,6 +52,7 @@ function Newsletter() {
             <p>Нажимая на кнопку "Подписаться" вы соглашаетесь <br /> с политикой конфиденциальности</p>
           </div>
         </div>
+        <img className="newsletter__content-icon" src="imges/icon/newsletterIcon.svg" alt="newsletterIcon" />
       </div>
     </div>
   );
