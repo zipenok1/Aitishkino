@@ -58,7 +58,7 @@
     transition: all 0.3s;
 }
 .newsletter__box-from input[type = "submit"]:hover {
-    background-color: #45a37f;
+    background-color: rgb(76, 221, 120);
 }
 .newsletter__box-text{
     max-width:440px;

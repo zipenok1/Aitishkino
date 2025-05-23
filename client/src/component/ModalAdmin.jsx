@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { POLITICS_ROUTER } from "../utils/const";
 import '../styles/admin/modalAdmin.css'
 
 function ModalAdmin({ onClose, onSubmit, onEdit, inputs, title, submitButtonText, initialData }) {
@@ -89,15 +91,30 @@ function ModalAdmin({ onClose, onSubmit, onEdit, inputs, title, submitButtonText
                 />
               ) : field.type === "checkbox" ? (
                 <div className="checkbox__box">
-                  <input
-                    className="chek"
-                    type="checkbox"
-                    name={field.name}
-                    onChange={() => { setChecked(!checked) }}
-                    required={field.required}
-                    checked={checked}
-                  />
-                  <p className="checkbox__box-text">вы принимаете условия обработки персональных данных</p>
+                  <div>
+                    <input
+                      className="chek"
+                      type="checkbox"
+                      name={field.name}
+                      onChange={() => { setChecked(!checked) }}
+                      required={field.required}
+                      checked={checked}
+                    />
+                    <Link 
+                      className="checkbox__box-text"
+                      to={POLITICS_ROUTER}
+                    >
+                      Даю согласие на обработку персональных данных
+                    </Link>
+                  </div>
+                  <Link 
+                    className="checkbox__box-text"
+                    to={POLITICS_ROUTER}
+                  >
+                    Нажимая на кнопку "Заказать", я подтверждаю, что ознакомился с 
+                    Политикой обработки персональных данных и даю согласие 
+                    на обработку всех моих персональных данных указанных в форме
+                  </Link>
                 </div>
               ) : field.type === "select" ? (
                 <select

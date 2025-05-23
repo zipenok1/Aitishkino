@@ -6,43 +6,37 @@
     color: black;
 }
 .partners__box{
-    display: flex;
-    justify-content: space-between;
     text-align: center;
 }
 .partners__box-cards{
+    cursor: pointer;
     background-color: #fff;
-    width: 300px;
+    width: 100%;
+    height: 192px;
     padding: 32px;
     border-radius: 10px;
-    transition: 0.4s;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
+.partners__box-cards img{
+    max-width: 108px;
+    max-height: 78px;
+    transition: 0.4s;
+}
+.partners__box-cards img:hover{
+    transform: scale(1.1);
+}
 .partners__box-cards p{
     font-weight: 500;
-}
-.partners__box-cards:hover{
-    transform: scale(1.1);
+    color: rgba(108, 108, 108, 1);
 }
 .partners__box-cards img{
     margin-bottom: 12px;
 }
-@media(max-width:1790px){
-    .partners__box-cards{
-        width: 270px;
-    }   
-    .partners__box{
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-}
 @media(max-width:1262px) {
     .partners__box-cards{
-        width: 240px;
         padding: 30px;
     } 
     .partners__box-cards p{

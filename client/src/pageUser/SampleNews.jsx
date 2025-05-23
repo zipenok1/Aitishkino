@@ -24,6 +24,7 @@ function SampleNews() {
     <div className='sampleNews'>
         <Cover
           imgUrl = '/imges/cover4.jpg'
+          imgUrlOptimized='imges/cover4Optimized.jpg'
           title = 'Лагерь юных программистов'
           appointment = 'Мероприятия / Активность лагеря'
           location = 'Активность лагеря'

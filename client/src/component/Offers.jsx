@@ -65,6 +65,7 @@ function Offers() {
                     value='Отправить'/>
               </form>
           </div>
+          <img className="question__content-icon" src="imges/icon/offersIcon.svg" alt="offersIcon"/>
     </div>
   );
 }

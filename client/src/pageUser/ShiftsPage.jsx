@@ -12,6 +12,7 @@ function ShiftsPage() {
     <div className='shifts'>
       <Cover
           imgUrl = 'imges/cover2.jpg'
+          imgUrlOptimized='imges/cover2Optimized.jpg'
           title = 'Лагерь юных программистов'
           appointment = 'Главная / Программа смен'
           location = 'Программа смен'
@@ -54,7 +55,7 @@ function ShiftsPage() {
                   apiPoints={{
                     get: "/api/reviews/",
                   }}
-                />
+              />
               </div>
         </div>
       </div>

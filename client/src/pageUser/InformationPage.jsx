@@ -11,26 +11,29 @@ function InformationPage() {
   const [date, setDate] = useState([])
   const [supervisor, setSupervisor] = useState([])
 
+
   const getApp = async () => {
-    const res = await $host.get('/api/sections/6');
-    setDate(res.data);
-  };
-  const getSupervisor = async () => {
-    const res = await $host.get('/api/sections/7');
-    setSupervisor(res.data);
+    try {
+      const [res, fot] = await Promise.all([
+        $host.get('/api/sections/6'),
+        $host.get('/api/sections/7')
+      ]);
+      setDate(res.data);
+      setSupervisor(fot.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   };
 
   useEffect(() => {
-      getApp()
-      getSupervisor()
+    getApp()
   }, []);
   
-  
-
   return (
     <div className='informationPage'>
         <Cover
           imgUrl = 'imges/cover1.jpg'
+          imgUrlOptimized='imges/cover1Optimized.jpg'
           title = 'Лагерь юных программистов'
           appointment = 'Главная / Информация'
           location = 'Информация'

@@ -24,14 +24,14 @@ function ScheduleCards({apiPoints, idKey}) {
     <div className='scheduleCards'>
       <div className='scheduleCards__navigation'>
         {date.map((el)=>(
-            <div className='scheduleDay__box' onClick={() => getSchedule(el.id_daySchedule)}>
+            <div key={el.id_daySchedule} className='scheduleDay__box' onClick={() => getSchedule(el.id_daySchedule)}>
               <p className='scheduleCards-title'>{el.name}</p>
             </div>
         ))}
       </div>
       <div className='scheduleCards__content'>
         {schedule.map((el)=>(
-          <div className='schedule__box'>
+          <div key={el.id_schedule} className='schedule__box'>
             <p className='scheduleCards-title'>{el.schedule}</p>
             <p className='scheduleCards-desc'>{el.time}</p>
           </div>

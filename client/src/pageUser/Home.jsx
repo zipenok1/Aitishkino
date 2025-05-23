@@ -6,6 +6,7 @@ import SliderContent from '../component/SliderContent'
 import Newsletter from '../component/Newsletter'
 import PhotoType from '../component/PhotoType'
 import TeachersCards from '../component/TeachersCards'
+import PhotoPartners from '../component/PhotoPartners';
 import Offers from '../component/Offers'
 import '../styles/homePage/banner.css'
 import '../styles/homePage/mainCamp.css'
@@ -14,7 +15,6 @@ import '../styles/homePage/direction.css'
 import '../styles/homePage/gallery.css'
 import '../styles/homePage/teachers.css'
 import '../styles/homePage/question.css'
-import PhotoPartners from '../component/PhotoPartners';
 
 function Home() {
 
@@ -22,10 +22,16 @@ function Home() {
   const [foto, setFoto] = useState([])
  
   const getApp = async () => {
-    const res = await $host.get('/api/sections/4');
-    const fot = await $host.get('/api/sections/5');
-    setDate(res.data);
-    setFoto(fot.data);
+    try {
+      const [res, fot] = await Promise.all([
+        $host.get('/api/sections/4'),
+        $host.get('/api/sections/5')
+      ]);
+      setDate(res.data);
+      setFoto(fot.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   };
 
   useEffect(() => {
@@ -83,7 +89,7 @@ function Home() {
         <div className='direction__content-card'>
           <div className='direction__card-hard'>
             {date.map((el)=>(
-              <div className="card__hard-text back_down-left">
+              <div key={el.id_sections} className="card__hard-text back_down-left">
                 <h3>{el.title1}</h3>
                 <p>{el.description1}</p>
               </div>
@@ -101,7 +107,7 @@ function Home() {
               }}
             />
             {date.map((el)=>(
-              <div className="card__soft-text back_down-right">
+              <div key={el.id_sections} className="card__soft-text back_down-right">
                 <h3>{el.title2}</h3>
                 <p>{el.description2}</p>
               </div>

@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { PUBLIC_ROUTE, SHIFTSPAGE_ROUTE, INFORMATION_ROUTE, NEWSPAGE_ROUTE, POLITICS_ROUTER } from "../utils/const";
+import React, {useContext} from "react";
+import {Link} from "react-router-dom";
+import {PUBLIC_ROUTE, SHIFTSPAGE_ROUTE, INFORMATION_ROUTE, NEWSPAGE_ROUTE, POLITICS_ROUTER} from "../utils/const";
 import {observer} from 'mobx-react-lite'
-import { Context } from "..";
+import {Context} from "..";
 import '../styles/component/footer.css'
 
 
@@ -18,7 +18,12 @@ const {user} = useContext(Context)
                 <div className="footer__content wrap">
                     <div className='footer__content-logo'>
                         <img src="imges/logo.svg" alt="logo" />
-                        <a href="https://vk.com/itishkino"><img src="imges/icon/vk2.png" alt="vk" /></a> 
+                        <div className="social-box">
+                            <a href="https://vk.com/itishkino"><img src="imges/icon/vk2.svg" alt="vk" /></a>
+                            <a href=""><img src="imges/icon/telega.svg" alt="telega" /></a>
+                        </div>
+                         <p>© 2025, «Айтишкино»<br />
+                         Все права защищены</p>
                     </div>
                     <div className='footer__content-sections'>
                         <h3>Страницы</h3>

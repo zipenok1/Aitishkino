@@ -38,6 +38,7 @@ function NewsPage() {
     <div className='news'>
       <Cover
         imgUrl='imges/cover3.jpg'
+        imgUrlOptimized='imges/cover3Optimized.jpg'
         title='Лагерь юных программистов'
         appointment='Главная / Мероприятия'
         location='Мероприятия'

@@ -100,7 +100,7 @@
   height: 56px;
   border: none;
   border-radius: 8px;
-  background-color: #82CBAC;
+  background-color: rgb(90, 189, 120);
   color: #fff;
   font-size: 16px;
   font-weight: 600;
@@ -109,17 +109,25 @@
   margin-top: 10px;
 }
 .modalAdmin-button:hover {
-    background-color: #45a37f;
+  background-color: rgb(76, 221, 120);
 }
 .fails {
   padding: 10px 0;
   width: 100%;
 }
-.checkbox__box {
+.checkbox__box{
+  margin-left: 5px;
+  text-align: left;
+}
+.checkbox__box div{
   display: flex;
   gap: 12px;
   align-items: center;
   padding: 15px 0;
+}
+.checkbox__box p{
+  font-size: 14px;
+  color: #666;
 }
 .chek {
   width: 20px;
@@ -130,6 +138,10 @@
 .checkbox__box-text {
   color: #666;
   font-size: 14px;
+  transition: all 0.2s;
+}
+.checkbox__box-text:hover{
+  color: rgb(90, 189, 120);
 }
 .modalAdmin__form::-webkit-scrollbar {
   width: 6px;

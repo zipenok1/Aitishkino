@@ -105,7 +105,7 @@ hr{
     padding: 20px 30px;
     border-radius: 10px;
     margin-bottom: 20px;
-    border-left: 4px solid rgba(130, 203, 172, 1);
+    border-left: 4px solid rgb(90, 189, 120);
 }
 .questionsCards div img{
     position: absolute;

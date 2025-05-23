@@ -8,14 +8,8 @@ function Schedule() {
 
     const [scheduleName, setScheduleName] = useState([])
 
-    const inputs = [
-        { name: "schedule", type: "text", placeholder: "Описание", required: true },
-        { name: "time", type: "text", placeholder: "Време", required: true },
-        { name: "id_daySchedule", type: "text", placeholder: "День недели", required: true },
-    ];
-
     const getSchedule = async () => {
-        const res = await $host.get(`api/daySchedule/`);
+        const res = await $host.get(`api/daySchedule/`)
         setScheduleName(res.data);
     };
 
@@ -23,10 +17,30 @@ function Schedule() {
         getSchedule();
       }, []);
 
+    const getScheduleDay = () => {
+        return scheduleName.map(obj => ({
+            value: obj.id_daySchedule.toString(),
+            label: obj.name
+        }));
+    };
+
     const getScheduleName = (id) => {
         const day = scheduleName.find(item => item.id_daySchedule === id);
         return day ? day.name : 'Неизвестный день';
     };
+
+    
+    const inputs = [
+        { name: "schedule", type: "text", placeholder: "Название", required: true },
+        { name: "time", type: "text", placeholder: "Време", required: true },
+        {   
+            name: "id_daySchedule", 
+            type: "select", 
+            placeholder: "Выберите день", 
+            required: true,
+            options: getScheduleDay(),
+        }
+    ];
 
   return (
     <div className="asdasd">

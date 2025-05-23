@@ -1,5 +1,6 @@
 .gallery__content p{
     font-size: 18px;
+    font-weight: 500;
 }
 .gallery__content-grid div{
     margin-top: 50px;

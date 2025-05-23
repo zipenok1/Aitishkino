@@ -25,8 +25,8 @@ function SliderContent({apiPoints}) {
             </div>
         </div>
         {date.map((el)=>(
-            <div className="sliderContent__card">    
-            <img key={el.id_sections} src={process.env.REACT_APP_API_URL + `/` + el.icon}/>   
+            <div key={el.id_sections} className="sliderContent__card">    
+            <img src={process.env.REACT_APP_API_URL + `/` + el.icon}/>   
             <div className='sliderContent__card-text'>
                 <h3>{el.title1}</h3>
                     <div className='sliderContent-text'>

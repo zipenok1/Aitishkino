@@ -18,10 +18,10 @@ span{
 }
 .banner__content p {
     margin-top: 20px;
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 500;
     color: #fff;
-    width: 54%;
+    width: 56%;
 }
 .banner__content a{
     max-width: 305.16px;
@@ -41,7 +41,7 @@ span{
     transition: all 0.3s;
 }
 .generalBtm:hover {
-    background-color: #45a37f;
+    background-color: rgb(76, 221, 120);
   }
 .generalBtm a{
     color: #fff;
@@ -56,6 +56,11 @@ span{
         width: 100%;
     }   
 }
+@media (max-width:830px){
+    .banner{
+        background: url('../../../public/imges/fon1Optimized.jpg')  center no-repeat;
+    }
+}
 @media (max-width:620px) {
     h1{
         width: 100%;
@@ -68,9 +73,15 @@ span{
         padding-top: 45px;
     } 
 }
+@media (max-width:412px) {
+    .banner__content{
+        height:auto;
+        padding-top: 214px;
+    }
+}
 @media (max-width:360px) {
     h1{
         width: 100%;
         font-size: 32px;
-    } 
+    }    
 }
