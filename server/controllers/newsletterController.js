@@ -1,5 +1,6 @@
 const {Newsletter} = require('../models/models')
 const ApiError = require('../error/ApiError')
+const nodemailer = require('nodemailer')
 
 class NewsletterController {
     async receiv(req, res){
@@ -27,12 +28,38 @@ class NewsletterController {
             next(ApiError.badRequest(e.message))
         }
     }
-    async addition(req,res){
+    async addition(req, res, next){
         try{
             const {email} = req.body
             const newsletter = await Newsletter.create({email})
+
+            const transporter = nodemailer.createTransport({
+                service: 'gmail', 
+                auth: {
+                    user: process.env.EMAIL_USER,
+                    pass: process.env.EMAIL_PASS
+                }
+            })
+            const mailOptions = {
+                from: process.env.EMAIL_USER,
+                to: 'dmitrijkopejka5@gmail.com',
+                subject: 'Новая подписка на рассылку',
+                text: `Новый пользователь подписался на рассылку: ${email}`,
+                html: `<p>Новый пользователь подписался на рассылку: <strong>${email}</strong></p>`
+            }
+
+            transporter.sendMail(mailOptions, (error, info) => {
+                if (error) {
+                    console.error('Ошибка отправки письма:', error);
+                } else {
+                    console.log('Письмо отправлено:', info.response);
+                }
+            });
+
             return res.json(newsletter)
+
         } catch(e){
+            console.error(e);
             next(ApiError.badRequest(e.message))
         }
     }

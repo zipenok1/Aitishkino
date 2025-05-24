@@ -6,11 +6,11 @@ import '../styles/admin/home.css'
 function Shifts() {
     const inputs = [
         { name: "title", type: "text", placeholder: "Название", required: true },
-        { name: "date", type: "date", placeholder: "Дата", required: true },
+        { name: "date", type: "text", placeholder: "Дата", required: true },
         { name: "description", type: "textarea", placeholder: "Описание", maxLength: 200, required: true },
         { name: "price", type: "text", placeholder: "Цена", required: true },
         { name: "partprice", type: "text", placeholder: "Цена для партнеров", required: true },
-        { name: "link_img", type: "file", required: true },
+        { name: "link_img", type: "file" },
     ];
   return (
     <div className="asdasd">
@@ -18,6 +18,7 @@ function Shifts() {
             <div className="admin__contnet">
                 <MenuAdmin/>
                 <GeneralAdmin
+                    exists = 'no'
                     idKey='id_shifts'
                     inputs = {inputs}
                     title='Смены'

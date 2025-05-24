@@ -1,4 +1,29 @@
-import { SCHEDULE_ROUTE, QUESTIONSE_ROUTE, DAYSCHEDULE_ROUTE, SECTIONS_ROUTE, LOGIN_ROUTE, ADMIN_ROUTE, PUBLIC_ROUTE, EVENT_ROUTE, PROGRAM_ROUTE, NEWS_ROUTE, PARTNERS_ROUTE, PHOTO_ROUTE, RESERVATION_ROUTE, REVIEWS_ROUTE, SHIFTS_ROUTE, TEACHERS_ROUTE, TYPE_ROUTE, NEWSLETTER_ROUTE,INFORMATION_ROUTE, SHIFTSPAGE_ROUTE, NEWSPAGE_ROUTE, SAMPLE_ROUTE, OFFERS_ROUTE } from "./utils/const"
+import { 
+    SCHEDULE_ROUTE, 
+    QUESTIONSE_ROUTE, 
+    DAYSCHEDULE_ROUTE,
+    SECTIONS_ROUTE, 
+    LOGIN_ROUTE, 
+    ADMIN_ROUTE, 
+    PUBLIC_ROUTE, 
+    EVENT_ROUTE, 
+    PROGRAM_ROUTE, 
+    NEWS_ROUTE, 
+    PARTNERS_ROUTE, 
+    PHOTO_ROUTE, 
+    RESERVATION_ROUTE, 
+    REVIEWS_ROUTE, 
+    SHIFTS_ROUTE, 
+    TEACHERS_ROUTE, 
+    TYPE_ROUTE, 
+    NEWSLETTER_ROUTE,
+    INFORMATION_ROUTE, 
+    SHIFTSPAGE_ROUTE, 
+    NEWSPAGE_ROUTE, 
+    SAMPLE_ROUTE, 
+    OFFERS_ROUTE,
+    POLITICS_ROUTER 
+} from "./utils/const"
 import Admin from "./pageAdmin/Home"
 import Authorization from "./pageAdmin/Authorization"
 import Home from './pageUser/Home'
@@ -22,6 +47,7 @@ import Schedule from "./pageAdmin/Schedule"
 import Questions from "./pageAdmin/Questions"
 import DaySchedule from "./pageAdmin/DaySchedule"
 import Sections from "./pageAdmin/Sections"
+import Politics from "./pageUser/Politics"
  
 
 export const authRoutes = [
@@ -119,5 +145,9 @@ export const publicRoutes = [
     {
         path: SAMPLE_ROUTE,
         Component: SampleNews
+    },
+    {
+        path: POLITICS_ROUTER,
+        Component: Politics
     }
 ]

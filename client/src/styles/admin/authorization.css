@@ -3,25 +3,42 @@
     justify-content: center;
 }
 .authorization__box{
-    width: 400px;
-    height: 200px;
-    margin-top: 340px;
+    width: 500px;
+    height: 300px;
+    margin-top: 320px;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 30px;
     display: flex;
-    align-items: center;
+    justify-content: center;
     flex-direction: column;
 }
+.authorization__box h3{
+    margin-bottom: 20px;
+}
 .authorization__box input{
+    outline: none;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    background-color: #f9f9f9;
+    padding: 15px 20px;
     width: 100%;
-    height: 50px;
-    padding: 10px;
+    height: 56px;
+    font-size: 16px;
+    transition: all 0.3s;
+    box-sizing: border-box;
     margin-bottom: 15px;
 }
 .authorization__box button{
     width: 100%;
+    border-radius: 8px;
     height: 50px;
     border: none;
     background-color:rgba(130, 203, 172, 1);
     color: #fff;
     font-size: 18px;
     font-weight: 500;
+}
+.authorization__box button:hover {
+    background-color: #45a37f;
 }

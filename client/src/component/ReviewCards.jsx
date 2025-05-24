@@ -39,7 +39,7 @@ function ReviewCards({apiPoints}) {
         >
         {date.map((el)=>(
             <SplideSlide>
-                <div className='reviewCards__content' key={el.id_reviews}>
+                <div key={el.id_reviewes} className='reviewCards__content'>
                     <h3>{el.fio}</h3>
                     <p>{el.review}</p>
                 </div>  

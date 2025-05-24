@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import {$host} from '../http/index'
 import Cover from '../component/Cover'
 import ScheduleCards from '../component/ScheduleCards'
 import QuestionsCards from '../component/QuestionsCards'
@@ -6,34 +7,33 @@ import '../styles/shiftsPage/informationPage.css'
 import PhotoType from '../component/PhotoType'
 
 function InformationPage() {
+  
+  const [date, setDate] = useState([])
+  const [supervisor, setSupervisor] = useState([])
 
-  const contentSchedule = [
-    {name: 'Регистрация', time: '8:30 - 9:00'},
-    {name: 'Заряд бодрости', time: '9:10 - 9:25'},
-    {name: 'Открытие смены', time: '9:30 - 10:00'},
-    {name: 'Занятие', time: '10:00 - 11:30'},
-    {name: 'Завтрак', time: '11:30 - 11:45'},
-    {name: 'Занятие', time: '12:00 - 13:30'},
-    {name: 'Обед', time: '13:30 - 14:00'},
-    {name: 'Занятие', time: '14:00 - 14:30'},
-    {name: 'Спорт', time: '15:30 - 16:00'},
-    {name: 'Полдник', time: '16:00 - 16:15'},
-    {name: 'Кинолекторий', time: '16:15 - 17:15'},
-    {name: 'Огонек дружбы', time: '17:15 - 18:00'},
-    {name: 'До завтра!', time: '18:00 - 19:00'},
-  ]
-  const contentQuestions = [
-    {title: 'Сколько детей в смене?', description: 'Мини-формат: 15 человек в группе. Групповая динамика и индивидуальный подход (каждый ребенок вовлекается в образовательный процесс на 100%)'},
-    {title: 'Что входит в стоимоть?', description: 'Обучение, питание, развлечения'},
-    {title: 'Как происходит обучение?', description: 'Участники при чутком руководстве профессионалов будут изучать популярные языки программирования.'},
-    {title: 'Какой досуг предоставляет лагерь?', description: 'Квесты, спортивные и развивающие игры, в том числе с применением виртуальной и дополненной реальности, упражнения веревочного курса.'},
-    {title: 'Какое питание?', description: 'Дети питаются каждый день в лагере: предусмотрены завтрак, горячий обед, полдник.'},
-    {title: 'Как родители могут следить за тем, как их дети проводят время в лагере?', description: 'Родители смогут видеть как проводят день в уникальном проекте дети в закрытой группе.'},
-  ]
+
+  const getApp = async () => {
+    try {
+      const [res, fot] = await Promise.all([
+        $host.get('/api/sections/6'),
+        $host.get('/api/sections/7')
+      ]);
+      setDate(res.data);
+      setSupervisor(fot.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  useEffect(() => {
+    getApp()
+  }, []);
+  
   return (
     <div className='informationPage'>
         <Cover
           imgUrl = 'imges/cover1.jpg'
+          imgUrlOptimized='imges/cover1Optimized.jpg'
           title = 'Лагерь юных программистов'
           appointment = 'Главная / Информация'
           location = 'Информация'
@@ -43,12 +43,16 @@ function InformationPage() {
               <h2>Расписание</h2>
               <div className='schedule__content-container'>
                 <div className='schedule__container-left'>
-                  <h3>Айтишкино</h3>
-                  <p>Каждый день в нашем лагере — это новые знания, увлекательные проекты и яркие впечатления! Вы можете посмотреть как примерно выглядит день в нашем лагере.</p>
+                  <h3>{date[0]?.title1}</h3>
+                  <p>{date[0]?.description1}</p>
                 </div>
                 <div className="schedule__container-right">
                   <ScheduleCards
-                      content={contentSchedule}
+                      idKey = 'id_daySchedule'
+                      apiPoints={{
+                      get: "/api/daySchedule/",
+                      getOne: "/api/schedule/",
+                      }}
                   />
                 </div>
               </div>
@@ -61,22 +65,22 @@ function InformationPage() {
               <div className='direction__card-soft'>
                 <PhotoType
                   apiPoints={{
-                    get: "/api/photo/oline/16",
+                    get: "/api/photo/oline/17",
                   }}
                 />
                 <div className="card__soft-text back_down-right">
-                    <h3>Программа Айтишкино</h3>
-                    <p>Поможет развить у участников проекта уверенность в себе, повысить знании в области информационных технологий, приобрести новых друзей и сделать первый шаг к осознанному выбору профессии.</p>
+                    <h3>{supervisor[0]?.title2}</h3>
+                    <p>{supervisor[0]?.description2}</p>
                   </div>
               </div>
               <div className='direction__card-hard'>
                   <div className="card__hard-text back_down-left">
-                    <h3>Золотовская Маргарита</h3>
-                    <p>Начальник отдела маркетинга и социального партнерства колледжа РКСИ, магистр психологии, опыт активной работы с подростками 8 лет</p>
+                    <h3>{supervisor[0]?.title1}</h3>
+                    <p>{supervisor[0]?.description1}</p>
                   </div>
                   <PhotoType
                     apiPoints={{
-                      get: "/api/photo/oline/15",
+                      get: "/api/photo/oline/16",
                     }}
                   />
               </div>
@@ -88,7 +92,9 @@ function InformationPage() {
             <h2>Часто задаваемые<br />вопросы</h2>
             <div className='questions__content-cards'>
                 <QuestionsCards
-                  content = {contentQuestions}
+                  apiPoints={{
+                    get: "/api/questions/",
+                  }}
                 />
             </div>
           </div>
@@ -97,13 +103,14 @@ function InformationPage() {
           <div className="whereAre__content wrap">
             <h2>Где мы</h2>
               <div className='whereAre-map'>
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2710.4237396605135!2d39.64125097699666!3d47.208290571155985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40e3bf2c0fed8bb1%3A0x8d5963d5a3e82115!2z0L_RgC3Rgi4g0JrQvtC80LzRg9C90LjRgdGC0LjRh9C10YHQutC40LksIDExLCDQoNC-0YHRgtC-0LIt0L3QsC3QlNC-0L3Rgywg0KDQvtGB0YLQvtCy0YHQutCw0Y8g0L7QsdC7LiwgMzQ0MDU4!5e0!3m2!1sru!2sru!4v1742694287753!5m2!1sru!2sru" 
-                    width="100%" 
-                    height="700"
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade"
-                  />
+                <iframe 
+                  src="https://yandex.ru/map-widget/v1/org/tsentr_operezhayushchey_professionalnoy_podgotovki/244391124448/?ll=39.645733%2C47.207567&source=serp_navig&z=18" 
+                  width="100%" 
+                  height="700" 
+                  allowFullScreen="true" 
+                  title="Yandex Map of Kommunisticheskiy Prospekt 11/2"
+                />
+                <img src="imges/mapPreview.jpg" alt="mapPreview"/>
               </div>
           </div>
         </div>
@@ -112,3 +119,4 @@ function InformationPage() {
 }
 
 export default InformationPage
+

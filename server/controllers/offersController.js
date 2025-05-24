@@ -45,7 +45,7 @@ class OffersController {
             if (!event) {
                 return next(ApiError.badRequest('такого элемента не существует'));
             }
-            await Program.destroy({where:{id_offers: id}})
+            await Offers.destroy({where:{id_offers: id}})
             return res.json({ message: 'записть ' + id + ' удалена'})
         } catch (e) {
             next(ApiError.internal(e.message))

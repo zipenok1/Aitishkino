@@ -8,8 +8,6 @@ import {PUBLIC_ROUTE} from "../utils/const"
 const AppRouter = observer(() => {
 
     const {user} = useContext(Context)
-    
-    console.log(user._isAuth);
   
     return (
       <Routes>

@@ -6,7 +6,15 @@
     left: 0;
     top: 0;
 }
-.navbar-flex{
+.navbar_box-politics{
+    width: 100%;
+    padding: 20px 0;
+    background-color: rgba(130, 203, 172, 1);
+    position:absolute;
+    left: 0;
+    top: 0;
+}
+.navbar-flex, .navbar__admin-flex{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,6 +26,7 @@
 .navnar-page button{
     color: #fff;
     font-size: 20px;
+    font-weight: 500;
     background: none;
     border: none;
 }
@@ -32,11 +41,13 @@
     display: flex;
     gap: 40px;
 }
-.navbar_box-admin .navbar-flex button{
-    color: black;
-    font-size: 24px;
-    font-weight: 600;
-    background: none;
+.navbar_box-admin .navbar__admin-flex button{
+    background-color: #d3837a;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: 500;
     border: none;
 }
 .header__burger{
@@ -122,6 +133,7 @@
     .activ button{
         color: #fff;
         font-size: 18px;
+        font-weight: 400;
         background: none;
         border: none;
     }

@@ -6,10 +6,18 @@ class ProgramController {
         const event = await Schedule.findAll()
         return res.json(event) 
     }
+    async receivingDay(req, res){
+        const {id} = req.params
+        if (!id) {
+            return next(ApiError.badRequest('такого элемента не существует'))
+          }    
+          const photo = await Schedule.findAll({ where: {id_daySchedule: id}})
+          return res.json(photo)
+    }
     async addition(req, res, next){
         try{
-            const {name, schedule, time, id_daySchedule} = req.body
-            const event = await Schedule.create({ name, schedule, time, id_daySchedule })
+            const { schedule, time, id_daySchedule} = req.body
+            const event = await Schedule.create({ schedule, time, id_daySchedule })
             return res.json(event)
         } catch (e){
             next(ApiError.badRequest(e.message))
@@ -18,7 +26,7 @@ class ProgramController {
     async editing(req, res, next){
         try{
             const {id} = req.params
-            const {name, schedule, time, id_daySchedule}= req.body
+            const { schedule, time, id_daySchedule}= req.body
             if(!id){
                 return next(ApiError.badRequest('такого элемента не существует'))
             }
@@ -27,7 +35,7 @@ class ProgramController {
                 return next(ApiError.badRequest('такого элемента не существует'));
             }
             await Schedule.update(
-                {name: name, schedule: schedule, time: time, id_daySchedule: id_daySchedule},
+                { schedule: schedule, time: time, id_daySchedule: id_daySchedule},
                 {where:{id_schedule: id}}
             )
             return res.json({ message: 'записть ' + id + ' обновлена'})

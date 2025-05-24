@@ -13,6 +13,7 @@ function Newsletter() {
             <div className="admin__contnet">
                 <MenuAdmin/>
                 <GeneralAdmin
+                    exists = 'no'
                     idKey='id_newsletter'
                     inputs = {inputs}
                     title='Рассылка'
@@ -24,7 +25,7 @@ function Newsletter() {
                     }}
                     renderItem={(el) => (
                     <div className='generalAdmin'>
-                        <p>Название: {el.email}</p>
+                        <p>Почта: {el.email}</p>
                     </div>
                     )}
                 />  

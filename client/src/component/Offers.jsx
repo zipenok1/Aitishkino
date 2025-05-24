@@ -3,38 +3,39 @@ import { $host } from '../http/index';
 
 function Offers() {
 
-    const [offer, setOffer] = useState('');
-    const [name, setName] = useState('')
+  
+  const [offer, setOffer] = useState('');
+  const [name, setName] = useState('')
     
-      const handleSubmit = async (e) => {
-        e.preventDefault(); 
-        if (!name) {
-          alert('Введите имя.');
-          return;
+  const handleSubmit = async (e) => {
+    e.preventDefault(); 
+    if (!name) {
+      alert('Введите имя.');
+      return;
+    }
+    if (!offer) {
+        alert('Введите вопрос.');
+        return;
+    }
+    try {
+      const formData = new FormData()
+      formData.append('name', name)
+      formData.append('description', offer)
+      const newsletPost = await $host.post('/api/offers/', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
         }
-        if (!offer) {
-            alert('Введите вопрос.');
-            return;
-        }
-        try {
-          const formData = new FormData()
-          formData.append('name', name)
-          formData.append('description', offer)
-          const newsletPost = await $host.post('/api/offers/', formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data',
-            }
-          })
-          if (newsletPost.data) {
-            alert('Ваш вопрос отправлен')
-            setName('')
-            setOffer('')
-          } 
-        } catch (error) {
-          console.error('Ошибка:', error)
-          alert('Произошла ошибка при отправки.')
-        }
-      };
+      })
+      if (newsletPost.data) {
+        alert('Ваш вопрос отправлен')
+        setName('')
+        setOffer('')
+      } 
+    } catch (error) {
+      console.error('Ошибка:', error)
+      alert('Произошла ошибка при отправки.')
+    }
+  };
 
   return (
     <div className="question__content wrap">
@@ -65,6 +66,7 @@ function Offers() {
                     value='Отправить'/>
               </form>
           </div>
+          <img className="question__content-icon" src="imges/icon/offersIcon.svg" alt="offersIcon"/>
     </div>
   );
 }

@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import {$host} from '../http/index'
 import { Link } from "react-router-dom";
 import { SHIFTSPAGE_ROUTE } from "../utils/const";
 import SliderContent from '../component/SliderContent'
 import Newsletter from '../component/Newsletter'
 import PhotoType from '../component/PhotoType'
 import TeachersCards from '../component/TeachersCards'
+import PhotoPartners from '../component/PhotoPartners';
 import Offers from '../component/Offers'
 import '../styles/homePage/banner.css'
 import '../styles/homePage/mainCamp.css'
@@ -16,21 +18,49 @@ import '../styles/homePage/question.css'
 
 function Home() {
 
+  const [date, setDate] = useState([])
+  const [foto, setFoto] = useState([])
+ 
+  const getApp = async () => {
+    try {
+      const [res, fot] = await Promise.all([
+        $host.get('/api/sections/4'),
+        $host.get('/api/sections/5')
+      ]);
+      setDate(res.data);
+      setFoto(fot.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  useEffect(() => {
+    getApp()
+  }, []);
+
   return (
     <div className='home'>
       <div className='banner'>
       <div className="banner__content wrap">
-        <h1>Проект карьерной навигации<br/><span>юных программистов</span> в формате городского лагеря <span>8+</span></h1>
-        <p>Программа Айтишкино поможет развить у участников проекта уверенность в себе, повысить знании в области информационных технологий, приобрести новых друзей и сделать первый шаг к осознанному выбору профессии</p>
+        <h1><span>Каникулы с пользой!</span><br/>Мини-лагерь юных программистов <span>8+</span></h1>
+        <p>Программа Айтишкино поможет <span>развить</span> у участников проекта <span>уверенность</span> в себе, повысить <span>знания</span> в области информационных технологий, приобрести новых друзей и сделать первый шаг к <span>осознанному</span> выбору профессии</p>
         <Link to={SHIFTSPAGE_ROUTE}>
-          <button className='generalBtm'>Оформить бронь <img src="imges/buttonBanner.svg" alt="buttonBanner"/></button>
+          <button className='generalBtm'>
+            Оформить бронь <img src="imges/buttonBanner.svg" alt="buttonBanner"/>
+          </button>
         </Link>
-        </div>
+      </div>
       </div>
       <div className='mainCamp'>
         <div className="mainCamp__content wrap">
             <h2>О лагере</h2>
-              <SliderContent/>
+              <SliderContent
+                apiPoints={{
+                  get1: "/api/sections/1",
+                  get2: "/api/sections/2",
+                  get3: "/api/sections/3",
+                  }}
+              />
                 <div className='sliderContent__gallery'>
                   <PhotoType
                     apiPoints={{
@@ -45,7 +75,7 @@ function Home() {
         <Newsletter/>   
             <h2>Наши партнеры</h2>
                 <div className='partners__content-card'>
-                <PhotoType
+                <PhotoPartners
                   apiPoints={{
                     get: "/api/partners",
                   }}
@@ -58,10 +88,12 @@ function Home() {
         <h2>Направления</h2>
         <div className='direction__content-card'>
           <div className='direction__card-hard'>
-              <div className="card__hard-text back_down-left">
-                <h3>Развитие hard skills</h3>
-                <p>программированию обучают преподаватели кафедры программирования. Участники при чутком руководстве профессионалов будут делать свой сайт, изучать популярные языки программирования</p>
+            {date.map((el)=>(
+              <div key={el.id_sections} className="card__hard-text back_down-left">
+                <h3>{el.title1}</h3>
+                <p>{el.description1}</p>
               </div>
+            ))}
               <PhotoType
                 apiPoints={{
                   get: "/api/photo/oline/3",
@@ -74,10 +106,12 @@ function Home() {
                 get: "/api/photo/oline/4",
               }}
             />
-            <div className="card__soft-text back_down-right">
-                <h3>Развитие soft skills</h3>
-                <p>уникальная программа психологов - дети разовьют навыки коммуникации, целеполагания, тайм-менеджмента. Командообразование: участники развивают навыки сотрудничества и умения работать в команде, опираясь на свои сильные стороны</p>
+            {date.map((el)=>(
+              <div key={el.id_sections} className="card__soft-text back_down-right">
+                <h3>{el.title2}</h3>
+                <p>{el.description2}</p>
               </div>
+            ))} 
           </div>
         </div>       
       </div>
@@ -85,7 +119,7 @@ function Home() {
      <div className="gallery">
         <div className="gallery__content wrap">
             <h2>Фотогалерея</h2>
-            <p>Здесь вы сможете погрузиться в яркую атмосферу нашего лагеря, где каждый день наполнен открыиями и весельем. Наши маленькие гении учатся программировать, создавая свои первые проекты, участвуют в увлекательных конкурсах и исследуют мир технологий вместе с новыми друзьями!</p>
+            <p>{foto[0]?.description1}</p>
             <div className='gallery__content-grid'>
               <PhotoType
                 apiPoints={{
@@ -94,7 +128,7 @@ function Home() {
               />
               <button className='generalBtm'>
                 <a href="https://vk.com/albums-227013121">Больше фото на</a>
-                <img src="imges/icon/vk.png" alt="vk" />
+                <img src="imges/icon/vk.svg" alt="vk" />
               </button>
             </div>
         </div>
@@ -115,6 +149,9 @@ function Home() {
         {/* <video autoPlay muted loop>
           <source src="video/aitishka.mp4" type='video/mp4' />
         </video> */}
+      </div>
+      <div className="question">
+        <Offers/>
       </div>
       <div className="question">
         <Offers/>

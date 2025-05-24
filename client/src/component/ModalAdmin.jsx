@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { POLITICS_ROUTER } from "../utils/const";
 import '../styles/admin/modalAdmin.css'
 
 function ModalAdmin({ onClose, onSubmit, onEdit, inputs, title, submitButtonText, initialData }) {
@@ -11,8 +13,26 @@ function ModalAdmin({ onClose, onSubmit, onEdit, inputs, title, submitButtonText
     }
   }, [initialData])
 
+  const PhoneMask = (e) => {
+    const { name, value } = e.target;
+    let cleanedValue = value.replace(/\D/g, '');
+    
+    let formattedValue = '';
+    if (cleanedValue.length > 0) {
+      formattedValue = `+7 (${cleanedValue.substring(1, 4)}) ${cleanedValue.substring(4, 7)}-${cleanedValue.substring(7, 9)}-${cleanedValue.substring(9, 11)}`;
+    }
+    setFormData(prev => ({
+      ...prev,
+      [name]: formattedValue
+    }));
+  };
+
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
+    const { name, value, files, type } = e.target;
+    if (type === 'tel'){
+      PhoneMask(e);
+      return;
+    }
     if (files) {
       setFormData({ ...formData, [name]: files[0] })
     } else {
@@ -28,7 +48,6 @@ function ModalAdmin({ onClose, onSubmit, onEdit, inputs, title, submitButtonText
       onSubmit(formData)
     }
   }
-  console.log(handleSubmit);
 
   return (
     <div className="modalAdmin">
@@ -43,7 +62,7 @@ function ModalAdmin({ onClose, onSubmit, onEdit, inputs, title, submitButtonText
             <div key={field.name} className="modalAdmin__form-box">
               {field.type === "textarea" ? (
                 <textarea
-                  className={field.className || "descript"}
+                  className="descript"
                   name={field.name}
                   placeholder={field.placeholder}
                   required={field.required}
@@ -72,16 +91,46 @@ function ModalAdmin({ onClose, onSubmit, onEdit, inputs, title, submitButtonText
                 />
               ) : field.type === "checkbox" ? (
                 <div className="checkbox__box">
-                  <input
-                    className="chek"
-                    type="checkbox"
-                    name={field.name}
-                    onChange={() => { setChecked(!checked) }}
-                    required={field.required}
-                    checked={checked}
-                  />
-                  <p className="checkbox__box-text">вы принимаете условия обработки персональных данных</p>
+                  <div>
+                    <input
+                      className="chek"
+                      type="checkbox"
+                      name={field.name}
+                      onChange={() => { setChecked(!checked) }}
+                      required={field.required}
+                      checked={checked}
+                    />
+                    <Link 
+                      className="checkbox__box-text"
+                      to={POLITICS_ROUTER}
+                    >
+                      Даю согласие на обработку персональных данных
+                    </Link>
+                  </div>
+                  <Link 
+                    className="checkbox__box-text"
+                    to={POLITICS_ROUTER}
+                  >
+                    Нажимая на кнопку "Заказать", я подтверждаю, что ознакомился с 
+                    Политикой обработки персональных данных и даю согласие 
+                    на обработку всех моих персональных данных указанных в форме
+                  </Link>
                 </div>
+              ) : field.type === "select" ? (
+                <select
+                  className="select"
+                  name={field.name}
+                  onChange={handleChange}
+                  required={field.required}
+                  value={formData[field.name] || ""}
+                >
+                  <option value="">{field.placeholder}</option>
+                  {field.options.map(option => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
               ) : (
                 <input
                   type={field.type || "text"}
