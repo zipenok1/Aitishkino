@@ -10,21 +10,23 @@ function NewsPage() {
   const [data, setData] = useState([]);
   const [visibleCards, setVisibleCards] = useState(3); 
 
-  const getEvent = async () => {
-    const res = await $host.get('/api/sections/8');
-    setEvent(res.data);
-  };
-
   const getApp = async () => {
-    const res = await $host.get(`/api/news/`);
-    setData(res.data);
+    try {
+      const [res, fot] = await Promise.all([
+        $host.get('/api/sections/8'),
+        $host.get('/api/news/')
+      ]);
+      setEvent(res.data);
+      setData(fot.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   };
 
   useEffect(() => {
     getApp()
-    getEvent()
   }, []);
-
+  
   const truncateText = (text, limit = 186) => {
     if (!text) return "";
     return text.length > limit ? text.slice(0, limit) + "..." : text;
@@ -37,8 +39,7 @@ function NewsPage() {
   return (
     <div className='news'>
       <Cover
-        imgUrl='imges/cover3.jpg'
-        imgUrlOptimized='imges/cover3Optimized.jpg'
+        imgUrl='imges/cover3Optimized.jpg'
         title='Лагерь юных программистов'
         appointment='Главная / Мероприятия'
         location='Мероприятия'

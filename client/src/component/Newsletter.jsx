@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { $host } from '../http/index';
+import { POLITICS_ROUTER } from "../utils/const";
+import { Link } from "react-router-dom";
 import '../styles/component/newsletter.css';
 
 function Newsletter() {
@@ -49,7 +51,11 @@ function Newsletter() {
             <input type="submit" value='Подписаться' />
           </form>
           <div className="newsletter__box-text">
-            <p>Нажимая на кнопку "Подписаться" вы соглашаетесь <br /> с политикой конфиденциальности</p>
+            <Link 
+              to={POLITICS_ROUTER}
+            >
+              Нажимая на кнопку "Подписаться" вы соглашаетесь с политикой конфиденциальности
+            </Link>
           </div>
         </div>
         <img className="newsletter__content-icon" src="imges/icon/newsletterIcon.svg" alt="newsletterIcon" />

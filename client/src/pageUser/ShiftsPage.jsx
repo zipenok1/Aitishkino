@@ -11,8 +11,7 @@ function ShiftsPage() {
   return (
     <div className='shifts'>
       <Cover
-          imgUrl = 'imges/cover2.jpg'
-          imgUrlOptimized='imges/cover2Optimized.jpg'
+          imgUrl = 'imges/cover2Optimized.jpg'
           title = 'Лагерь юных программистов'
           appointment = 'Главная / Программа смен'
           location = 'Программа смен'

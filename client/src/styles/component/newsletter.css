@@ -24,7 +24,7 @@
 .newsletter__content-box{
     margin-top: 30px;
     display: flex;
-    gap: 30px;
+    gap: 20px;
     align-items: center;
     position: relative;
     z-index: 2;
@@ -61,19 +61,26 @@
     background-color: rgb(76, 221, 120);
 }
 .newsletter__box-text{
-    max-width:440px;
+    max-width: 440px;
 }
-.newsletter__box-text p{
+.newsletter__box-text a{
     width: 100%;
 }
+.newsletter__box-text a:hover{
+    color: rgb(90, 189, 120);
+}
 @media(max-width:1842px){
+    .newsletter__box-text{
+        max-width: 410px;
+    }
     .newsletter__content-icon{
-        width: 240px;
-        bottom: -100px;
+        width: 220px;
+        bottom: -125px;
+        right: -100px;
     }
 }
 @media(max-width:1482px) {
-    .newsletter__box-text p{
+    .newsletter__box-text a{
         font-size: 14px;
     }
     .newsletter__content-box{
@@ -85,11 +92,6 @@
         padding: 30px 40px;
         background: none;
         background-color: #fff;
-    }
-    .newsletter__content-icon{
-        width: 220px;
-        bottom: -120px;
-        right: -100px;
     }
 }
 @media(max-width:1030px) {
@@ -112,11 +114,16 @@
     }
 }
 @media(max-width:662px) {
-    .newsletter__content-title{
+    .newsletter__content-title h3{
         display: none;
     }
-    .newsletter__box-text p{
+    .newsletter__box-text a{
         text-align: center;
+    }
+    .newsletter__content-title p{
+        margin-top: 0px;
+        margin-bottom: 10px;
+        font-weight: 500;
     }
     .newsletter__content-box {
         margin-top: 0;
@@ -126,11 +133,18 @@
     }    
 }
 @media(max-width:490px) {
-    .newsletter__box-from input[type = "submit"] {
-        position:static;
+    .newsletter__content-title p{
+        font-size: 16px;
+    }
+    .newsletter__box-from input[type = "email"] {
+        padding: 12px 10px;
+        font-size: 16px;
     }
     .newsletter__box-from input[type = "submit"]{
         width: 100%;
+        padding: 12px 10px;
+        font-size: 16px;
+        position:static;
     }
     .newsletter__box-from{
         flex-direction: column;
@@ -139,5 +153,10 @@
     }
     .newsletter {
         top: -110px;
+    }
+}
+@media(max-width:310px){
+    .newsletter__content-title p{
+        font-size: 14px;
     }
 }

@@ -53,18 +53,13 @@ hr{
 }
 .schedule__container-left p{
     padding-top: 18px;
+    font-weight: 500;
 }
 .scheduleCards__navigation{
     display: flex;
     justify-content: center;
     gap: 15px;
     margin-bottom: 20px;
-}
-.scheduleCards__content{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
 }
 .scheduleDay__box{
     cursor: pointer;
@@ -77,9 +72,15 @@ hr{
     text-align: center;
     transition: 0.5s;
 }
-.scheduleDay__box:hover{
-    box-shadow: inset 300px 0 0 0 rgb(255, 255, 255);
+.scheduleDay__box.active {
+    background-color: #ffffff;
     color: black;
+}
+.scheduleCards__content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
 }
 .schedule__box{
     background-color: #fff;
@@ -168,6 +169,30 @@ hr{
         min-width: 193px;
     }
 }
+@media (max-width:1030px){
+    .whereAre-map iframe{
+        height: 360px;
+    }
+    .whereAre-map img{
+        width: 165px;
+        height: 110px;
+    }
+}
+@media (width>910px){
+    .scheduleDay__box:hover{
+        box-shadow: inset 300px 0 0 0 rgb(255, 255, 255);
+        color: black;
+    }
+}
+@media (max-width:910px){
+    .scheduleCards__navigation{
+        overflow: auto;
+    }
+    .scheduleDay__box{
+        padding: 20px 12px;
+        max-width:18%;
+    }
+}
 @media (max-width:622px) {
     .cover__content h2{
         font-size: 34px;
@@ -182,12 +207,8 @@ hr{
         width: 200px;
     }
 }
-@media (max-width:1030px){
-    .whereAre-map iframe{
-        height: 360px;
-    }
-    .whereAre-map img{
-        width: 165px;
-        height: 110px;
+@media (max-width:560px){
+    .questionsCards-top{
+        margin-top: 18px;
     }
 }

@@ -6,7 +6,7 @@ function Offers() {
   const [offer, setOffer] = useState('');
   const [name, setName] = useState('')
     
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => { 
     e.preventDefault(); 
     if (!name) {
       alert('Введите имя.');

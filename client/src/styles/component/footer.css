@@ -58,7 +58,6 @@
     .footer__content {
         flex-direction: column-reverse;
         gap: 35px;
-        padding: 40px 20px;
     }
     .footer__content-logo {
         align-items: center;
@@ -73,7 +72,6 @@
         left: 50%;
         transform: translateX(-50%);
     }
-    
     .footer__content-sections nav ul,
     .footer__content-documents ul {
         align-items: center;

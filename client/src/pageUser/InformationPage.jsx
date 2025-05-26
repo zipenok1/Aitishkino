@@ -3,14 +3,13 @@ import {$host} from '../http/index'
 import Cover from '../component/Cover'
 import ScheduleCards from '../component/ScheduleCards'
 import QuestionsCards from '../component/QuestionsCards'
-import '../styles/shiftsPage/informationPage.css'
 import PhotoType from '../component/PhotoType'
+import '../styles/shiftsPage/informationPage.css'
 
 function InformationPage() {
   
   const [date, setDate] = useState([])
   const [supervisor, setSupervisor] = useState([])
-
 
   const getApp = async () => {
     try {
@@ -32,8 +31,7 @@ function InformationPage() {
   return (
     <div className='informationPage'>
         <Cover
-          imgUrl = 'imges/cover1.jpg'
-          imgUrlOptimized='imges/cover1Optimized.jpg'
+          imgUrl = 'imges/cover1Optimized.jpg'
           title = 'Лагерь юных программистов'
           appointment = 'Главная / Информация'
           location = 'Информация'

@@ -7,7 +7,6 @@ import '../styles/homePage/teachers.css'
 function TeachersCards({apiPoints}) {
 
     const [date, setDate] = useState([])
-    
     const getApp = async () => {
         const res = await $host.get(apiPoints.get);
         setDate(res.data);
@@ -19,14 +18,17 @@ function TeachersCards({apiPoints}) {
 
   return (
     <div className='cards'>
-        <Splide
+        {date.length == 0 
+        ? null 
+        : <Splide
             options={{
             type: 'loop',
+            lazyLoad: 'sequential',
             perPage: 4,
             perMove: 1,
             width: '100%',
             gap: '15px',
-            pagination: false,
+            pagination: true,
             arrows: false,
             focus: 'left',
             autoplay: true, 
@@ -46,18 +48,19 @@ function TeachersCards({apiPoints}) {
                     perMove: 1,
                 },
             }
-            }}
-        >
-        {date.map((el)=>(
-            <SplideSlide>
-                <div key={el.id_teachers} className='teachers__cards'>
-                    <div className='teachers__cards-img' style={{backgroundImage: `url(${process.env.REACT_APP_API_URL}/${el.link_img})`}}></div>
-                    <p className='teachers__cards-title'>{el.fio}</p> 
-                    <p className='teachers__cards_desc'>{el.description}</p>
-                </div>
-            </SplideSlide>
-        ))}
-        </Splide>
+        }}
+    >
+    {date.map((el)=>(
+        <SplideSlide key={el.fio}>
+            <div key={el.id_teachers} className='teachers__cards'>
+                <div className='teachers__cards-img' style={{backgroundImage: `url(${process.env.REACT_APP_API_URL}/${el.link_img})`}}></div>
+                <p className='teachers__cards-title'>{el.fio}</p> 
+                <p className='teachers__cards_desc'>{el.description}</p>
+            </div>
+        </SplideSlide>
+    ))}
+    </Splide>
+    }       
     </div>
   )
 }

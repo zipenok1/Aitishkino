@@ -85,9 +85,24 @@ function OurShiftsCards({apiPoints}) {
   return (
     <div className='ourShiftsCards'>
         <div className='menuSlider'>
-                <button onClick={() => setCurrentShift('getOne')}>Первая смена</button>
-                <button onClick={() => setCurrentShift('getTwo')}>Вторая смена</button>
-                <button onClick={() => setCurrentShift('getThree')}>Третья смена</button>
+            <button 
+                onClick={() => setCurrentShift('getOne')}
+                className={currentShift === 'getOne' ? 'active' : ''}
+            >
+                Первая смена
+            </button>
+            <button 
+                onClick={() => setCurrentShift('getTwo')}
+                className={currentShift === 'getTwo' ? 'active' : ''}
+            >
+                Вторая смена
+            </button>
+            <button 
+                onClick={() => setCurrentShift('getThree')}
+                className={currentShift === 'getThree' ? 'active' : ''}
+            >
+                Третья смена
+            </button>
         </div>
         {date.map((el)=>(
             <div className='ourShiftsCards__content'  key={el.id_shifts}>

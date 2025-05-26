@@ -29,7 +29,6 @@ function Schedule() {
         return day ? day.name : 'Неизвестный день';
     };
 
-    
     const inputs = [
         { name: "schedule", type: "text", placeholder: "Название", required: true },
         { name: "time", type: "text", placeholder: "Време", required: true },

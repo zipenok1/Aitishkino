@@ -23,10 +23,6 @@
 .partners__box-cards img{
     max-width: 108px;
     max-height: 78px;
-    transition: 0.4s;
-}
-.partners__box-cards img:hover{
-    transform: scale(1.1);
 }
 .partners__box-cards p{
     font-weight: 500;

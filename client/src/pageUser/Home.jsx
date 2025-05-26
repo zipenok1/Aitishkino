@@ -17,7 +17,6 @@ import '../styles/homePage/teachers.css'
 import '../styles/homePage/question.css'
 
 function Home() {
-
   const [date, setDate] = useState([])
   const [foto, setFoto] = useState([])
  
@@ -59,7 +58,7 @@ function Home() {
                   get1: "/api/sections/1",
                   get2: "/api/sections/2",
                   get3: "/api/sections/3",
-                  }}
+                }}
               />
                 <div className='sliderContent__gallery'>
                   <PhotoType

@@ -1,7 +1,7 @@
 .menuSlider{
     display: flex;
-    gap: 25px;
-    margin-bottom: 30px;
+    gap: 15px;
+    margin-bottom: 15px;
 }
 .menuSlider button{
     font-size: 18px;
@@ -13,9 +13,11 @@
     border-radius: 10px;
     transition: 0.5s;
 }
-.menuSlider button:hover{
-    box-shadow: inset 300px 0 0 0 rgb(255, 255, 255);
-    color: black;
+@media (width>910px){
+    .menuSlider button:hover{
+        box-shadow: inset 300px 0 0 0 rgb(255, 255, 255);
+        color: black;
+    }
 }
 .ourShifts__content h2{
     color: #fff;
@@ -116,7 +118,12 @@
     right: 0;
     z-index: 1;
 }
-  
+.splide__pagination__page.is-active {
+    background-color: rgb(90, 189, 120);
+}
+.splide__pagination__page {
+    background: #ffffff;
+}
 @media(max-width:1576px){
     .ourShiftsCards-date {
         padding: 5% 0;
@@ -194,6 +201,14 @@
         flex-wrap: wrap;
     }
 }
+@media(max-width:490px){
+    .ourShiftsCards__contener-bott .generalBtm{
+        font-size: 16px;
+    }
+    .ourShiftsCards__contener-bott p span {
+        font-size: 24px;
+    }
+}
 @media(max-width:400px){
     .review__content {
         padding-bottom: 0px;
@@ -204,13 +219,5 @@
     .menuSlider button{
         font-size: 16px;
         padding: 4px ;
-    }
-}
-@media(max-width:386px){
-    .ourShiftsCards__content{
-        text-align: center;
-    }
-    .ourShiftsCards__contener-bott{
-        justify-content: center;
     }
 }
