@@ -52,21 +52,21 @@ function Home() {
       </div>
       <div className='mainCamp'>
         <div className="mainCamp__content wrap">
-          <h2>О лагере</h2>
-            <SliderContent
-              apiPoints={{
-                get1: "/api/sections/1",
-                get2: "/api/sections/2",
-                get3: "/api/sections/3",
-              }}
-            />
-              <div className='sliderContent__gallery'>
-                <PhotoType
-                  apiPoints={{
-                    get: "/api/photo/1",
-                    }}
-                />
-              </div>
+            <h2>О лагере</h2>
+              <SliderContent
+                apiPoints={{
+                  get1: "/api/sections/1",
+                  get2: "/api/sections/2",
+                  get3: "/api/sections/3",
+                }}
+              />
+                <div className='sliderContent__gallery'>
+                  <PhotoType
+                    apiPoints={{
+                      get: "/api/photo/1",
+                      }}
+                  />
+                </div>
         </div>
       </div>
       <div className='partners'> 
