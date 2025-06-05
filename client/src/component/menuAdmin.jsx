@@ -9,7 +9,6 @@ import {
   SHIFTS_ROUTE, TEACHERS_ROUTE, TYPE_ROUTE, NEWSLETTER_ROUTE
 } from "../utils/const";
 
-
 function MenuAdmin() {
   return (
     <div className='menuAdmin'>

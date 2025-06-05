@@ -16,6 +16,7 @@ export const SCHEDULE_ROUTE = '/schedule'
 export const QUESTIONSE_ROUTE = '/questions'
 export const DAYSCHEDULE_ROUTE = '/daySchedule'
 export const SECTIONS_ROUTE = '/sections'
+
 export const SHIFTS_ROUTE = '/shifts'
 export const PROGRAM_ROUTE = '/program'
 export const REVIEWS_ROUTE = '/reviews'
