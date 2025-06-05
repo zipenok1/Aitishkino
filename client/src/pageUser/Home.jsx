@@ -145,9 +145,12 @@ function Home() {
         </div>
       </div>
       <div className='video'>
-        <video autoPlay muted loop>
+        {/* <video autoPlay muted loop>
           <source src="video/aitishka.mp4" type='video/mp4' />
-        </video>
+        </video> */}
+      </div>
+      <div className="question">
+        <Offers/>
       </div>
       <div className="question">
         <Offers/>
