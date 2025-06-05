@@ -55,6 +55,9 @@
 }
 
 @media (max-width: 1200px) {
+    .social-box, .footer__content-logo p{
+        margin-left: 0;
+    }
     .footer__content {
         flex-direction: column-reverse;
         gap: 35px;

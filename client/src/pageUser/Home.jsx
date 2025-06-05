@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import {$host} from '../http/index'
 import { Link } from "react-router-dom";
 import { SHIFTSPAGE_ROUTE } from "../utils/const";

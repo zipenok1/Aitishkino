@@ -4,7 +4,7 @@ import '../styles/admin/generalAdmin.css'
 import ModalAdmin from "./ModalAdmin";
 
 
-function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey, division, type, exists}) {
+function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey, type, exists}) {
 
   const [data, setData] = useState([]);
   const [open, setOpen] = useState({ isModal: false });
