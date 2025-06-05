@@ -16,7 +16,7 @@ function Newsletter() {
                     exists = 'no'
                     idKey='id_newsletter'
                     inputs = {inputs}
-                    title='Рассылка'
+                    title='Подписка'
                     apiPoints={{
                     get: "/api/newsletter/",
                     add: "/api/newsletter/",

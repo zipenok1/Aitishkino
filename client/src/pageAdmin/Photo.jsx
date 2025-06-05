@@ -16,7 +16,7 @@ function Photo() {
                 <GeneralAdmin
                     idKey='id_photo'
                     inputs = {inputs}
-                    title='Фото'
+                    title='Фотографии'
                     apiPoints={{
                     get: "/api/photo/",
                     add: "/api/photo/",

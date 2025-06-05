@@ -12,7 +12,7 @@
 .menu-header h3 {
     font-size: 20px;
     font-weight: 700;
-    color: rgba(130, 203, 172, 1);
+    color:  rgb(90, 189, 120);
     margin-bottom: 10px;
 }
 .line {
@@ -52,7 +52,7 @@
 }
 .menu-link:hover {
     background-color: rgba(130, 203, 173, 0.096);
-    color: rgba(130, 203, 172, 1);
+    color:  rgb(90, 189, 120);
     transform: translateX(5px);
 }
 .menu-link:hover::before {
@@ -62,7 +62,7 @@
     top: 0;
     bottom: 0;
     width: 4px;
-    background-color:  rgba(130, 203, 172, 1);
+    background-color: rgb(90, 189, 120);
     border-radius: 0 3px 3px 0;
 }
   

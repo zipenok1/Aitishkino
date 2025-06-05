@@ -9,7 +9,7 @@
     margin-right: 15px;
     padding: 12px 24px;
     border: none;
-    background-color: rgba(130, 203, 172, 1);
+    background-color: rgb(90, 189, 120);
     color: white;
     font-size: 16px;
     border-radius: 6px;
@@ -34,7 +34,7 @@
     padding: 10px 20px;
     width: 420px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    border-top: 4px solid rgba(130, 203, 172, 1);
+    border-top: 4px solid rgb(90, 189, 120);
 }
 .genericAdminPanelTable__box{
     display: flex;
@@ -57,7 +57,7 @@
     border: none;
 }
 .genericAdminPanel__box-butt button:first-child, .genericAdminPanelTable__box-butt button:first-child {
-  background-color: rgba(130, 203, 172, 1);
+    background-color: rgb(90, 189, 120);
   color: #fff;
 }
 .genericAdminPanel__box-butt button:last-child, .genericAdminPanelTable__box-butt button:last-child {

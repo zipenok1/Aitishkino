@@ -34,11 +34,11 @@
     border-radius: 8px;
     height: 50px;
     border: none;
-    background-color:rgba(130, 203, 172, 1);
+    background-color: rgb(90, 189, 120);
     color: #fff;
     font-size: 18px;
     font-weight: 500;
 }
 .authorization__box button:hover {
-    background-color: #45a37f;
+    background-color: rgb(76, 221, 120);
 }

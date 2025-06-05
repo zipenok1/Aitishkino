@@ -15,7 +15,7 @@ function Type() {
                 <GeneralAdmin
                     idKey='id_type'
                     inputs = {inputs}
-                    title='Типы фото'
+                    title='Типы Фотографий'
                     apiPoints={{
                     get: "/api/type/",
                     add: "/api/type/",

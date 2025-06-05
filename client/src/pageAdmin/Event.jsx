@@ -16,7 +16,7 @@ function Event() {
                 <GeneralAdmin
                     idKey='id_events'
                     inputs = {inputs}
-                    title='Мероприятия'
+                    title='Карточки мероприятий'
                     apiPoints={{
                     get: "/api/events/",
                     add: "/api/events/",
