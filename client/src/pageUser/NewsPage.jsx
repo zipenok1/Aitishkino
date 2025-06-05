@@ -6,18 +6,27 @@ import Cover from '../component/Cover';
 import '../styles/userStyles/newsPage.css';
 
 function NewsPage() {
+  const [event, setEvent] = useState([]);
   const [data, setData] = useState([]);
   const [visibleCards, setVisibleCards] = useState(3); 
 
   const getApp = async () => {
-    const res = await $host.get(`/api/news/`);
-    setData(res.data);
+    try {
+      const [res, fot] = await Promise.all([
+        $host.get('/api/sections/8'),
+        $host.get('/api/news/')
+      ]);
+      setEvent(res.data);
+      setData(fot.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   };
 
   useEffect(() => {
-    getApp();
+    getApp()
   }, []);
-
+  
   const truncateText = (text, limit = 186) => {
     if (!text) return "";
     return text.length > limit ? text.slice(0, limit) + "..." : text;
@@ -30,17 +39,16 @@ function NewsPage() {
   return (
     <div className='news'>
       <Cover
-        imgUrl='imges/cover3.jpg'
+        imgUrl='imges/cover3Optimized.jpg'
         title='Лагерь юных программистов'
-        appointment='Главная / Новости'
-        location='Новости'
+        appointment='Главная / Мероприятия'
+        location='Мероприятия'
       />
       <div className="newsEvents">
         <div className="newsEvents__content wrap">
           <h2>Каникулы с пользой</h2>
-          <p className='newsEvents__content-title'>День открытых дверей </p>
-          <p className='newsEvents__content-desc'>Приглашаем всех желающих на бесплатную экскурсию <br />
-            в мир востребованных профессий и полезных навыков</p>
+          <p className='newsEvents__content-title'>{event[0]?.title1}</p>
+          <p className='newsEvents__content-desc'>{event[0]?.description1}</p>
           <div className='newsEvents__content-cards'>
             <NewsPageCards
               apiPoints={{
@@ -52,14 +60,13 @@ function NewsPage() {
       </div>
       <div className="newsCard">
         <div className="newsCard__content wrap">
-          <h2>Новости</h2>
+          <h2>Активность лагеря</h2>
           <div className='newsCard__content-box'>
             {data.slice(0, visibleCards).map((el) => ( 
               <Link to={`/samplenews/${el.id_news}`} key={el.id_news}>
                 <div className='newsCard__box'>
                   <div className='newsCard__box-imges' style={{ backgroundImage: `url(${process.env.REACT_APP_API_URL}/${el.link_img})` }}></div>
                   <div className='newsCard__box-text'>
-                    <p className='newsCard__box-date'>{el.date}</p>
                     <p className='newsCard__box-title'>{el.title}</p>
                     <p className='newsCard__box-desc'>{truncateText(el.description)}</p>
                   </div>

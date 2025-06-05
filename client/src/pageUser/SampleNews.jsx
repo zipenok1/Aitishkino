@@ -23,17 +23,16 @@ function SampleNews() {
     return (
     <div className='sampleNews'>
         <Cover
-          imgUrl = '/imges/cover4.jpg'
+          imgUrl = '/imges/cover4Optimized.jpg'
           title = 'Лагерь юных программистов'
-          appointment = 'Новости / Новость'
-          location = 'Новость'
+          appointment = 'Мероприятия / Активность лагеря'
+          location = 'Активность лагеря'
         />
         <div className="sampleNews__content wrap">
           {date.map((el)=>(
             <div className='sampleNews__content-cards'>
               <h2>{el.title}</h2>
               <Link to={NEWSPAGE_ROUTE}><img src="/imges/icon/arrowNews.png" alt="arrowNews" /></Link>
-              <p className='sampleNews__cards-date'>{el.date}</p>
               <div className='sampleNews__cards-imges' style={{backgroundImage: `url(${process.env.REACT_APP_API_URL}/${el.link_img})`}}></div>
               <p className='sampleNews__cards-desc'>{el.description}</p>
             </div>

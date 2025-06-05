@@ -5,6 +5,7 @@ import ModalAdmin from './ModalAdmin';
 function OurShiftsCards({apiPoints}) {
     const [open, setOpen] = useState({ isModal: false });
     const [date, setDate] = useState([])
+    const [shiftsOptions, setShiftsOptions] = useState([])
     const [currentShift, setCurrentShift] = useState('getOne');
 
     const openModal = (mod) => {
@@ -15,11 +16,18 @@ function OurShiftsCards({apiPoints}) {
         const res = await $host.get(apiPoints[shiftEndpoint]);
         setDate(res.data);
     };
-
     useEffect(() => {
         getApp(currentShift);
     }, [currentShift]);
-    
+
+    const getAllShifts = async () => {
+        const res = await $host.get(apiPoints.getAll);
+        setShiftsOptions(res.data);
+    };
+    useEffect(() => {
+        getAllShifts();
+    }, []);
+
     useEffect(() => {
         if (open.isModal) {
             document.body.style.overflow = 'hidden';
@@ -47,21 +55,54 @@ function OurShiftsCards({apiPoints}) {
     }
     };
 
+    const getShiftsOptions = () => {
+        return shiftsOptions.map(obj => ({
+          value: obj.id_shifts.toString(),
+          label: obj.date
+        }));
+      };
+
    const shiftsContent = [
         { name: "fio", type: "text", placeholder: "Ф.И.О", required: true },
+        { name: "fioChild", type: "text", placeholder: "Ф.И.О ребенка", required: true },
+        { name: "age", type: "text", placeholder: "Возраст ребенка", required: true },
+        { name: "education", type: "text", placeholder: "Место учёбы ребёнка", required: true },
         { name: "email", type: "email", placeholder: "Почта", required: true },
-        { name: "phone", type: "tel", placeholder: "Номер телнфона", required: true },
+        { name: "phone", type: "tel", placeholder: "Номер телефона", required: true },
         { name: "quantity", type: "text", placeholder: "Количество мест", required: true },
-        { name: "id_shifts", type: "text",placeholder: "Номер смены", required: true },
+        { 
+            name: "id_shifts", 
+            type: "select", 
+            placeholder: "Выберите смену", 
+            required: true,
+            options: getShiftsOptions()
+        },
+        { name: "call", type: "text", placeholder: "Время, удобное для нашего звонка", required: true },
+        { name: "found", type: "text", placeholder: "Откуда Вы узнали об лагере", required: true },
         { name: "checkbox", type: "checkbox", required: true},
    ]
 
   return (
     <div className='ourShiftsCards'>
         <div className='menuSlider'>
-                <button onClick={() => setCurrentShift('getOne')}>Первая смена</button>
-                <button onClick={() => setCurrentShift('getTwo')}>Вторая смена</button>
-                <button onClick={() => setCurrentShift('getThree')}>Третья смена</button>
+            <button 
+                onClick={() => setCurrentShift('getOne')}
+                className={currentShift === 'getOne' ? 'active' : ''}
+            >
+                Первая смена
+            </button>
+            <button 
+                onClick={() => setCurrentShift('getTwo')}
+                className={currentShift === 'getTwo' ? 'active' : ''}
+            >
+                Вторая смена
+            </button>
+            <button 
+                onClick={() => setCurrentShift('getThree')}
+                className={currentShift === 'getThree' ? 'active' : ''}
+            >
+                Третья смена
+            </button>
         </div>
         {date.map((el)=>(
             <div className='ourShiftsCards__content'  key={el.id_shifts}>
@@ -74,8 +115,8 @@ function OurShiftsCards({apiPoints}) {
                     </div>
                     <div className='ourShiftsCards__contener-bott'>
                         <div>
-                            <p>{el.price}</p>
-                            <p><span>{el.partprice}</span> Для партнеров</p>
+                            <p>Для партнеров<br />{el.partprice}</p>
+                            <p><span>{el.price}</span></p>
                         </div>
                         <button className='generalBtm' onClick={() => openModal(open.isModal)}>Забронировать</button>
                     </div>

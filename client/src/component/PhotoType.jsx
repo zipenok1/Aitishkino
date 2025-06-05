@@ -12,11 +12,11 @@ function PhotoType({apiPoints}) {
     useEffect(() => {
         getApp();
       }, []);
-
+ 
   return (
     <div>
         {date.map((el)=>(
-            <img key={el.id_photo} src={process.env.REACT_APP_API_URL + `/` + el.link_img}/> 
+             <img key={el.id_photo} src={process.env.REACT_APP_API_URL + `/` + el.link_img}/>     
         ))}
     </div>
   )

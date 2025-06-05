@@ -11,7 +11,7 @@ function ShiftsPage() {
   return (
     <div className='shifts'>
       <Cover
-          imgUrl = 'imges/cover2.jpg'
+          imgUrl = 'imges/cover2Optimized.jpg'
           title = 'Лагерь юных программистов'
           appointment = 'Главная / Программа смен'
           location = 'Программа смен'
@@ -23,6 +23,7 @@ function ShiftsPage() {
           <div className='ourShifts__cards'>
               <OurShiftsCards
                 apiPoints={{
+                  getAll:'/api/shifts/',
                   getOne: "/api/shifts/1",
                   getTwo: "/api/shifts/2",
                   getThree: "/api/shifts/3",
@@ -47,13 +48,13 @@ function ShiftsPage() {
       </div>
       <div className="review">
         <div className="review__content wrap">
-              <h2>Что говорять клиенты</h2>
+              <h2>Отзывы</h2>
               <div className='review__content-cards'>
               <ReviewCards
                   apiPoints={{
                     get: "/api/reviews/",
                   }}
-                />
+              />
               </div>
         </div>
       </div>

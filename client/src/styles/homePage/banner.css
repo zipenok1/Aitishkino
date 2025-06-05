@@ -1,16 +1,16 @@
 .banner{
     height: 1000px;
-    background: url('../../../public/imges/fon1.jpg')  center no-repeat;
+    background: url('../../../public/imges/fon1Optimized.jpg')  center no-repeat;
 }
 h1{
     font-size: 52px;
     color: #fff;
-    width: 70%;
 }
 span{
     color: rgba(255, 208, 95, 1);
 }
 .banner__content{
+    width: 100%;
     display: flex;
     justify-content: center;
     height: inherit;
@@ -18,26 +18,31 @@ span{
 }
 .banner__content p {
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: 500;
     color: #fff;
-    width: 46%;
+    width: 56%;
+}
+.banner__content a{
+    max-width: 305.16px;
 }
 .generalBtm{
     color: #fff;
     margin-top: 28px;
     font-size: 18px;
+    font-weight: 500;
     padding: 20px 50px;
     border-radius: 10px;
     border: none;
-    background-color: rgba(130, 203, 172, 1);
+    background-color: rgb(90, 189, 120);
     display: flex;
     align-items: center;
-    gap: 20px;
-    transition: 0.4s;
+    gap: 8px;
+    transition: all 0.3s;
 }
-.generalBtm:hover{
-    transform: scale(1.1);
-}
+.generalBtm:hover {
+    background-color: rgb(76, 221, 120);
+  }
 .generalBtm a{
     color: #fff;
 }
@@ -56,10 +61,22 @@ span{
         width: 100%;
         font-size: 38px;
     } 
+    .banner__content p{
+        font-size: 18px;
+    }
+    .banner__content{
+        padding-top: 45px;
+    } 
+}
+@media (max-width:412px) {
+    .banner__content{
+        height:auto;
+        padding-top: 214px;
+    }
 }
 @media (max-width:360px) {
     h1{
         width: 100%;
         font-size: 32px;
-    } 
+    }    
 }

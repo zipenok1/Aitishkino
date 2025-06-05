@@ -63,6 +63,22 @@ const Reservation = sequelize.define('reservation', {
       type: DataTypes.STRING(150),
       allowNull: false,
     },
+    fioChild: {
+      type: DataTypes.STRING(150),
+      allowNull: false,
+    },
+    age: {
+      type: DataTypes.STRING(25),
+      allowNull: false,
+    },
+    education: {
+      type: DataTypes.STRING(500),
+      allowNull: false,
+    },
+    call: {
+      type: DataTypes.STRING(150),
+      allowNull: false,
+    },
     email: {
       type: DataTypes.STRING(50),
       allowNull: false,
@@ -73,6 +89,10 @@ const Reservation = sequelize.define('reservation', {
     },
     quantity: {
       type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    found: {
+      type: DataTypes.STRING(500),
       allowNull: false,
     },
     id_shifts: {
@@ -111,6 +131,10 @@ const Events = sequelize.define('events', {
     },
     icon: {
       type: DataTypes.STRING(500),
+      allowNull: true,
+    },
+    name: {
+      type: DataTypes.STRING(150),
       allowNull: false,
     },
   },{
@@ -134,7 +158,7 @@ const Teachers = sequelize.define('teachers', {
     },
     link_img: {
       type: DataTypes.STRING(500),
-      allowNull: false,
+      allowNull: true,
     },
   },{
     tableName: 'teachers',
@@ -152,7 +176,7 @@ const Shifts = sequelize.define('shifts', {
       allowNull: false,
     },
     date: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.STRING(50),
       allowNull: false,
     },
     description: {
@@ -169,7 +193,7 @@ const Shifts = sequelize.define('shifts', {
     },
     link_img: {
       type: DataTypes.STRING(500),
-      allowNull: false,
+      allowNull: true,
     },
   },{
     tableName: 'shifts',
@@ -184,7 +208,7 @@ const Photo = sequelize.define('photo', {
     },
     link_img: {
       type: DataTypes.STRING(500),
-      allowNull: false,
+      allowNull: true,
     },
     id_type: {
       type: DataTypes.INTEGER,
@@ -237,11 +261,7 @@ const News = sequelize.define('news', {
     },
     link_img: {
       type: DataTypes.STRING(500),
-      allowNull: false,
-    },
-    date: {
-      type: DataTypes.STRING(20),
-      allowNull: false,
+      allowNull: true,
     },
     title: {
       type: DataTypes.STRING(50),
@@ -264,6 +284,14 @@ const Partners = sequelize.define('partners', {
     },
     link_img: {
       type: DataTypes.STRING(500),
+      allowNull: true,
+    },
+    name: {
+      type: DataTypes.STRING(50),
+      allowNull: false,
+    },
+    link_partners: {
+      type: DataTypes.STRING(500),
       allowNull: false,
     },
   },{
@@ -278,7 +306,7 @@ const Partners = sequelize.define('partners', {
       autoIncrement: true,
     },
     title: {
-      type: DataTypes.STRING(50),
+      type: DataTypes.STRING(100),
       allowNull: false,
     },
     description: {
@@ -331,36 +359,40 @@ const Partners = sequelize.define('partners', {
       autoIncrement: true,
     },
     name: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
+      type: DataTypes.STRING(200),
+      allowNull: true,
     },
     icon: {
       type: DataTypes.STRING(500),
-      allowNull: false,
+      allowNull: true,
     },
     title1: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
+      type: DataTypes.STRING(200),
+      allowNull: true,
     },
     title2: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
+      type: DataTypes.STRING(200),
+      allowNull: true,
     },
     description1: {
-      type: DataTypes.STRING(200),
-      allowNull: false,
+      type: DataTypes.STRING(1200),
+      allowNull: true,
     },
     description2: {
-      type: DataTypes.STRING(200),
-      allowNull: false,
+      type: DataTypes.STRING(1200),
+      allowNull: true,
     },
     description3: {
-      type: DataTypes.STRING(200),
-      allowNull: false,
+      type: DataTypes.STRING(1200),
+      allowNull: true,
     },
     description4: {
-      type: DataTypes.STRING(200),
-      allowNull: false,
+      type: DataTypes.STRING(1200),
+      allowNull: true,
+    },
+    description5: {
+      type: DataTypes.STRING(1200),
+      allowNull: true,
     },
   },{
     tableName: 'sections',
@@ -372,10 +404,6 @@ const Partners = sequelize.define('partners', {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
-    },
-    name: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
     },
     schedule: {
       type: DataTypes.STRING(200),

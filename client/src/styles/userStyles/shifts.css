@@ -1,26 +1,31 @@
 .menuSlider{
     display: flex;
-    gap: 30px;
-    margin-bottom: 30px;
+    gap: 15px;
+    margin-bottom: 15px;
 }
 .menuSlider button{
     font-size: 18px;
+    font-weight: 500;
     color: #fff;
-    padding: 20px 10px;
-    background: none;
-    border: 2px solid #fff;
+    padding: 20px 12px;
+    background-color: rgb(90, 189, 120);
+    border: none;
     border-radius: 10px;
     transition: 0.5s;
 }
-.menuSlider button:hover{
-    box-shadow: inset 300px 0 0 0 rgb(255, 255, 255);
-    color: black;
+@media (width>910px){
+    .menuSlider button:hover{
+        box-shadow: inset 300px 0 0 0 rgb(255, 255, 255);
+        color: black;
+    }
 }
 .ourShifts__content h2{
     color: #fff;
 }
 .ourShifts__content-desc {
     color: #fff;
+    font-size: 18px;
+    font-weight: 600;
 }
 .ourShifts{
     background-image: url('../../../public/imges/oregeng.jpg');
@@ -89,7 +94,7 @@
 .reviewCards__content{
     border-radius: 10px;
     background-color: #fff;
-    min-height: 200px;
+    min-height: 284px;
     padding: 30px;
 }
 .reviewCards__content p{
@@ -113,7 +118,12 @@
     right: 0;
     z-index: 1;
 }
-  
+.splide__pagination__page.is-active {
+    background-color: rgb(90, 189, 120);
+}
+.splide__pagination__page {
+    background: #ffffff;
+}
 @media(max-width:1576px){
     .ourShiftsCards-date {
         padding: 5% 0;
@@ -131,9 +141,6 @@
 @media(max-width:1496px){
     .ourShiftsCards-date{
         padding: 2% 0;
-    }
-    .ourShiftsCards__contener-bott{
-        margin-top: 4%;
     }
     .ourShiftsCards-desc {
         font-size: 16px;
@@ -192,6 +199,14 @@
 @media(max-width:600px){
     .ourShiftsCards__contener-bott{
         flex-wrap: wrap;
+    }
+}
+@media(max-width:490px){
+    .ourShiftsCards__contener-bott .generalBtm{
+        font-size: 16px;
+    }
+    .ourShiftsCards__contener-bott p span {
+        font-size: 24px;
     }
 }
 @media(max-width:400px){

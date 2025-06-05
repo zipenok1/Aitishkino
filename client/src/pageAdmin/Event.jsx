@@ -5,9 +5,8 @@ import '../styles/admin/home.css'
 
 function Event() {
     const inputs = [
-        { name: "title", type: "text", placeholder: "Название", required: true },
-        { name: "description", type: "textarea", placeholder: "Описнаие", maxLength: 200, required: true },
-        { name: "date", type: "date", placeholder: "Дата", required: true },
+        { name: "icon", type: "file" },
+        { name: "name", type: "text", placeholder: "Название", required: true },
     ];
   return (
     <div className="asdasd">
@@ -26,9 +25,8 @@ function Event() {
                     }}
                     renderItem={(el) => (
                     <div className='generalAdmin'>
-                        <p>Название: {el.title}</p>
-                        <p>Описание: {el.description}</p>
-                        <p>Дата: {el.date}</p>
+                        <div className='generalAdmin__imges-event' style={{backgroundImage:`url(${process.env.REACT_APP_API_URL}/${el.icon})`}}></div>
+                        <p>{el.name}</p>
                     </div>
                     )}
                 />  

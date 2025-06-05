@@ -1,12 +1,12 @@
-import React, { useContext, useState } from "react";
-import { Context } from "..";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { PUBLIC_ROUTE, SHIFTSPAGE_ROUTE, INFORMATION_ROUTE, NEWSPAGE_ROUTE } from "../utils/const";
+import React, {useContext, useState, useEffect} from "react";
+import {Context} from "..";
+import {Link, useLocation} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import {PUBLIC_ROUTE, SHIFTSPAGE_ROUTE, INFORMATION_ROUTE, NEWSPAGE_ROUTE} from "../utils/const";
 import {observer} from 'mobx-react-lite'
 import '../styles/navbar/navbar.css'
 
-const NavBar = observer(()=> {
+const NavBar = observer(()=> { 
 
     const {user} = useContext(Context)
 
@@ -16,32 +16,40 @@ const NavBar = observer(()=> {
         setOpen(!open)
     }
 
-    const test = () =>{
+    const exit = () =>{
         user.setIsAuth(false)
         localStorage.removeItem('token')
         history(PUBLIC_ROUTE)
     }
     const history = useNavigate()
 
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
   return (
     <div className="NavBar">
     { user.isAuth ?
         <div className="navbar_box-admin">
             <div className="wraper">
-                <div className="navbar-flex">
-                        <button>Панель администратора</button>
+                <div className="navbar__admin-flex">
+                        <img src="/imges/logo.svg" alt="logo" />
                     <div>
-                        <button onClick={test}>Выйти</button> 
+                        <button onClick={exit}>Выйти</button> 
                     </div>
                 </div>   
             </div>          
         </div> 
         :
-        <div className="navbar_box-user">
+        <div className={pathname.includes("/politics")
+            ? "navbar_box-politics"
+            : "navbar_box-user"}>
             <div className="wrap">
                 <div className="navbar-flex">
                     <Link to={PUBLIC_ROUTE}>
-                        <img src="/imges/logo.svg" alt="1" />
+                        <img src="/imges/logo.svg" alt="logo" />
                     </Link>
 
                     <div class="header__burger" >
@@ -61,7 +69,7 @@ const NavBar = observer(()=> {
                                 <button>Информация</button>
                             </Link>
                             <Link to={NEWSPAGE_ROUTE}>
-                                <button>Новости</button>
+                                <button>Мероприятия</button>
                             </Link>
                         </div> 
                         : 
@@ -78,7 +86,7 @@ const NavBar = observer(()=> {
                             <button>Информация</button>
                         </Link>
                         <Link to={NEWSPAGE_ROUTE}>
-                            <button>Новости</button>
+                            <button>Мероприятия</button>
                         </Link>
                     </div>                    
                 </div>  

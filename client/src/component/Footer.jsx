@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { LOGIN_ROUTE, PUBLIC_ROUTE,SHIFTSPAGE_ROUTE, INFORMATION_ROUTE, NEWSPAGE_ROUTE } from "../utils/const";
+import React, {useContext} from "react";
+import {Link} from "react-router-dom";
+import {PUBLIC_ROUTE, SHIFTSPAGE_ROUTE, INFORMATION_ROUTE, NEWSPAGE_ROUTE, POLITICS_ROUTER} from "../utils/const";
 import {observer} from 'mobx-react-lite'
-import { Context } from "..";
+import {Context} from "..";
 import '../styles/component/footer.css'
 
 
 const Footer = observer(() => {
 
-    const {user} = useContext(Context)
+const {user} = useContext(Context)
 
   return (
     <div className='footer'>
@@ -18,26 +18,28 @@ const Footer = observer(() => {
                 <div className="footer__content wrap">
                     <div className='footer__content-logo'>
                         <img src="imges/logo.svg" alt="logo" />
-                        <a href="https://vk.com/itishkino"><img src="imges/icon/vk2.png" alt="vk" /></a> 
+                        <div className="social-box">
+                            <a href="https://vk.com/itishkino"><img src="imges/icon/vk2.svg" alt="vk" /></a>
+                            <a href=""><img src="imges/icon/telega.svg" alt="telega" /></a>
+                        </div>
+                         <p>© 2025, «Айтишкино»<br />
+                         Все права защищены</p>
                     </div>
                     <div className='footer__content-sections'>
                         <h3>Страницы</h3>
                         <nav>
                             <ul>
-                                <Link to={LOGIN_ROUTE}>
-                                    Авторизация
-                                </Link>
                                 <Link to={PUBLIC_ROUTE}>
                                     Главная
                                 </Link> 
                                 <Link to={SHIFTSPAGE_ROUTE}>
-                                    программа смен
+                                    Программа смен
                                 </Link>
                                 <Link to={INFORMATION_ROUTE}>
-                                    информация
+                                    Информация
                                 </Link>
                                 <Link to={NEWSPAGE_ROUTE}>
-                                    Новости
+                                    Мероприятия
                                 </Link>
                             </ul>
                         </nav>
@@ -45,8 +47,7 @@ const Footer = observer(() => {
                     <div className="footer__content-documents">
                         <h3>Документы</h3>
                         <ul>
-                            <li>Политика конфиденциальности </li>
-                            <li>Согласие на обработку персональных данных</li>
+                            <li><Link to={POLITICS_ROUTER}>Политика обработки персональных данных</Link></li>
                         </ul>
                     </div>
                 </div>

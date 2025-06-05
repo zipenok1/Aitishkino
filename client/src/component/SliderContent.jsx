@@ -1,52 +1,62 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import {$host} from '../http/index'
 import '../styles/component/sliderContent.css'
 
-function SliderContent() {
+function SliderContent({ apiPoints }) {
+    const [slideTab, setSlideTab] = useState('get1')
+    const [date, setDate] = useState([])
     
-    const sliderArr = [
-        {title: 'ПРОФЕССИОНАЛЬНЫЕ НАВЫКИ', 
-            imgeses: 'imges/icon/capm.svg',
-            desck: [`Программа обучения корректируется под каждую смену`,
-                `На проекте работают профессиональные преподаватели-эксперты всероссийского чемпионатного движения «Профессионалы» (студенты им только помогают!)`,
-                `Встреча с экспертами ИТ-отрасли`, `Знакомство с виртуальной средой`,`Лайфхаки от эксперта всероссийского чемпионатного движения «Профессионалы»` ]
-            },
-        {title: 'ВСЕСТОРОННЕЕ РАЗВИТИЕ ТВОРЧЕСКОГО ПОТЕНЦИАЛА', 
-            imgeses: 'imges/icon/creation.svg',
-            desck: [`Улучшение навыков коммуникации, целеполагания, тайменеджмента и самопрезентации по уникальной программе мини-тренингов`,
-                `Участники развивают навыки сотрудничества и умения работать в команде, опираясь на свои сильные стороны`,
-                `Квесты, спортивные и развивающие игры` ]
-            },
-            {title: 'ТЕРРИТОРИЯ РАЗВИТИЯ И ОТДЫХА С ПОЛЬЗОЙ', 
-                imgeses: 'imges/icon/rest.svg',
-                desck: [`Закрытая охраняемая территория, оборудованные компьютерные аудитории, кинозал с большим экраном, аудитория для тренингов, собственная спортивная площадка.`,
-                    `Поздний завтрак, вкусное горячее питание из кафе «Сицилия», полдник. Фрукты – каждый день!`,
-                    `Поход в огромный бассейн St.Tropez pool cafe` ]
-                }
-        ];
+    const getApp = async (shiftEndpoint) => {
+        const res = await $host.get(apiPoints[shiftEndpoint]);
+        setDate(res.data);
+    };
 
-    const [slideTab, setSlideTab] = useState(sliderArr[0])
-        
-  return (
-    <div className='sliderContent'>
-        <div className='sliderContent__content-navbar'>
-            <div className='menuSlider'>
-                <button onClick={() => setSlideTab(sliderArr[0])}>Навыки</button>
-                <button onClick={() => setSlideTab(sliderArr[1])}>Творчество</button>
-                <button onClick={() => setSlideTab(sliderArr[2])}>Отдых</button>
+    useEffect(() => {
+        getApp(slideTab);
+    }, [slideTab]);
+      
+    return (
+        <div className='sliderContent'>
+            <div className='sliderContent__content-navbar'>
+                <div className='menuSlider'>
+                    <button 
+                        onClick={() => setSlideTab('get1')}
+                        className={slideTab === 'get1' ? 'active' : ''}
+                    >
+                        Навыки
+                    </button>
+                    <button 
+                        onClick={() => setSlideTab('get2')}
+                        className={slideTab === 'get2' ? 'active' : ''}
+                    >
+                        Творчество
+                    </button>
+                    <button 
+                        onClick={() => setSlideTab('get3')}
+                        className={slideTab === 'get3' ? 'active' : ''}
+                    >
+                        Отдых
+                    </button>
+                </div>
             </div>
+            
+            {date.map((el) => (
+                <div key={el.id_sections} className="sliderContent__card">    
+                    <img src={process.env.REACT_APP_API_URL + '/' + el.icon} alt='icon'/> 
+                    <div className='sliderContent__card-text'>
+                        <h3>{el.title1}</h3>
+                        <div className='sliderContent-text'>
+                            <p>{el?.description1}</p>
+                            <p>{el?.description2}</p>
+                            <p>{el?.description3}</p>
+                            <p>{el?.description4}</p>
+                            <p>{el?.description5}</p>
+                        </div>  
+                    </div>
+                </div>
+            ))}
         </div>
-        <div className="sliderContent__card">    
-            <img src={slideTab.imgeses} alt="capm" />   
-            <div className='sliderContent__card-text'>
-                <h3>{slideTab.title}</h3>
-                    <div className='sliderContent-text'>
-                        {slideTab.desck.map((obj)=>(
-                            <p>{obj}</p>
-                        ))}
-                    </div>  
-            </div>
-        </div>
-    </div>
-  )}
+    )
+}
 
 export default SliderContent

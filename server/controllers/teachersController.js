@@ -27,9 +27,12 @@ class TeachersController {
         try{
             const {id} = req.params
             const {fio, description}= req.body
-            const {link_img} = req.files
-                let fileName = uuid.v4() + ".jpg"
+            let fileName
+            if(req.files !== null){
+                const {link_img} = req.files
+                fileName = uuid.v4() + ".jpg"
                 link_img.mv(path.resolve(__dirname, '..', 'static', fileName))
+            }
             if(!id){
                 return next(ApiError.badRequest('такого элемента не существует'))
             }
@@ -37,10 +40,17 @@ class TeachersController {
             if (!event) {
                 return next(ApiError.badRequest('такого элемента не существует'));
             }
-            await Teachers.update(
-                {fio: fio, description: description, link_img: fileName},
-                {where:{id_teachers:id}}
-            )
+            if(req.files === null){
+                await Teachers.update(
+                    {fio: fio, description: description},
+                    {where:{id_teachers:id}}
+                )
+            }else{
+                await Teachers.update(
+                    {fio: fio, description: description, link_img: fileName},
+                    {where:{id_teachers:id}}
+                )
+            }        
             return res.json({ message: 'записть ' + id + ' обновлена'})
         } catch (e){
             next(ApiError.badRequest(e.message))

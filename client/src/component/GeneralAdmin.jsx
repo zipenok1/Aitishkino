@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { $authHost, $host } from '../http/index';
+import { $authHost } from '../http/index';
 import '../styles/admin/generalAdmin.css'
 import ModalAdmin from "./ModalAdmin";
 
-function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey}) {
+
+function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey, type, exists}) {
+
   const [data, setData] = useState([]);
   const [open, setOpen] = useState({ isModal: false });
   const [editing, setEditing] = useState({ id: '', isModal: false, initialData: null });
@@ -17,13 +19,13 @@ function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey}) {
   };
   
   const getApp = async () => {
-    const res = await $host.get(apiPoints.get);
-    setData(res.data);
+      const res = await $authHost.get(apiPoints.get);
+      setData(res.data);
   };
 
   const deleteApp = async (id) => {
-    await $authHost.delete(`${apiPoints.delete}/${id}`);
-    getApp();
+      await $authHost.delete(`${apiPoints.delete}/${id}`);
+      getApp();
   };
 
   const handleSubmit = async (formData) => {
@@ -43,7 +45,7 @@ function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey}) {
       console.error('Ошибка:', error);
     }
   };
-
+  
   const editingSubmit = async (editingData, id) => {
     try {
       const data = new FormData();
@@ -63,33 +65,39 @@ function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey}) {
   };
   
   useEffect(() => {
-    getApp();
-  }, []);
+    getApp()
+  }, [])
 
   return (
     <div className='genericAdmin'>
       <h2>{title}</h2>
       <div className="genericAdmin__butt">
-        <button onClick={() => openModal(open.isModal)}>Добавить</button>
+        {exists === 'no' ? null : <button onClick={() => openModal(open.isModal)}>Добавить</button>}
       </div>
-        {open.isModal && (
-            <ModalAdmin
-              onClose={() => setOpen({ isModal: false })}
-              onSubmit={handleSubmit}
-              inputs={inputs}
-              title="Добавить контент"
-              submitButtonText="Добавить"
-            />
-          )}
-      <div className="genericAdmin-flex">
-        {data.map((el) => (
-          <div className="genericAdminPanel__box" key={el[idKey]}>
-            {renderItem(el)}
-            <div className="genericAdminPanel__box-butt">
-              <button onClick={() => editingModal(el[idKey], editing.isModal, el)}>обновить</button>
-              <button onClick={() => deleteApp(el[idKey])}>удалить</button>
-            </div>
-            {editing.isModal && el[idKey] === editing.id && (
+      {open.isModal && (
+        <ModalAdmin
+          onClose={() => setOpen({ isModal: false })}
+          onSubmit={handleSubmit}
+          inputs={inputs}
+          title="Добавить контент"
+          submitButtonText="Добавить"
+        />
+      )}
+      {type === 'table' ? (
+        <div className="genericAdmin-table">
+          {renderItem(data, { deleteApp })}
+        </div>
+      ) : (
+        <>
+        <div className="genericAdmin-flex">
+          {data.map((el) => (
+            <div className='genericAdminPanel__box' key={el[idKey]}>
+              {renderItem(el)}
+              <div className='genericAdminPanel__box-butt'>
+                <button onClick={() => editingModal(el[idKey], editing.isModal, el)}>обновить</button>
+                <button onClick={() => deleteApp(el[idKey])}>удалить</button>
+              </div>
+              {editing.isModal && el[idKey] === editing.id && (
                 <ModalAdmin
                   onClose={() => setEditing({ isModal: false, id: '', initialData: null })}
                   onEdit={(data) => editingSubmit(data, el[idKey])}
@@ -99,9 +107,11 @@ function GeneralAdmin({renderItem, apiPoints, title, inputs, idKey}) {
                   initialData={editing.initialData}
                 />
               )}
-          </div>
-        ))}
-      </div>
+            </div>
+          ))}
+        </div>
+        </>
+      )}
     </div>
   );
 }
